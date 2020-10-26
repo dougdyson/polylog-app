@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import HistoryIcon from '../HistoryIcon/HistoryIcon';
 import SettingsIcon from '../SettingsIcon/SettingsIcon';
+import PlayIcon from '../PlayIcon/PlayIcon';
 import './LectureCard.css';
 
-const props = {lectureTitle: "This is a lecture card title"}; //?
+const lectureCardTitle = "This is a Lecture Card Title"; //?
 
 function LectureCard(props) {
 
-  const [lectureTitle, setLectureTitle] = useState(props.lectureTitle || null);
-  // const [lectureDescription, setLectureDescription] = userState(props.lectureDescription || null);
-
+  const [lectureTitle, setLectureTitle] = useState(props.lectureTitle || lectureCardTitle);
+  
   return (
     <section className="lectureCard">
-      <h2>This is a Lecture Card Title</h2>
-      <p>20 Oct/2020 - 9:30am</p>
+      <h2>{lectureTitle}</h2> 
+      <PlayIcon />
       <HistoryIcon />
       <SettingsIcon />
     </section>
