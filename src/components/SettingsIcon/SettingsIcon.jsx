@@ -4,7 +4,7 @@ import './SettingsIcon.css'
 function GearIcon() {
   return (
     <div>
-      <SettingsIcon className=".settings-icon .light"/>
+      <SettingsIcon className="settings-icon"/>
     </div>
   )
 }

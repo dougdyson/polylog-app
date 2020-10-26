@@ -1,3 +1,8 @@
 .history-icon {
-  color: #7E7E7E;
+  opacity: 0.5;
+}
+
+.history-icon:hover {
+  opacity: 1.0;
+  cursor: pointer;
 }

@@ -12,7 +12,7 @@ function LectureCard(props) {
   
   return (
     <section className="lecture-card">
-      <h2>{lectureTitle}</h2>
+      <div className="lecture-card-title">{lectureTitle}</div>
       <div className="lecture-card-details"></div> 
         <PlayIcon />
         <HistoryIcon />

@@ -1,7 +1,8 @@
-.settings-icon .dark {
-  color: #7E7E7E;
+.settings-icon {
+  opacity: 0.5;
 }
 
-.settings-icon .light {
-  color: #C4C4C4;
+.settings-icon:hover {
+  opacity: 1.0;
+  cursor: pointer;
 }
