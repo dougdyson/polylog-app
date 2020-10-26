@@ -1,9 +1,14 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import useLectureData from "./hooks/useLectureData";
+import useApplicationData from "./hooks/useApplicationData";
 
 function App() {
-	const { state } = useLectureData();
+	const { state, newLecture } = useApplicationData();
+
+	React.useEffect(() => {
+		newLecture(1, "Lecture from react", "description from react");
+	}, []);
 
 	return (
 		<div className="App">
