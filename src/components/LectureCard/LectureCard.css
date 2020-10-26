@@ -7,9 +7,18 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  color: black;
+}
+
+.lecture-card:hover {
+  background-color: lightyellow;
 }
 
 .lecture-card-details {
   padding-left: 20px;
   width: auto;
+}
+
+.lecture-card-title:hover {
+  cursor: pointer;
 }
