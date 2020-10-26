@@ -17,7 +17,6 @@ function LectureCard(props) {
         <PlayIcon />
         <HistoryIcon />
         <SettingsIcon />
-      <div></div>
     </section>
   );
 }

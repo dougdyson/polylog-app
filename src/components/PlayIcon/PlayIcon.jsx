@@ -1,10 +1,10 @@
 import {ReactComponent as PlayIcon} from "../PlayIcon/play_circle_outline-24px.svg";
-import './PlayIcon.css'
+import '../../App.css';
 
 function StartSession() {
   return (
     <div>
-      <PlayIcon className="play_icon" />
+      <PlayIcon className="icon" />
     </div>
   )
 }

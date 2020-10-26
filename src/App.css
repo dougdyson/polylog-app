@@ -28,6 +28,25 @@
   color: #61dafb;
 }
 
+.icon {
+  opacity: 0.5;
+}
+
+.icon-lecture-card {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-large {
+  width: 40px;
+  height: 40px;
+}
+
+.icon:hover {
+  opacity: 1.0;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,10 +1,10 @@
 import {ReactComponent as HistoryIcon} from "./history-24px.svg";
-import './HistoryIcon.css'
+import '../../App.css';
 
 function ClockIcon() {
   return (
     <div>
-      <HistoryIcon className="history-icon"/>
+      <HistoryIcon className="icon"/>
     </div>
   )
 }
