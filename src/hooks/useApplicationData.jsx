@@ -8,7 +8,7 @@ const useApplicationData = () => {
 
 	React.useEffect(() => {
 		// lecturer_id should be based off of cookies
-		axios.get("/lecture", { params: { lecturer_id: 1 } }).then(res => {
+		axios.get(`/lecture/${1}`).then(res => {
 			setState(prev => ({ ...prev, lectures: res.data }));
 		});
 		// eslint-disable-next-line
@@ -20,7 +20,6 @@ const useApplicationData = () => {
 		return axios
 			.post("/lecture", { lecturer_id, title, description })
 			.then(() => {
-				// Adding a new lecture removes all the old ones from the array?
 				setState(prev => ({
 					...prev,
 					lectures: [...prev.lectures, { lecturer_id, title, description }]
@@ -28,7 +27,6 @@ const useApplicationData = () => {
 			});
 	};
 
-	// console.log("spread ", [...state, "my new item"]);
 	console.log(state);
 	return { state, newLecture };
 };

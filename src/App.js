@@ -7,7 +7,7 @@ function App() {
 	const { state, newLecture } = useApplicationData();
 
 	React.useEffect(() => {
-		newLecture(1, "Lecture from react", "description from react");
+		// newLecture(1, "Lecture from react", "description from react");
 	}, []);
 
 	return (
