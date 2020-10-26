@@ -16,7 +16,6 @@ const useApplicationData = () => {
 
 	// I need to export functions that can make a new lecture, edit a lecture, delete a lecture
 	const newLecture = (lecturer_id, title, description) => {
-		console.log("From newLecture: ", state);
 		return axios
 			.post("/lecture", { lecturer_id, title, description })
 			.then(() => {
@@ -27,8 +26,29 @@ const useApplicationData = () => {
 			});
 	};
 
-	console.log(state);
-	return { state, newLecture };
+	const editLecture = (lecture_id, title, description) => {
+		return axios
+			.put(`/lecture/`, { lecture_id, title, description })
+			.then(() => {
+				// const newLecture = { ...oldLecture, title, description };
+				setState(prev => {
+					const lectureIndex = prev.lectures.findIndex(
+						lecture => lecture.id === lecture_id
+					);
+
+					return {
+						...prev,
+						lectures: [
+							...prev.lectures.slice(lectureIndex - 1, lectureIndex),
+							{ ...prev.lectures[lectureIndex], title, description },
+							...prev.lectures.slice(lectureIndex + 1)
+						]
+					};
+				});
+			});
+	};
+
+	return { state, newLecture, editLecture };
 };
 
 export default useApplicationData;
