@@ -4,7 +4,7 @@ import './PlayIcon.css'
 function StartSession() {
   return (
     <div>
-      <PlayIcon className=".play-icon .light"/>
+      <PlayIcon className="play_icon" />
     </div>
   )
 }

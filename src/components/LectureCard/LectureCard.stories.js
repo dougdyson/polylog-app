@@ -1,4 +1,4 @@
-import React, { userState } from 'react';
+import React from 'react';
 import LectureCard from './LectureCard';
 
 export default {
