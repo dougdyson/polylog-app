@@ -1,4 +1,4 @@
-.lectureCard {
+.lecture-card {
   background: #FFFFFF;
   border: 1px solid #C4C4C4;
   box-sizing: border-box;
@@ -6,6 +6,10 @@
   height: 90px;
   display: flex;
   align-items: center;
-  padding-left: 20px;
   justify-content: space-evenly;
+}
+
+.lecture-card-details {
+  padding-left: 20px;
+  width: auto;
 }
