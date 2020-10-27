@@ -8,7 +8,7 @@ import NewIcon from '../NewIcon/NewIcon'
 const title = "Really Long Lecture Title With Big Fancy Words, Even Breaking Onto A New Line!";
 const description = 'Compellingly visualize resource-leveling mindshare after 2.0 relationships. Distinctively coordinate competitive initiatives whereas emerging e-markets.';
 
-export default function name(props) {
+export default function lecture (props) {
 
   // lecture controls only visible for lecturers
   const { variant = 'invisible', ...rest} = props

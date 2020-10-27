@@ -1,4 +1,4 @@
-import {ReactComponent as NewIcon} from "../NewIcon/control_point-black-18dp.svg";
+import {ReactComponent as NewIcon} from "../NewIcon/control_point-24px.svg";
 import '../../App.css';
 
 function StartSession(props) {

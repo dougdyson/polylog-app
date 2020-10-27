@@ -1,0 +1,51 @@
+.topic-card {
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex-inline;
+}
+
+.topic-card-header {
+  display: flex;
+  justify-content: left ;
+  align-items: center;
+  color: black;
+  padding-left: 20px
+}
+
+.topic-card-title {
+  opacity: 0.8;
+  font-size: 19px;
+  padding-left: 10px;
+}
+
+.topic-card-description {
+  opacity: 0.8;
+  margin-block-start: 0em;
+  margin-block-end: 1em;
+  padding:0 20px;
+}
+
+hr {
+  width: 96%;
+}
+
+.emoji {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* justify-items: left; */
+  color: #7E7E7E;
+  padding: 0px 20px;
+}
+
+.emoji img {
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.new_response_button {
+  padding-left: 20px;
+  padding-right: 5px;
+}
