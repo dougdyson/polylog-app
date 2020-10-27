@@ -142,13 +142,57 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
+	const editQuizAnswer = (quiz_answer_id, answer, correct) => {
+		return axios
+			.put(`/quiz/answer/${quiz_answer_id}`, {
+				answer,
+				correct
+			})
+			.then(res => {
+				setQuizCards(prev => {
+					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
+					const quizQuestions = prev[quizCardIndex].questions;
+					const quizQuestionIndex = findIndex(
+						quizQuestions,
+						res.data.quiz_question_id
+					);
+					const quizAnswers = quizQuestions[quizQuestionIndex].answers;
+					const quizAnswerIndex = findIndex(quizAnswers, quiz_answer_id);
+
+					return [
+						...prev.slice(quizCardIndex - 1, quizCardIndex),
+						{
+							...prev[quizCardIndex],
+							questions: [
+								...quizQuestions.slice(
+									quizQuestionIndex - 1,
+									quizQuestionIndex
+								),
+								{
+									...quizQuestions[quizQuestionIndex],
+									answers: [
+										...quizAnswers.slice(quizAnswerIndex - 1, quizAnswerIndex),
+										{ ...quizAnswers[quizAnswerIndex], answer, correct },
+										...quizAnswers.slice(quizAnswerIndex + 1)
+									]
+								},
+								...quizQuestions.slice(quizQuestionIndex + 1)
+							]
+						},
+						...prev.slice(quizCardIndex + 1)
+					];
+				});
+			});
+	};
+
 	return {
 		quizCards,
 		newQuizCard,
 		newQuizQuestion,
 		newQuizAnswer,
 		editQuizCard,
-		editQuizQuestion
+		editQuizQuestion,
+		editQuizAnswer
 	};
 };
 
