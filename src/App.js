@@ -1,20 +1,15 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import useApplicationData from "./hooks/useApplicationData";
+import useLectureData from "./hooks/useLectureData";
 
 function App() {
-	const {
-		state,
-		newLecture,
-		editLecture,
-		deleteLecture
-	} = useApplicationData();
+	const { state, newLecture, editLecture, deleteLecture } = useLectureData();
 
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
 		// editLecture(2, "Edit lecture from react", "edit description from react");
-		deleteLecture(1);
+		// deleteLecture(1);
 	}, []);
 
 	return (
