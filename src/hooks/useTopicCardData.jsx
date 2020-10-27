@@ -7,18 +7,26 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 
 	React.useEffect(() => {
 		axios.get(`/topic/${lecture_id}`).then(res => {
-			// axios
-			// .get(`/topic/response/${session_uuid}`, {
-			//   params: { topic_card_id: 1 }
-			// })
-			// .then(res => {});
-
-			// if (session_uuid)
-			// loop over current quiz cards
-			// axios.get responses for topic_id with session id
-			// add that response to the topic card object with a key of activity
-			// setTopicCards(prev => [...prev, { ...topicCard, activity: ...responses }])
 			setTopicCards([...res.data]);
+
+			if (session_uuid) {
+				res.data.forEach(topicCard => {
+					const id = topicCard.id;
+					axios
+						.get(`/topic/responses/${session_uuid}`, { params: { id } })
+						.then(res => {
+							setTopicCards(prev => {
+								const topicCardIndex = findIndex(prev, id);
+
+								return [
+									...prev.slice(topicCardIndex - 1, topicCardIndex),
+									{ ...prev[topicCardIndex], activity: { ...res.data } },
+									...prev.slice(topicCardIndex + 1)
+								];
+							});
+						});
+				});
+			}
 		});
 	}, []);
 
@@ -55,7 +63,23 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				response
 			})
 			.then(res => {
-				// setTopicCards();
+				setTopicCards(prev => {
+					const topicCardIndex = findIndex(prev, topic_card_id);
+					return [
+						...prev.slice(topicCardIndex - 1, topicCardIndex),
+						{
+							...prev[topicCardIndex],
+							activity: {
+								...prev[topicCardIndex].activity,
+								responses: [
+									...prev[topicCardIndex].activity.responses,
+									{ ...res.data }
+								]
+							}
+						},
+						...prev.slice(topicCardIndex + 1)
+					];
+				});
 			});
 	};
 
@@ -73,7 +97,23 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				reaction
 			})
 			.then(res => {
-				// setTopicCards();
+				setTopicCards(prev => {
+					const topicCardIndex = findIndex(prev, topic_card_id);
+					return [
+						...prev.slice(topicCardIndex - 1, topicCardIndex),
+						{
+							...prev[topicCardIndex],
+							activity: {
+								...prev[topicCardIndex].activity,
+								reactions: [
+									...prev[topicCardIndex].activity.reactions,
+									{ ...res.data }
+								]
+							}
+						},
+						...prev.slice(topicCardIndex + 1)
+					];
+				});
 			});
 	};
 
