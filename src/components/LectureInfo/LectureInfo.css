@@ -17,7 +17,7 @@
   size: 14px;
 }
 
-.lecture-controls-visible {
+.lecture-controls-display {
   display: flex;
   justify-content: space-evenly;
   align-items: center;

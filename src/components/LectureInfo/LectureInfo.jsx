@@ -10,8 +10,8 @@ const description = 'Compellingly visualize resource-leveling mindshare after 2.
 
 export default function name(props) {
 
-  // lecture controls visible for lecturers
-  const { variant = 'visible', ...rest} = props
+  // lecture controls only visible for lecturers
+  const { variant = 'invisible', ...rest} = props
 
   // hooks
 
