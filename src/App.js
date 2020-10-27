@@ -4,11 +4,17 @@ import "./App.css";
 import useApplicationData from "./hooks/useApplicationData";
 
 function App() {
-	const { state, newLecture, editLecture } = useApplicationData();
+	const {
+		state,
+		newLecture,
+		editLecture,
+		deleteLecture
+	} = useApplicationData();
 
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
 		// editLecture(2, "Edit lecture from react", "edit description from react");
+		deleteLecture(1);
 	}, []);
 
 	return (

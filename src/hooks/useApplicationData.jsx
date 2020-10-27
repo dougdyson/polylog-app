@@ -11,13 +11,11 @@ const useApplicationData = () => {
 		axios.get(`/lecture/${1}`).then(res => {
 			setState(prev => ({ ...prev, lectures: res.data }));
 		});
-		// eslint-disable-next-line
 	}, []);
 
-	// I need to export functions that can make a new lecture, edit a lecture, delete a lecture
 	const newLecture = (lecturer_id, title, description) => {
 		return axios
-			.post("/lecture", { lecturer_id, title, description })
+			.post(`/lecture`, { lecturer_id, title, description })
 			.then(() => {
 				setState(prev => ({
 					...prev,
@@ -26,15 +24,16 @@ const useApplicationData = () => {
 			});
 	};
 
+	const findIndex = (array, id) => {
+		return array.findIndex(element => element.id === id);
+	};
+
 	const editLecture = (lecture_id, title, description) => {
 		return axios
-			.put(`/lecture/`, { lecture_id, title, description })
+			.put(`/lecture/${lecture_id}`, { title, description })
 			.then(() => {
-				// const newLecture = { ...oldLecture, title, description };
 				setState(prev => {
-					const lectureIndex = prev.lectures.findIndex(
-						lecture => lecture.id === lecture_id
-					);
+					const lectureIndex = findIndex(prev.lectures, lecture_id);
 
 					return {
 						...prev,
@@ -48,7 +47,23 @@ const useApplicationData = () => {
 			});
 	};
 
-	return { state, newLecture, editLecture };
+	const deleteLecture = lecture_id => {
+		axios.delete(`/lecture/${lecture_id}`).then(() => {
+			setState(prev => {
+				const lectureIndex = findIndex(prev.lectures, lecture_id);
+
+				return {
+					...prev,
+					lectures: [
+						...prev.lectures.slice(lectureIndex - 1, lectureIndex),
+						...prev.lectures.slice(lectureIndex + 1)
+					]
+				};
+			});
+		});
+	};
+
+	return { state, newLecture, editLecture, deleteLecture };
 };
 
 export default useApplicationData;
