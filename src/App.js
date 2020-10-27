@@ -2,10 +2,12 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import useLectureData from "./hooks/useLectureData";
+import useTopicCardData from "./hooks/useTopicCardData";
 
 function App() {
-	const { state, newLecture, editLecture, deleteLecture } = useLectureData();
-
+	// KEEP THIS FOR TESTING PURPOSES
+	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData();
+	const { topicCards } = useTopicCardData(1);
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
 		// editLecture(2, "Edit lecture from react", "edit description from react");
