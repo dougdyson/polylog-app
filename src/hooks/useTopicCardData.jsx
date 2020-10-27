@@ -24,10 +24,23 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 	}, []);
 
 	const newTopicCard = (lecture_id, title, description, position) => {
-		return axios.post(`/topic/card`).then(res => {});
+		return axios
+			.post(`/topic/card`, {
+				lecture_id,
+				title,
+				description,
+				position
+			})
+			.then(res => {
+				const id = res.data.id;
+				setTopicCards(prev => [
+					...prev,
+					{ id, lecture_id, title, description, position }
+				]);
+			});
 	};
 
-	return { topicCards };
+	return { topicCards, newTopicCard };
 };
 
 export default useTopicCardData;

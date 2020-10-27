@@ -7,11 +7,12 @@ import useTopicCardData from "./hooks/useTopicCardData";
 function App() {
 	// KEEP THIS FOR TESTING PURPOSES
 	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData();
-	const { topicCards } = useTopicCardData(1);
+	const { topicCards, newTopicCard } = useTopicCardData(1);
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
 		// editLecture(2, "Edit lecture from react", "edit description from react");
 		// deleteLecture(1);
+		newTopicCard(1, "React Title", "React description", 8);
 	}, []);
 
 	return (
