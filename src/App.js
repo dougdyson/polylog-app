@@ -38,7 +38,7 @@ function App() {
 		// }, 2000);
 		// editTopicCard(2, "React Title", "React description", 8);
 		// deleteTopicCard(1);
-		newQuizCard(1, "Quiz From React", 8);
+		// newQuizCard(1, "Quiz From React", 8);
 	}, []);
 
 	return (

@@ -23,7 +23,7 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 				const id = res.data.id;
 				setQuizCards(prev => [
 					...prev,
-					{ id, lecture_id, title, position, content: [] }
+					{ id, lecture_id, title, position, questions: [] }
 				]);
 			});
 	};
