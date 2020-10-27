@@ -28,7 +28,53 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
-	return { quizCards, newQuizCard };
+	const newQuizQuestion = (quiz_card_id, question) => {
+		return axios
+			.post(`/quiz/question`, {
+				quiz_card_id,
+				question
+			})
+			.then(res => {
+				const id = res.data.id;
+				setQuizCards(prev => {
+					const quizCardIndex = findIndex(prev, quiz_card_id);
+
+					return [
+						...prev.slice(quizCardIndex - 1, quizCardIndex),
+						{
+							...prev[quizCardIndex],
+							questions: [...prev[quizCardIndex].questions, { id, question }]
+						},
+						...prev.slice(quizCardIndex + 1)
+					];
+				});
+			});
+	};
+
+	const newQuizAnswer = (quiz_card_id, question) => {
+		return axios
+			.post(`/quiz/question`, {
+				quiz_card_id,
+				question
+			})
+			.then(res => {
+				const id = res.data.id;
+				// setQuizCards(prev => {
+				// 	const quizCardIndex = findIndex(prev, quiz_card_id);
+
+				// 	return [
+				// 		...prev.slice(quizCardIndex - 1, quizCardIndex),
+				// 		{
+				// 			...prev[quizCardIndex],
+				// 			questions: [...prev[quizCardIndex].questions, { id, question }]
+				// 		},
+				// 		...prev.slice(quizCardIndex + 1)
+				// 	];
+				// });
+			});
+	};
+
+	return { quizCards, newQuizCard, newQuizQuestion };
 };
 
 export default useQuizCardData;
