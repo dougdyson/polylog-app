@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
+import findIndex from "./helpers";
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-
-const findIndex = (array, id) => {
-	return array.findIndex(element => element.id === id);
-};
 
 const useLectureData = () => {
 	const [lectures, setLectures] = React.useState([]);

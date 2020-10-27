@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import findIndex from "./helpers";
 
 const useTopicCardData = (lecture_id, session_uuid = null) => {
 	const [topicCards, setTopicCards] = React.useState([]);
@@ -76,7 +77,33 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
-	return { topicCards, newTopicCard, newTopicResponse, newTopicReaction };
+	const editTopicCard = (topic_card_id, title, description, position) => {
+		return axios
+			.put(`/topic/${topic_card_id}`, {
+				title,
+				description,
+				position
+			})
+			.then(() => {
+				setTopicCards(prev => {
+					const topicCardIndex = findIndex(prev, topic_card_id);
+
+					return [
+						...prev.slice(topicCardIndex - 1, topicCardIndex),
+						{ ...prev[topicCardIndex], title, description, position },
+						...prev.slice(topicCardIndex + 1)
+					];
+				});
+			});
+	};
+
+	return {
+		topicCards,
+		newTopicCard,
+		newTopicResponse,
+		newTopicReaction,
+		editTopicCard
+	};
 };
 
 export default useTopicCardData;
