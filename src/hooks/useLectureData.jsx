@@ -4,12 +4,10 @@ import findIndex from "./helpers";
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
-const useLectureData = () => {
+const useLectureData = lecturer_id => {
 	const [lectures, setLectures] = React.useState([]);
 
 	React.useEffect(() => {
-		// lecturer_id should be based off of cookies
-		const lecturer_id = 1;
 		axios.get(`/lecture/${lecturer_id}`).then(res => {
 			setLectures([...res.data]);
 		});

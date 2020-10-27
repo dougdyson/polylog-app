@@ -6,7 +6,9 @@ import useTopicCardData from "./hooks/useTopicCardData";
 
 function App() {
 	// KEEP THIS FOR TESTING PURPOSES
-	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData();
+	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData(
+		1
+	);
 	const {
 		topicCards,
 		newTopicCard,
