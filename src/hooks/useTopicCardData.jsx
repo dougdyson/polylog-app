@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-
 const useTopicCardData = (lecture_id, session_uuid = null) => {
 	const [topicCards, setTopicCards] = React.useState([]);
 
@@ -55,12 +53,30 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				type,
 				response
 			})
-			.then(() => {
+			.then(res => {
 				// setTopicCards();
 			});
 	};
 
-	return { topicCards, newTopicCard };
+	const newTopicReaction = (
+		topic_card_id,
+		session_id,
+		student_id,
+		reaction
+	) => {
+		return axios
+			.post(`/topic/reaction`, {
+				topic_card_id,
+				session_id,
+				student_id,
+				reaction
+			})
+			.then(res => {
+				// setTopicCards();
+			});
+	};
+
+	return { topicCards, newTopicCard, newTopicResponse, newTopicReaction };
 };
 
 export default useTopicCardData;
