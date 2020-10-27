@@ -26,7 +26,9 @@ function App() {
 		editQuizCard,
 		editQuizQuestion,
 		editQuizAnswer,
-		deleteQuizCard
+		deleteQuizCard,
+		deleteQuizQuestion,
+		deleteQuizAnswer
 	} = useQuizCardData(1);
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
@@ -41,9 +43,9 @@ function App() {
 		// 		"question",
 		// 		"What is react?"
 		// 	);
-		// }, 2000);
+		// }, 3000);
 		// setTimeout(() => {
-		// 	newTopicReaction(1, "4a115ab1-c845-412a-b868-531cf505bf45", 1, true);
+		// newTopicReaction(1, "4a115ab1-c845-412a-b868-531cf505bf45", 1, true);
 		// }, 2000);
 		// editTopicCard(2, "React Title", "React description", 8);
 		// deleteTopicCard(1);
@@ -54,6 +56,8 @@ function App() {
 		// editQuizQuestion(1, "Edit question from react");
 		// editQuizAnswer(1, "Edit answer from react", true);
 		// deleteQuizCard(1);
+		// deleteQuizQuestion(1);
+		// deleteQuizAnswer(1);
 	}, []);
 
 	return (

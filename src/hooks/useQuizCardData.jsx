@@ -198,6 +198,63 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 		});
 	};
 
+	const deleteQuizQuestion = quiz_question_id => {
+		return axios.delete(`/quiz/question/${quiz_question_id}`).then(res => {
+			setQuizCards(prev => {
+				const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
+				const quizQuestions = prev[quizCardIndex].questions;
+				const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
+
+				return [
+					...prev.slice(quizCardIndex - 1, quizCardIndex),
+					{
+						...prev[quizCardIndex],
+						questions: [
+							...quizQuestions.slice(quizQuestionIndex - 1, quizQuestionIndex),
+							...quizQuestions.slice(quizQuestionIndex + 1)
+						]
+					},
+					...prev.slice(quizCardIndex + 1)
+				];
+			});
+		});
+	};
+
+	const deleteQuizAnswer = quiz_answer_id => {
+		return axios.delete(`/quiz/answer/${quiz_answer_id}`).then(res => {
+			setQuizCards(prev => {
+				// I need the quiz card id
+				const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
+				const quizQuestions = prev[quizCardIndex].questions;
+				const quizQuestionIndex = findIndex(
+					quizQuestions,
+					res.data.quiz_question_id
+				);
+				const quizAnswers = quizQuestions[quizQuestionIndex].answers;
+				const quizAnswerIndex = findIndex(quizAnswers, quiz_answer_id);
+
+				return [
+					...prev.slice(quizCardIndex - 1, quizCardIndex),
+					{
+						...prev[quizCardIndex],
+						questions: [
+							...quizQuestions.slice(quizQuestionIndex - 1, quizQuestionIndex),
+							{
+								...quizQuestions[quizQuestionIndex],
+								answers: [
+									...quizAnswers.slice(quizAnswerIndex - 1, quizAnswerIndex),
+									...quizAnswers.slice(quizAnswerIndex + 1)
+								]
+							},
+							...quizQuestions.slice(quizQuestionIndex + 1)
+						]
+					},
+					...prev.slice(quizCardIndex + 1)
+				];
+			});
+		});
+	};
+
 	return {
 		quizCards,
 		newQuizCard,
@@ -206,7 +263,9 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 		editQuizCard,
 		editQuizQuestion,
 		editQuizAnswer,
-		deleteQuizCard
+		deleteQuizCard,
+		deleteQuizQuestion,
+		deleteQuizAnswer
 	};
 };
 
