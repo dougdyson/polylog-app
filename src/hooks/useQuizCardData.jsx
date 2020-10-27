@@ -51,30 +51,46 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
-	const newQuizAnswer = (quiz_card_id, question) => {
+	const newQuizAnswer = (quiz_card_id, quiz_question_id, answer, correct) => {
 		return axios
-			.post(`/quiz/question`, {
-				quiz_card_id,
-				question
+			.post(`/quiz/answer`, {
+				quiz_question_id,
+				answer,
+				correct
 			})
 			.then(res => {
 				const id = res.data.id;
-				// setQuizCards(prev => {
-				// 	const quizCardIndex = findIndex(prev, quiz_card_id);
+				setQuizCards(prev => {
+					const quizCardIndex = findIndex(prev, quiz_card_id);
+					const quizQuestions = prev[quizCardIndex].questions;
+					const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
 
-				// 	return [
-				// 		...prev.slice(quizCardIndex - 1, quizCardIndex),
-				// 		{
-				// 			...prev[quizCardIndex],
-				// 			questions: [...prev[quizCardIndex].questions, { id, question }]
-				// 		},
-				// 		...prev.slice(quizCardIndex + 1)
-				// 	];
-				// });
+					return [
+						...prev.slice(quizCardIndex - 1, quizCardIndex),
+						{
+							...prev[quizCardIndex],
+							questions: [
+								...quizQuestions.slice(
+									quizQuestionIndex - 1,
+									quizQuestionIndex
+								),
+								{
+									...quizQuestions[quizQuestionIndex],
+									answers: [
+										...quizQuestions[quizQuestionIndex].answers,
+										{ id, quiz_question_id, answer, correct }
+									]
+								},
+								...quizQuestions.slice(quizQuestionIndex + 1)
+							]
+						},
+						...prev.slice(quizCardIndex + 1)
+					];
+				});
 			});
 	};
 
-	return { quizCards, newQuizCard, newQuizQuestion };
+	return { quizCards, newQuizCard, newQuizQuestion, newQuizAnswer };
 };
 
 export default useQuizCardData;

@@ -18,7 +18,12 @@ function App() {
 		editTopicCard,
 		deleteTopicCard
 	} = useTopicCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
-	const { quizCards, newQuizCard, newQuizQuestion } = useQuizCardData(1);
+	const {
+		quizCards,
+		newQuizCard,
+		newQuizQuestion,
+		newQuizAnswer
+	} = useQuizCardData(1);
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
 		// editLecture(1, "Edit lecture from react", "edit description from react");
@@ -39,7 +44,8 @@ function App() {
 		// editTopicCard(2, "React Title", "React description", 8);
 		// deleteTopicCard(1);
 		// newQuizCard(1, "Quiz From React", 8);
-		newQuizQuestion(1, "Is react the best?");
+		// newQuizQuestion(1, "Is react the best?");
+		// newQuizAnswer(1, 1, "A great answer from react", true);
 	}, []);
 
 	return (
