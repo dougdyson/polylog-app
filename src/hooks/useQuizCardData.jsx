@@ -96,7 +96,7 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 				title,
 				position
 			})
-			.then(res => {
+			.then(() => {
 				setQuizCards(prev => {
 					const quizCardIndex = findIndex(prev, quiz_card_id);
 
@@ -109,12 +109,46 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
+	const editQuizQuestion = (quiz_question_id, question) => {
+		return axios
+			.put(`/quiz/question/${quiz_question_id}`, {
+				question
+			})
+			.then(res => {
+				setQuizCards(prev => {
+					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
+					const quizQuestions = prev[quizCardIndex].questions;
+					const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
+
+					return [
+						...prev.slice(quizCardIndex - 1, quizCardIndex),
+						{
+							...prev[quizCardIndex],
+							questions: [
+								...quizQuestions.slice(
+									quizQuestionIndex - 1,
+									quizQuestionIndex
+								),
+								{
+									...quizQuestions[quizQuestionIndex],
+									question
+								},
+								...quizQuestions.slice(quizQuestionIndex + 1)
+							]
+						},
+						...prev.slice(quizCardIndex + 1)
+					];
+				});
+			});
+	};
+
 	return {
 		quizCards,
 		newQuizCard,
 		newQuizQuestion,
 		newQuizAnswer,
-		editQuizCard
+		editQuizCard,
+		editQuizQuestion
 	};
 };
 
