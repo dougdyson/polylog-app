@@ -16,13 +16,14 @@
 }
 
 .lecture-card-details {
-  padding-left: 20px;
   width: auto;
   vertical-align: middle;
 }
 
 .lecture-card-title {
   opacity: 0.8;
+  width: 48%;
+  font-size: 19px;
 }
 
 .lecture-card-title:hover {

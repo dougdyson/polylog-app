@@ -4,21 +4,22 @@ import SettingsIcon from '../SettingsIcon/SettingsIcon';
 import PlayIcon from '../PlayIcon/PlayIcon';
 import './LectureCard.css';
 
-// import { useApplicationData } from 'hooks/useApplicationData';
+// import { id, title, description } from '../../hooks/useLectureData';
 
-const lectureCardTitle = "This is a Lecture Card Title"; 
+const title = "Really Long Lecture Title With Big Fancy Words, Even Breaking Onto A New Line!";
+
 
 function LectureCard(props) {
 
-  const [lectureTitle, setLectureTitle] = useState(props.lectureTitle || lectureCardTitle);
+  const [lecture, setLectures] = useState(title || null);
   
   return (
     <section className="lecture-card">
-      <div className="lecture-card-title">{lectureTitle}</div>
-      <div className="lecture-card-details"></div> 
-        <PlayIcon />
-        <HistoryIcon />
-        <SettingsIcon />
+      <div className="lecture-card-title">{title}</div>
+      <div></div>
+      <PlayIcon />
+      <HistoryIcon />
+      <SettingsIcon />
     </section>
   );
 }
