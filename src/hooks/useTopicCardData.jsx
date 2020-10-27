@@ -6,7 +6,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 	const [topicCards, setTopicCards] = React.useState([]);
 
 	React.useEffect(() => {
-		axios.get(`/topic/${lecture_id}`).then(res => {
+		axios.get(`/topic/card/${lecture_id}`).then(res => {
 			setTopicCards([...res.data]);
 
 			if (session_uuid) {
@@ -119,7 +119,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 
 	const editTopicCard = (topic_card_id, title, description, position) => {
 		return axios
-			.put(`/topic/${topic_card_id}`, {
+			.put(`/topic/card/${topic_card_id}`, {
 				title,
 				description,
 				position
@@ -138,7 +138,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 	};
 
 	const deleteTopicCard = topic_card_id => {
-		return axios.delete(`/topic/${topic_card_id}`).then(() => {
+		return axios.delete(`/topic/card/${topic_card_id}`).then(() => {
 			setTopicCards(prev => {
 				const topicCardIndex = findIndex(prev, topic_card_id);
 

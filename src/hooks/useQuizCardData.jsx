@@ -6,7 +6,7 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 	const [quizCards, setQuizCards] = React.useState([]);
 
 	React.useEffect(() => {
-		axios.get(`/quiz/${lecture_id}`).then(res => {
+		axios.get(`/quiz/card/${lecture_id}`).then(res => {
 			setQuizCards([...res.data]);
 			// deal with session data later
 		});
@@ -92,7 +92,7 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 
 	const editQuizCard = (quiz_card_id, title, position) => {
 		return axios
-			.put(`/quiz/${quiz_card_id}`, {
+			.put(`/quiz/card/${quiz_card_id}`, {
 				title,
 				position
 			})
@@ -185,6 +185,19 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
+	const deleteQuizCard = quiz_card_id => {
+		return axios.delete(`/quiz/card/${quiz_card_id}`).then(() => {
+			setQuizCards(prev => {
+				const quizCardIndex = findIndex(prev, quiz_card_id);
+
+				return [
+					...prev.slice(quizCardIndex - 1, quizCardIndex),
+					...prev.slice(quizCardIndex + 1)
+				];
+			});
+		});
+	};
+
 	return {
 		quizCards,
 		newQuizCard,
@@ -192,7 +205,8 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 		newQuizAnswer,
 		editQuizCard,
 		editQuizQuestion,
-		editQuizAnswer
+		editQuizAnswer,
+		deleteQuizCard
 	};
 };
 
