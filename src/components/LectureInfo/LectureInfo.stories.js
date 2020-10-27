@@ -6,4 +6,5 @@ export default {
   component: LectureInfo
 }
 
-export const LectureInfoItem = () => <LectureInfo />
+export const LectureControlsVisible = () => <LectureInfo variant='lecture-controls-visible' />
+export const LectureControlsInvisible = () => <LectureInfo variant='lecture-controls-hidden' />

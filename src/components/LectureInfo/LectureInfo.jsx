@@ -10,6 +10,9 @@ const description = 'Compellingly visualize resource-leveling mindshare after 2.
 
 export default function name(props) {
 
+  // lecture controls visible for lecturers
+  const { variant = 'visible', ...rest} = props
+
   // hooks
 
   
@@ -17,16 +20,16 @@ export default function name(props) {
   return (
     <section className='lecture-info'>
       <div className='lecture-info-title'>
-        {title}
+        <h3>{title}</h3> 
       </div>
       <div className='lecture-info-description'>
         {description}
       </div>
-      <div className='lecture-controls'> 
-      <NewIcon new_class='icon icon-large'/>
-      <Button variant='card-mover'>∨</Button>
-      <Button variant='card-mover'>∧</Button>
-      top
+      <div className={variant}> 
+        <NewIcon new_class='icon icon-large'/>
+        <Button variant='card-mover'>∨</Button>
+        <Button variant='card-mover'>∧</Button>
+        top
       </div>
     </section>
   )
