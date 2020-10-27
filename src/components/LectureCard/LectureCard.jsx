@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import HistoryIcon from '../HistoryIcon/HistoryIcon';
-import SettingsIcon from '../SettingsIcon/SettingsIcon';
+import EditIcon from '../EditIcon/EditIcon';
 import PlayIcon from '../PlayIcon/PlayIcon';
 import './LectureCard.css';
 
@@ -16,10 +16,10 @@ function LectureCard(props) {
   return (
     <section className="lecture-card">
       <div className="lecture-card-title">{title}</div>
-      <div></div>
+      {/* <div></div> */}
       <PlayIcon />
       <HistoryIcon />
-      <SettingsIcon />
+      <EditIcon />
     </section>
   );
 }
