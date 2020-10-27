@@ -4,7 +4,7 @@ import SettingsIcon from '../SettingsIcon/SettingsIcon';
 import PlayIcon from '../PlayIcon/PlayIcon';
 import './LectureCard.css';
 
-import { useApplicationData } from 'hooks/useApplicationData';
+// import { useApplicationData } from 'hooks/useApplicationData';
 
 const lectureCardTitle = "This is a Lecture Card Title"; 
 

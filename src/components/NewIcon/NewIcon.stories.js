@@ -6,6 +6,6 @@ export default {
   component: NewIcon
 };
 
-export const NewTopic = () => <NewIcon new_class="icon icon-lecture-card"/>
+export const NewTopic = () => <NewIcon new_class="icon icon-normal"/>
 export const NewLecture = () => <NewIcon new_class="icon icon-large" />
 
