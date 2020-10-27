@@ -8,7 +8,6 @@ import './LectureCard.css';
 
 const title = "Really Long Lecture Title With Big Fancy Words, Even Breaking Onto A New Line!";
 
-
 function LectureCard(props) {
 
   const [lecture, setLectures] = useState(title || null);
