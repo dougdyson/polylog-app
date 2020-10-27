@@ -40,6 +40,26 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
+	const newTopicResponse = (
+		topic_card_id,
+		session_id,
+		student_id,
+		type,
+		response
+	) => {
+		return axios
+			.post(`/topic/response`, {
+				topic_card_id,
+				session_id,
+				student_id,
+				type,
+				response
+			})
+			.then(() => {
+				// setTopicCards();
+			});
+	};
+
 	return { topicCards, newTopicCard };
 };
 
