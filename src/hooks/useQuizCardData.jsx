@@ -51,7 +51,7 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
-	const newQuizAnswer = (quiz_card_id, quiz_question_id, answer, correct) => {
+	const newQuizAnswer = (quiz_question_id, answer, correct) => {
 		return axios
 			.post(`/quiz/answer`, {
 				quiz_question_id,
@@ -61,7 +61,8 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			.then(res => {
 				const id = res.data.id;
 				setQuizCards(prev => {
-					const quizCardIndex = findIndex(prev, quiz_card_id);
+					// quiz card id should be provided by db
+					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
 					const quizQuestions = prev[quizCardIndex].questions;
 					const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
 

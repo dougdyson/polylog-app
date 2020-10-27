@@ -45,7 +45,7 @@ function App() {
 		// deleteTopicCard(1);
 		// newQuizCard(1, "Quiz From React", 8);
 		// newQuizQuestion(1, "Is react the best?");
-		// newQuizAnswer(1, 1, "A great answer from react", true);
+		newQuizAnswer(1, "A great answer from react", true);
 	}, []);
 
 	return (
