@@ -97,12 +97,26 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
+	const deleteTopicCard = topic_card_id => {
+		return axios.delete(`/topic/${topic_card_id}`).then(() => {
+			setTopicCards(prev => {
+				const topicCardIndex = findIndex(prev, topic_card_id);
+
+				return [
+					...prev.slice(topicCardIndex - 1, topicCardIndex),
+					...prev.slice(topicCardIndex + 1)
+				];
+			});
+		});
+	};
+
 	return {
 		topicCards,
 		newTopicCard,
 		newTopicResponse,
 		newTopicReaction,
-		editTopicCard
+		editTopicCard,
+		deleteTopicCard
 	};
 };
 
