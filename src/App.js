@@ -22,7 +22,8 @@ function App() {
 		quizCards,
 		newQuizCard,
 		newQuizQuestion,
-		newQuizAnswer
+		newQuizAnswer,
+		editQuizCard
 	} = useQuizCardData(1);
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
@@ -45,7 +46,8 @@ function App() {
 		// deleteTopicCard(1);
 		// newQuizCard(1, "Quiz From React", 8);
 		// newQuizQuestion(1, "Is react the best?");
-		newQuizAnswer(1, "A great answer from react", true);
+		// newQuizAnswer(1, "A great answer from react", true);
+		editQuizCard(1, "New title from react", 8);
 	}, []);
 
 	return (

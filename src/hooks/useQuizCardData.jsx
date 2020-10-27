@@ -61,7 +61,6 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			.then(res => {
 				const id = res.data.id;
 				setQuizCards(prev => {
-					// quiz card id should be provided by db
 					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
 					const quizQuestions = prev[quizCardIndex].questions;
 					const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
@@ -91,7 +90,32 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
-	return { quizCards, newQuizCard, newQuizQuestion, newQuizAnswer };
+	const editQuizCard = (quiz_card_id, title, position) => {
+		return axios
+			.put(`/quiz/${quiz_card_id}`, {
+				title,
+				position
+			})
+			.then(res => {
+				setQuizCards(prev => {
+					const quizCardIndex = findIndex(prev, quiz_card_id);
+
+					return [
+						...prev.slice(quizCardIndex - 1, quizCardIndex),
+						{ ...prev[quizCardIndex], title, position },
+						...prev.slice(quizCardIndex + 1)
+					];
+				});
+			});
+	};
+
+	return {
+		quizCards,
+		newQuizCard,
+		newQuizQuestion,
+		newQuizAnswer,
+		editQuizCard
+	};
 };
 
 export default useQuizCardData;
