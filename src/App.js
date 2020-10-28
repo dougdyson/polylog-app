@@ -46,7 +46,7 @@ function App() {
 		// 	);
 		// }, 2000);
 		// setTimeout(() => {
-		// newTopicReaction(1, "4a115ab1-c845-412a-b868-531cf505bf45", 1, true);
+		// 	newTopicReaction(1, "4a115ab1-c845-412a-b868-531cf505bf45", 1, true);
 		// }, 2000);
 		// editTopicCard(2, "React Title", "React description", 8);
 		// deleteTopicCard(1);

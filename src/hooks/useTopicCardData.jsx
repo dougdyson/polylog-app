@@ -1,13 +1,20 @@
 import React from "react";
 import axios from "axios";
-import findIndex from "./helpers";
+import {
+	reducer,
+	SET,
+	NEW,
+	EDIT,
+	DELETE,
+	NEW_TOPIC_ACTIVITY
+} from "../reducers/reducer";
 
 const useTopicCardData = (lecture_id, session_uuid = null) => {
-	const [topicCards, setTopicCards] = React.useState([]);
+	const [topicCards, dispatch] = React.useReducer(reducer, []);
 
 	React.useEffect(() => {
 		axios.get(`/topic/card/${lecture_id}`).then(res => {
-			setTopicCards([...res.data]);
+			dispatch({ type: SET, data: res.data });
 
 			if (session_uuid) {
 				res.data.forEach(topicCard => {
@@ -15,15 +22,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 					axios
 						.get(`/topic/responses/${id}`, { params: { session_uuid } })
 						.then(res => {
-							setTopicCards(prev => {
-								const topicCardIndex = findIndex(prev, id);
-
-								return [
-									...prev.slice(topicCardIndex - 1, topicCardIndex),
-									{ ...prev[topicCardIndex], activity: { ...res.data } },
-									...prev.slice(topicCardIndex + 1)
-								];
-							});
+							dispatch({ type: EDIT, id, data: { activity: { ...res.data } } });
 						});
 				});
 			}
@@ -40,10 +39,10 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			})
 			.then(res => {
 				const id = res.data.id;
-				setTopicCards(prev => [
-					...prev,
-					{ id, lecture_id, title, description, position }
-				]);
+				dispatch({
+					type: NEW,
+					data: { id, lecture_id, title, description, position }
+				});
 			});
 	};
 
@@ -63,22 +62,11 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				response
 			})
 			.then(res => {
-				setTopicCards(prev => {
-					const topicCardIndex = findIndex(prev, topic_card_id);
-					return [
-						...prev.slice(topicCardIndex - 1, topicCardIndex),
-						{
-							...prev[topicCardIndex],
-							activity: {
-								...prev[topicCardIndex].activity,
-								responses: [
-									...prev[topicCardIndex].activity.responses,
-									{ ...res.data }
-								]
-							}
-						},
-						...prev.slice(topicCardIndex + 1)
-					];
+				dispatch({
+					type: NEW_TOPIC_ACTIVITY,
+					activity: "responses",
+					id: topic_card_id,
+					data: { ...res.data }
 				});
 			});
 	};
@@ -97,22 +85,11 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				reaction
 			})
 			.then(res => {
-				setTopicCards(prev => {
-					const topicCardIndex = findIndex(prev, topic_card_id);
-					return [
-						...prev.slice(topicCardIndex - 1, topicCardIndex),
-						{
-							...prev[topicCardIndex],
-							activity: {
-								...prev[topicCardIndex].activity,
-								reactions: [
-									...prev[topicCardIndex].activity.reactions,
-									{ ...res.data }
-								]
-							}
-						},
-						...prev.slice(topicCardIndex + 1)
-					];
+				dispatch({
+					type: NEW_TOPIC_ACTIVITY,
+					activity: "reactions",
+					id: topic_card_id,
+					data: { ...res.data }
 				});
 			});
 	};
@@ -125,28 +102,17 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				position
 			})
 			.then(() => {
-				setTopicCards(prev => {
-					const topicCardIndex = findIndex(prev, topic_card_id);
-
-					return [
-						...prev.slice(topicCardIndex - 1, topicCardIndex),
-						{ ...prev[topicCardIndex], title, description, position },
-						...prev.slice(topicCardIndex + 1)
-					];
+				dispatch({
+					type: EDIT,
+					id: topic_card_id,
+					data: { title, description, position }
 				});
 			});
 	};
 
 	const deleteTopicCard = topic_card_id => {
 		return axios.delete(`/topic/card/${topic_card_id}`).then(() => {
-			setTopicCards(prev => {
-				const topicCardIndex = findIndex(prev, topic_card_id);
-
-				return [
-					...prev.slice(topicCardIndex - 1, topicCardIndex),
-					...prev.slice(topicCardIndex + 1)
-				];
-			});
+			dispatch({ type: DELETE, id: topic_card_id });
 		});
 	};
 

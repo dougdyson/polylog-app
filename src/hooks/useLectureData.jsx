@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import findIndex from "./helpers";
 import { reducer, SET, NEW, EDIT, DELETE } from "../reducers/reducer";
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
