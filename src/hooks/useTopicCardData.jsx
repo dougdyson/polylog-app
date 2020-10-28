@@ -13,7 +13,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				res.data.forEach(topicCard => {
 					const id = topicCard.id;
 					axios
-						.get(`/topic/responses/${session_uuid}`, { params: { id } })
+						.get(`/topic/responses/${id}`, { params: { session_uuid } })
 						.then(res => {
 							setTopicCards(prev => {
 								const topicCardIndex = findIndex(prev, id);

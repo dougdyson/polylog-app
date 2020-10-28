@@ -8,7 +8,25 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 	React.useEffect(() => {
 		axios.get(`/quiz/card/${lecture_id}`).then(res => {
 			setQuizCards([...res.data]);
-			// deal with session data later
+
+			// if (session_uuid) {
+			// 	res.data.forEach(topicCard => {
+			// 		const id = topicCard.id;
+			// 		axios
+			// 			.get(`/topic/responses/${id}`, { params: { session_uuid } })
+			// 			.then(res => {
+			// 				setTopicCards(prev => {
+			// 					const topicCardIndex = findIndex(prev, id);
+
+			// 					return [
+			// 						...prev.slice(topicCardIndex - 1, topicCardIndex),
+			// 						{ ...prev[topicCardIndex], activity: { ...res.data } },
+			// 						...prev.slice(topicCardIndex + 1)
+			// 					];
+			// 				});
+			// 			});
+			// 	});
+			// }
 		});
 	}, []);
 
