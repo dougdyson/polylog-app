@@ -6,5 +6,5 @@ export default {
   component: TopicCard
 }
 
-export const TopicCardExpanded = () => <TopicCard display='expanded' />
-export const TopicCardCollapsed = () => <TopicCard display='collapsed' />
+export const TopicCardExpanded = () => <TopicCard display='true' />
+export const TopicCardCollapsed = () => <TopicCard display='false' />
