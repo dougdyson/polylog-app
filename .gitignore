@@ -12,6 +12,7 @@
 /build
 
 # misc
+./src/components/Card
 .DS_Store
 .env
 .env.local

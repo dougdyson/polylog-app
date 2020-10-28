@@ -54,6 +54,5 @@ export default function Topic (props) {
       </div>
     </main>
   )
-
 }
 

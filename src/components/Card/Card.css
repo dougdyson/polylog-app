@@ -1,0 +1,11 @@
+.card {
+  width: 94%;
+}
+
+.MuiTypography-root .MuiTypography-body2 .MuiTypography-colorTextSecondary{
+  padding: 5px  16px 5px 16px;
+}
+/* 
+<div class="MuiCardContent-root" style="
+"><p class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary">This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.</p></div>
+*/
