@@ -1,7 +1,7 @@
 import React from 'react';
 import TopicCard from './TopicCard';
 
-const topic_responses = {
+const topic = {
   'id': '1',
   'type': 'question',
   'title': 'Really Long Topic Title With Big Fancy Words!',
@@ -16,5 +16,5 @@ export default {
   component: TopicCard
 }
 
-export const TopicCardExpanded = () => <TopicCard display='true' responses={topic_responses}/>
+export const TopicCardExpanded = () => <TopicCard display='true' responses={topic}/>
 // export const TopicCardCollapsed = () => <TopicCard display='false' />

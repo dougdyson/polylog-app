@@ -1,9 +1,9 @@
-img {
+.confused-emoji {
   width: 24px;
-  opacity: 80%;
+  opacity: 75%;
 }
 
-img:hover {
+.confused-emoji:hover  {
   opacity: 100%;
   cursor: pointer;
 }

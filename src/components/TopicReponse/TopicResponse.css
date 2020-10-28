@@ -1,0 +1,49 @@
+.topic_response_bubble {
+  border: 1px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  padding: 10px;
+}
+
+.topic_response_user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #7e7e7e;
+  font-size: 12px;
+  font-style: italic;
+  padding: 0 0 5px 0px;
+  width: auto;
+}
+
+.topic-response-icon {
+  padding-left: 10px;
+}
+
+.topic-response-icon:hover {
+  cursor: default;
+}
+
+.topic_response {
+  color: black;
+  background-color: whitesmoke;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-block-end: .5em;
+  padding:0 10px;
+  width: 94%;
+  word-wrap: break-word;
+  align-items: center;
+  opacity: 0.8;
+  border: none;
+  outline: none;
+}
+
+.response-button{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-size: 10px;
+}
