@@ -120,6 +120,29 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 		});
 	};
 
+	React.useEffect(() => {
+		const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
+		webSocket.send("ping");
+
+		webSocket.onmessage = event => {
+			const data = JSON.parse(event.data);
+			console.log(data);
+
+			// if (data.type === SET_INTERVIEW) {
+			// 	if (interview) {
+			// 		dispatch({ type: SET_INTERVIEW, id, interview: { ...interview } });
+			// 	} else {
+			// 		dispatch({ type: SET_INTERVIEW, id, interview: null });
+			// 	}
+			// }
+		};
+
+		return () => {
+			webSocket.close();
+		};
+	}, []);
+
 	return {
 		topicCards,
 		newTopicCard,
