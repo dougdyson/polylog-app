@@ -82,7 +82,6 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
 					const quizQuestions = prev[quizCardIndex].questions;
 					const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
-					// ***********************************************
 					return [
 						...prev.slice(quizCardIndex - 1, quizCardIndex),
 						{

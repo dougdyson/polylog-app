@@ -10,6 +10,7 @@ const NEW_QUIZ_ANSWER = "NEW_QUIZ_ANSWER";
 const EDIT_QUIZ_QUESTION = "EDIT_QUIZ_QUESTION";
 const EDIT_QUIZ_ANSWER = "EDIT_QUIZ_ANSWER";
 const DELETE_QUIZ_QUESTION = "DELETE_QUIZ_QUESTION";
+const DELETE_QUIZ_ANSWER = "DELETE_QUIZ_ANSWER";
 
 export { SET, NEW, EDIT, DELETE, NEW_TOPIC_ACTIVITY };
 
@@ -127,13 +128,47 @@ export const reducer = (state, action) => {
 				...state.slice(index + 1)
 			];
 		case DELETE_QUIZ_QUESTION:
-			return;
+			index = findIndex(state, action.id);
+			questions = state[index].questions;
+			index2 = findIndex(questions, index2);
+			return [
+				...state.slice(index - 1, index),
+				{
+					...state[index],
+					questions: [
+						...questions.slice(index2 - 1),
+						...questions.slice(index2 + 1)
+					]
+				},
+				...state.slice(index + 1)
+			];
+		case DELETE_QUIZ_ANSWER:
+			index = findIndex(state, action.id);
+			questions = state[index].questions;
+			index2 = findIndex(questions, action.id2);
+			answers = questions[index2].answers;
+			index3 = findIndex(answers, action.id3);
+			return [
+				...state.slice(index - 1, index),
+				{
+					...state[index],
+					questions: [
+						...questions.slice(index2 - 1, index2),
+						{
+							...questions[index2],
+							answers: [
+								...answers.slice(index3 - 1, index3),
+								...answers[index3 + 1]
+							]
+						},
+						...questions.slice(index2 + 1)
+					]
+				},
+				...state.slice(index)
+			];
 		default:
 			throw new Error(
 				`Tried to reduce with unsupported action type: ${action.type}`
 			);
 	}
 };
-
-// deleteQuizQuestion 2
-// deleteQuizAnswer 3
