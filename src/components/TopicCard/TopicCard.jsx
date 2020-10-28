@@ -35,7 +35,8 @@ export default function Topic (props) {
           className='topic-card-title' 
           placeholder='Topic Title'  
           test_id='topic-card-title'
-          // value={title} 
+          // value={title}
+          // readOnly if not owner
         />
       </div>
       <TextareaAutosize 
@@ -50,8 +51,8 @@ export default function Topic (props) {
       <hr className={`hr ${display}`}/>
       <div className={`emoji ${display}`}>
         {/* onClick events for reactions */}
-        <ConfusedEmoji className='emoji-spacing' /> ({confused_count})
-        <ThumbsUpEmoji className='emoji-spacing'/> ({thumbs_up})
+        <ConfusedEmoji className='icon emoji-spacing' /> ({confused_count})
+        <ThumbsUpEmoji className='icon emoji-spacing'/> ({thumbs_up})
         <div className='new_response_button'><NewIcon /></div>
       </div>
     </main>

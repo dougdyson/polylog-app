@@ -5,7 +5,7 @@
 
 .lecture-info-title {
   opacity: 0.8;
-  font-size: 19px;
+  font-size: 20px;
   justify-content: flex-start;
   /* width: auto; */
   width: 94%;
@@ -23,7 +23,7 @@
 
 .lecture-info-description{
   color: #7E7E7E;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.8;
   margin-block-end: .5em;
   padding:0 10px;

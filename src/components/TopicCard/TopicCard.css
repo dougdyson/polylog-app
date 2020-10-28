@@ -70,6 +70,15 @@ hr .collapsed {
   display: flex;
 }
 
+.emoji img {
+  opacity: 0.50;
+}
+
+.emoji img:hover {
+  cursor: pointer;
+  opacity: 1.0;
+}
+
 .emoji .expanded {
   display: flex;
 }

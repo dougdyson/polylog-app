@@ -30,15 +30,15 @@
 }
 
 .icon {
-  opacity: 0.5;
+  opacity: 0.40;
 }
 
-.icon-normal {
+.icon .icon-normal {
   width: 30px;
   height: 30px;
 }
 
-.icon-large {
+.icon .icon-large {
   width: 40px;
   height: 40px;
 }

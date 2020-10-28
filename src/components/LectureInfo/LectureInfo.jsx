@@ -32,7 +32,7 @@ export default function lecture (props) {
         description
       />
       <div className={variant}> 
-        <NewIcon new_class='icon icon-large'/>
+        <NewIcon new_class='icon icon-normal'/>
         <Button variant='card-mover'>∨</Button>
         <Button variant='card-mover'>∧</Button>
         top
