@@ -23,6 +23,7 @@ function App() {
 		newQuizCard,
 		newQuizQuestion,
 		newQuizAnswer,
+		newQuizResponse,
 		editQuizCard,
 		editQuizQuestion,
 		editQuizAnswer,
@@ -43,7 +44,7 @@ function App() {
 		// 		"question",
 		// 		"What is react?"
 		// 	);
-		// }, 3000);
+		// }, 2000);
 		// setTimeout(() => {
 		// newTopicReaction(1, "4a115ab1-c845-412a-b868-531cf505bf45", 1, true);
 		// }, 2000);
@@ -58,6 +59,9 @@ function App() {
 		// deleteQuizCard(1);
 		// deleteQuizQuestion(1);
 		// deleteQuizAnswer(1);
+		// setTimeout(() => {
+		// 	newQuizResponse(1, 4, "4a115ab1-c845-412a-b868-531cf505bf45", 1);
+		// }, 2000);
 	}, []);
 
 	return (

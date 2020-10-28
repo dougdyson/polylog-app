@@ -108,6 +108,35 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			});
 	};
 
+	const newQuizResponse = (
+		quiz_card_id,
+		quiz_answer_id,
+		session_id,
+		student_id
+	) => {
+		return axios
+			.post(`/quiz/response`, {
+				quiz_card_id,
+				quiz_answer_id,
+				session_id,
+				student_id
+			})
+			.then(res => {
+				setQuizCards(prev => {
+					const quizCardIndex = findIndex(prev, quiz_card_id);
+
+					return [
+						...prev.slice(quizCardIndex - 1, quizCardIndex),
+						{
+							...prev[quizCardIndex],
+							activity: [...prev[quizCardIndex].activity, { ...res.data }]
+						},
+						...prev.slice(quizCardIndex + 1)
+					];
+				});
+			});
+	};
+
 	const editQuizCard = (quiz_card_id, title, position) => {
 		return axios
 			.put(`/quiz/card/${quiz_card_id}`, {
@@ -278,6 +307,7 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 		newQuizCard,
 		newQuizQuestion,
 		newQuizAnswer,
+		newQuizResponse,
 		editQuizCard,
 		editQuizQuestion,
 		editQuizAnswer,
