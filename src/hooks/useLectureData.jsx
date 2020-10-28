@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
 import findIndex from "./helpers";
-
+import { reducer, SET, NEW, EDIT, DELETE } from "../reducers/reducer";
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const useLectureData = lecturer_id => {
-	const [lectures, setLectures] = React.useState([]);
+	const [lectures, dispatch] = React.useReducer(reducer, []);
 
 	React.useEffect(() => {
 		axios.get(`/lecture/${lecturer_id}`).then(res => {
-			setLectures([...res.data]);
+			dispatch({ type: SET, data: res.data });
 		});
 	}, []);
 
@@ -18,7 +18,7 @@ const useLectureData = lecturer_id => {
 			.post(`/lecture`, { lecturer_id, title, description })
 			.then(res => {
 				const id = res.data.id;
-				setLectures(prev => [...prev, { id, title, description }]);
+				dispatch({ type: NEW, data: { id, title, description } });
 			});
 	};
 
@@ -26,28 +26,13 @@ const useLectureData = lecturer_id => {
 		return axios
 			.put(`/lecture/${lecture_id}`, { title, description })
 			.then(() => {
-				setLectures(prev => {
-					const lectureIndex = findIndex(prev, lecture_id);
-
-					return [
-						...prev.slice(lectureIndex - 1, lectureIndex),
-						{ ...prev[lectureIndex], title, description },
-						...prev.slice(lectureIndex + 1)
-					];
-				});
+				dispatch({ type: EDIT, id: lecture_id, data: { title, description } });
 			});
 	};
 
 	const deleteLecture = lecture_id => {
 		axios.delete(`/lecture/${lecture_id}`).then(() => {
-			setLectures(prev => {
-				const lectureIndex = findIndex(prev, lecture_id);
-
-				return [
-					...prev.slice(lectureIndex - 1, lectureIndex),
-					...prev.slice(lectureIndex + 1)
-				];
-			});
+			dispatch({ type: DELETE, id: lecture_id });
 		});
 	};
 

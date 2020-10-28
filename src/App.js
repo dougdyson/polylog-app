@@ -33,7 +33,7 @@ function App() {
 	} = useQuizCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
-		// editLecture(1, "Edit lecture from react", "edit description from react");
+		// editLecture(2, "Edit lecture from react", "edit description from react");
 		// deleteLecture(1);
 		// newTopicCard(1, "React Title", "React description", 8);
 		// setTimeout(() => {
