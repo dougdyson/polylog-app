@@ -8,16 +8,15 @@ import './LectureInfo.css';
 import '../../App.css';
 
 
-const title = "Really Long Lecture Title With Big Fancy Words, Even Breaking Onto A New Line!";
-const description = 'Compellingly visualize resource-leveling mindshare after 2.0 relationships. Distinctively coordinate competitive initiatives whereas emerging e-markets.';
-
 export default function lecture (props) {
-
   // lecture controls only visible for lecturers
-  const { variant = 'invisible', ...rest} = props
+
+  // to clean up
+  const variant = props.variant;
+  const title = props.lecture_info.title;
+  const description = props.lecture_info.description;
 
   // hooks
-
   
   // page layout
   return (
@@ -25,11 +24,12 @@ export default function lecture (props) {
         <TextareaAutosize 
           className='lecture-info-title'
           placeholder="Lecture Title"
+          value={title}
         /> 
       <TextareaAutosize 
         className='lecture-info-description'
         placeholder="Lecture Description"
-        description
+        value={description}
       />
       <div className={variant}> 
         <NewIcon new_class='icon icon-normal'/>

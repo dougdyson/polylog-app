@@ -20,8 +20,6 @@ export default function Topic (props) {
   const description = props.responses.description;
   const display = props.description;
 
-  console.log(props);
-
   return (
   
     <main className='topic-card'>
@@ -37,7 +35,8 @@ export default function Topic (props) {
         />
       </div>
       <TextareaAutosize 
-        //  only owner can edit
+        //  readOnly if not owner
+        
         className={`topic-card-description ${display}`}
         placeholder='Enter topic description...'
         test_id='topic_card_description'

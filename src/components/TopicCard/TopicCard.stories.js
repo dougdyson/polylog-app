@@ -1,7 +1,6 @@
 import React from 'react';
 import TopicCard from './TopicCard';
 
-
 const topic_responses = {
   'id': '1',
   'type': 'question',
@@ -11,7 +10,6 @@ const topic_responses = {
   'reactions_positive': 15,
   'reactions_negative': 4
 }
-
 
 export default {
   title: 'Topic Card',

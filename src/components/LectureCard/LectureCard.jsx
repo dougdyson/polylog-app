@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PlayIcon from '../PlayIcon/PlayIcon';
 import HistoryIcon from '../HistoryIcon/HistoryIcon';
 import EditIcon from '../EditIcon/EditIcon';
-import PlayIcon from '../PlayIcon/PlayIcon';
+
 import './LectureCard.css';
-
-// import { id, title, description } from '../../hooks/useLectureData';
-
-const title = "Really Long Lecture Title With Big Fancy Words, Even Breaking Onto A New Line!";
 
 function LectureCard(props) {
 
-  const [lecture, setLectures] = useState(title || null);
+  const title = props.title;
   
   return (
     <section className="lecture-card">
