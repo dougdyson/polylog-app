@@ -9,24 +9,24 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 		axios.get(`/quiz/card/${lecture_id}`).then(res => {
 			setQuizCards([...res.data]);
 
-			// if (session_uuid) {
-			// 	res.data.forEach(topicCard => {
-			// 		const id = topicCard.id;
-			// 		axios
-			// 			.get(`/topic/responses/${id}`, { params: { session_uuid } })
-			// 			.then(res => {
-			// 				setTopicCards(prev => {
-			// 					const topicCardIndex = findIndex(prev, id);
+			if (session_uuid) {
+				res.data.forEach(quizCard => {
+					const id = quizCard.id;
+					axios
+						.get(`/quiz/responses/${id}`, { params: { session_uuid } })
+						.then(res => {
+							setQuizCards(prev => {
+								const quizCardIndex = findIndex(prev, id);
 
-			// 					return [
-			// 						...prev.slice(topicCardIndex - 1, topicCardIndex),
-			// 						{ ...prev[topicCardIndex], activity: { ...res.data } },
-			// 						...prev.slice(topicCardIndex + 1)
-			// 					];
-			// 				});
-			// 			});
-			// 	});
-			// }
+								return [
+									...prev.slice(quizCardIndex - 1, quizCardIndex),
+									{ ...prev[quizCardIndex], activity: [...res.data] },
+									...prev.slice(quizCardIndex + 1)
+								];
+							});
+						});
+				});
+			}
 		});
 	}, []);
 
