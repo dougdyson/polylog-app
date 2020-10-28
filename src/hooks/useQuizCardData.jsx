@@ -1,29 +1,34 @@
 import React from "react";
 import axios from "axios";
-import findIndex from "./helpers";
+import {
+	reducer,
+	SET,
+	NEW,
+	EDIT,
+	DELETE,
+	SET_QUIZ_ACTIVITY,
+	NEW_QUIZ_Q_OR_R,
+	NEW_QUIZ_ANSWER,
+	EDIT_QUIZ_QUESTION,
+	EDIT_QUIZ_ANSWER,
+	DELETE_QUIZ_QUESTION,
+	DELETE_QUIZ_ANSWER
+} from "../reducers/reducer";
 
 const useQuizCardData = (lecture_id, session_uuid = null) => {
-	const [quizCards, setQuizCards] = React.useState([]);
+	const [quizCards, dispatch] = React.useReducer(reducer, []);
 
 	React.useEffect(() => {
 		axios.get(`/quiz/card/${lecture_id}`).then(res => {
-			setQuizCards([...res.data]);
+			dispatch({ type: SET, data: res.data });
 
 			if (session_uuid) {
 				res.data.forEach(quizCard => {
-					const id = quizCard.id;
+					const card_id = quizCard.id;
 					axios
-						.get(`/quiz/responses/${id}`, { params: { session_uuid } })
+						.get(`/quiz/responses/${card_id}`, { params: { session_uuid } })
 						.then(res => {
-							setQuizCards(prev => {
-								const quizCardIndex = findIndex(prev, id);
-
-								return [
-									...prev.slice(quizCardIndex - 1, quizCardIndex),
-									{ ...prev[quizCardIndex], activity: [...res.data] },
-									...prev.slice(quizCardIndex + 1)
-								];
-							});
+							dispatch({ type: SET_QUIZ_ACTIVITY, card_id, data: res.data });
 						});
 				});
 			}
@@ -39,10 +44,10 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			})
 			.then(res => {
 				const id = res.data.id;
-				setQuizCards(prev => [
-					...prev,
-					{ id, lecture_id, title, position, questions: [] }
-				]);
+				dispatch({
+					type: NEW,
+					data: { id, lecture_id, title, position, questions: [] }
+				});
 			});
 	};
 
@@ -54,17 +59,11 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			})
 			.then(res => {
 				const id = res.data.id;
-				setQuizCards(prev => {
-					const quizCardIndex = findIndex(prev, quiz_card_id);
-
-					return [
-						...prev.slice(quizCardIndex - 1, quizCardIndex),
-						{
-							...prev[quizCardIndex],
-							questions: [...prev[quizCardIndex].questions, { id, question }]
-						},
-						...prev.slice(quizCardIndex + 1)
-					];
+				dispatch({
+					type: NEW_QUIZ_Q_OR_R,
+					key: "questions",
+					quiz_card_id,
+					data: { id, question }
 				});
 			});
 	};
@@ -78,31 +77,12 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 			})
 			.then(res => {
 				const id = res.data.id;
-				setQuizCards(prev => {
-					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
-					const quizQuestions = prev[quizCardIndex].questions;
-					const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
-					return [
-						...prev.slice(quizCardIndex - 1, quizCardIndex),
-						{
-							...prev[quizCardIndex],
-							questions: [
-								...quizQuestions.slice(
-									quizQuestionIndex - 1,
-									quizQuestionIndex
-								),
-								{
-									...quizQuestions[quizQuestionIndex],
-									answers: [
-										...quizQuestions[quizQuestionIndex].answers,
-										{ id, quiz_question_id, answer, correct }
-									]
-								},
-								...quizQuestions.slice(quizQuestionIndex + 1)
-							]
-						},
-						...prev.slice(quizCardIndex + 1)
-					];
+				const quiz_card_id = res.data.quiz_card_id;
+				dispatch({
+					type: NEW_QUIZ_ANSWER,
+					quiz_card_id,
+					quiz_question_id,
+					data: { id, quiz_question_id, answer, correct }
 				});
 			});
 	};
@@ -121,17 +101,11 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 				student_id
 			})
 			.then(res => {
-				setQuizCards(prev => {
-					const quizCardIndex = findIndex(prev, quiz_card_id);
-
-					return [
-						...prev.slice(quizCardIndex - 1, quizCardIndex),
-						{
-							...prev[quizCardIndex],
-							activity: [...prev[quizCardIndex].activity, { ...res.data }]
-						},
-						...prev.slice(quizCardIndex + 1)
-					];
+				dispatch({
+					type: NEW_QUIZ_Q_OR_R,
+					key: "activity",
+					quiz_card_id,
+					data: { ...res.data }
 				});
 			});
 	};
@@ -143,14 +117,10 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 				position
 			})
 			.then(() => {
-				setQuizCards(prev => {
-					const quizCardIndex = findIndex(prev, quiz_card_id);
-
-					return [
-						...prev.slice(quizCardIndex - 1, quizCardIndex),
-						{ ...prev[quizCardIndex], title, position },
-						...prev.slice(quizCardIndex + 1)
-					];
+				dispatch({
+					type: EDIT,
+					card_id: quiz_card_id,
+					data: { title, position }
 				});
 			});
 	};
@@ -161,29 +131,12 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 				question
 			})
 			.then(res => {
-				setQuizCards(prev => {
-					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
-					const quizQuestions = prev[quizCardIndex].questions;
-					const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
-
-					return [
-						...prev.slice(quizCardIndex - 1, quizCardIndex),
-						{
-							...prev[quizCardIndex],
-							questions: [
-								...quizQuestions.slice(
-									quizQuestionIndex - 1,
-									quizQuestionIndex
-								),
-								{
-									...quizQuestions[quizQuestionIndex],
-									question
-								},
-								...quizQuestions.slice(quizQuestionIndex + 1)
-							]
-						},
-						...prev.slice(quizCardIndex + 1)
-					];
+				const quiz_card_id = res.data.quiz_card_id;
+				dispatch({
+					type: EDIT_QUIZ_QUESTION,
+					quiz_card_id,
+					quiz_question_id,
+					question
 				});
 			});
 	};
@@ -195,108 +148,41 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 				correct
 			})
 			.then(res => {
-				setQuizCards(prev => {
-					const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
-					const quizQuestions = prev[quizCardIndex].questions;
-					const quizQuestionIndex = findIndex(
-						quizQuestions,
-						res.data.quiz_question_id
-					);
-					const quizAnswers = quizQuestions[quizQuestionIndex].answers;
-					const quizAnswerIndex = findIndex(quizAnswers, quiz_answer_id);
-
-					return [
-						...prev.slice(quizCardIndex - 1, quizCardIndex),
-						{
-							...prev[quizCardIndex],
-							questions: [
-								...quizQuestions.slice(
-									quizQuestionIndex - 1,
-									quizQuestionIndex
-								),
-								{
-									...quizQuestions[quizQuestionIndex],
-									answers: [
-										...quizAnswers.slice(quizAnswerIndex - 1, quizAnswerIndex),
-										{ ...quizAnswers[quizAnswerIndex], answer, correct },
-										...quizAnswers.slice(quizAnswerIndex + 1)
-									]
-								},
-								...quizQuestions.slice(quizQuestionIndex + 1)
-							]
-						},
-						...prev.slice(quizCardIndex + 1)
-					];
+				const quiz_card_id = res.data.quiz_card_id;
+				const quiz_question_id = res.data.quiz_question_id;
+				dispatch({
+					type: EDIT_QUIZ_ANSWER,
+					quiz_card_id,
+					quiz_question_id,
+					quiz_answer_id,
+					answer,
+					correct
 				});
 			});
 	};
 
 	const deleteQuizCard = quiz_card_id => {
 		return axios.delete(`/quiz/card/${quiz_card_id}`).then(() => {
-			setQuizCards(prev => {
-				const quizCardIndex = findIndex(prev, quiz_card_id);
-
-				return [
-					...prev.slice(quizCardIndex - 1, quizCardIndex),
-					...prev.slice(quizCardIndex + 1)
-				];
-			});
+			dispatch({ type: DELETE, card_id: quiz_card_id });
 		});
 	};
 
 	const deleteQuizQuestion = quiz_question_id => {
 		return axios.delete(`/quiz/question/${quiz_question_id}`).then(res => {
-			setQuizCards(prev => {
-				const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
-				const quizQuestions = prev[quizCardIndex].questions;
-				const quizQuestionIndex = findIndex(quizQuestions, quiz_question_id);
-
-				return [
-					...prev.slice(quizCardIndex - 1, quizCardIndex),
-					{
-						...prev[quizCardIndex],
-						questions: [
-							...quizQuestions.slice(quizQuestionIndex - 1, quizQuestionIndex),
-							...quizQuestions.slice(quizQuestionIndex + 1)
-						]
-					},
-					...prev.slice(quizCardIndex + 1)
-				];
-			});
+			const quiz_card_id = res.data.quiz_card_id;
+			dispatch({ type: DELETE_QUIZ_QUESTION, quiz_card_id, quiz_question_id });
 		});
 	};
 
 	const deleteQuizAnswer = quiz_answer_id => {
 		return axios.delete(`/quiz/answer/${quiz_answer_id}`).then(res => {
-			setQuizCards(prev => {
-				// I need the quiz card id
-				const quizCardIndex = findIndex(prev, res.data.quiz_card_id);
-				const quizQuestions = prev[quizCardIndex].questions;
-				const quizQuestionIndex = findIndex(
-					quizQuestions,
-					res.data.quiz_question_id
-				);
-				const quizAnswers = quizQuestions[quizQuestionIndex].answers;
-				const quizAnswerIndex = findIndex(quizAnswers, quiz_answer_id);
-
-				return [
-					...prev.slice(quizCardIndex - 1, quizCardIndex),
-					{
-						...prev[quizCardIndex],
-						questions: [
-							...quizQuestions.slice(quizQuestionIndex - 1, quizQuestionIndex),
-							{
-								...quizQuestions[quizQuestionIndex],
-								answers: [
-									...quizAnswers.slice(quizAnswerIndex - 1, quizAnswerIndex),
-									...quizAnswers.slice(quizAnswerIndex + 1)
-								]
-							},
-							...quizQuestions.slice(quizQuestionIndex + 1)
-						]
-					},
-					...prev.slice(quizCardIndex + 1)
-				];
+			const quiz_card_id = res.data.quiz_card_id;
+			const quiz_question_id = res.data.quiz_question_id;
+			dispatch({
+				type: DELETE_QUIZ_ANSWER,
+				quiz_card_id,
+				quiz_question_id,
+				quiz_answer_id
 			});
 		});
 	};

@@ -25,13 +25,17 @@ const useLectureData = lecturer_id => {
 		return axios
 			.put(`/lecture/${lecture_id}`, { title, description })
 			.then(() => {
-				dispatch({ type: EDIT, id: lecture_id, data: { title, description } });
+				dispatch({
+					type: EDIT,
+					card_id: lecture_id,
+					data: { title, description }
+				});
 			});
 	};
 
 	const deleteLecture = lecture_id => {
 		axios.delete(`/lecture/${lecture_id}`).then(() => {
-			dispatch({ type: DELETE, id: lecture_id });
+			dispatch({ type: DELETE, card_id: lecture_id });
 		});
 	};
 

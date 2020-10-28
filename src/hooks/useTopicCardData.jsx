@@ -18,11 +18,15 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 
 			if (session_uuid) {
 				res.data.forEach(topicCard => {
-					const id = topicCard.id;
+					const card_id = topicCard.id;
 					axios
-						.get(`/topic/responses/${id}`, { params: { session_uuid } })
+						.get(`/topic/responses/${card_id}`, { params: { session_uuid } })
 						.then(res => {
-							dispatch({ type: EDIT, id, data: { activity: { ...res.data } } });
+							dispatch({
+								type: EDIT,
+								card_id,
+								data: { activity: { ...res.data } }
+							});
 						});
 				});
 			}
@@ -65,7 +69,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				dispatch({
 					type: NEW_TOPIC_ACTIVITY,
 					activity: "responses",
-					id: topic_card_id,
+					topic_card_id,
 					data: { ...res.data }
 				});
 			});
@@ -88,7 +92,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				dispatch({
 					type: NEW_TOPIC_ACTIVITY,
 					activity: "reactions",
-					id: topic_card_id,
+					topic_card_id,
 					data: { ...res.data }
 				});
 			});
@@ -104,7 +108,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			.then(() => {
 				dispatch({
 					type: EDIT,
-					id: topic_card_id,
+					card_id: topic_card_id,
 					data: { title, description, position }
 				});
 			});
@@ -112,7 +116,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 
 	const deleteTopicCard = topic_card_id => {
 		return axios.delete(`/topic/card/${topic_card_id}`).then(() => {
-			dispatch({ type: DELETE, id: topic_card_id });
+			dispatch({ type: DELETE, card_id: topic_card_id });
 		});
 	};
 

@@ -10,14 +10,14 @@ function App() {
 	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData(
 		1
 	);
-	const {
-		topicCards,
-		newTopicCard,
-		newTopicResponse,
-		newTopicReaction,
-		editTopicCard,
-		deleteTopicCard
-	} = useTopicCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
+	// const {
+	// 	topicCards,
+	// 	newTopicCard,
+	// 	newTopicResponse,
+	// 	newTopicReaction,
+	// 	editTopicCard,
+	// 	deleteTopicCard
+	// } = useTopicCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
 	const {
 		quizCards,
 		newQuizCard,
@@ -53,15 +53,15 @@ function App() {
 		// newQuizCard(1, "Quiz From React", 8);
 		// newQuizQuestion(1, "Is react the best?");
 		// newQuizAnswer(1, "A great answer from react", true);
+		// setTimeout(() => {
+		// 	newQuizResponse(1, 4, "4a115ab1-c845-412a-b868-531cf505bf45", 1);
+		// }, 2000);
 		// editQuizCard(1, "New title from react", 8);
 		// editQuizQuestion(1, "Edit question from react");
 		// editQuizAnswer(1, "Edit answer from react", true);
 		// deleteQuizCard(1);
 		// deleteQuizQuestion(1);
 		// deleteQuizAnswer(1);
-		// setTimeout(() => {
-		// 	newQuizResponse(1, 4, "4a115ab1-c845-412a-b868-531cf505bf45", 1);
-		// }, 2000);
 	}, []);
 
 	return (

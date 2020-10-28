@@ -5,21 +5,33 @@ const NEW = "NEW";
 const EDIT = "EDIT";
 const DELETE = "DELETE";
 const NEW_TOPIC_ACTIVITY = "NEW_TOPIC_ACTIVITY";
-const NEW_QUIZ_QR = "NEW_QUIZ_QR";
+const SET_QUIZ_ACTIVITY = "SET_QUIZ_ACTIVITY";
+const NEW_QUIZ_Q_OR_R = "NEW_QUIZ_Q_OR_R";
 const NEW_QUIZ_ANSWER = "NEW_QUIZ_ANSWER";
 const EDIT_QUIZ_QUESTION = "EDIT_QUIZ_QUESTION";
 const EDIT_QUIZ_ANSWER = "EDIT_QUIZ_ANSWER";
 const DELETE_QUIZ_QUESTION = "DELETE_QUIZ_QUESTION";
 const DELETE_QUIZ_ANSWER = "DELETE_QUIZ_ANSWER";
 
-export { SET, NEW, EDIT, DELETE, NEW_TOPIC_ACTIVITY };
+export {
+	SET,
+	NEW,
+	EDIT,
+	DELETE,
+	SET_QUIZ_ACTIVITY,
+	NEW_TOPIC_ACTIVITY,
+	NEW_QUIZ_Q_OR_R,
+	NEW_QUIZ_ANSWER,
+	EDIT_QUIZ_QUESTION,
+	EDIT_QUIZ_ANSWER,
+	DELETE_QUIZ_QUESTION,
+	DELETE_QUIZ_ANSWER
+};
 
 export const reducer = (state, action) => {
-	// The indexs track the element to edit in an array
-	// Additional indexes are for additional arrays
-	let index;
-	let index2;
-	let index3;
+	let cardIndex;
+	let questionIndex;
+	let answerIndex;
 	let questions;
 	let answers;
 	switch (action.type) {
@@ -28,143 +40,153 @@ export const reducer = (state, action) => {
 		case NEW:
 			return [...state, { ...action.data }];
 		case EDIT:
-			index = findIndex(state, action.id);
+			cardIndex = findIndex(state, action.card_id);
 			return [
-				...state.slice(index - 1, index),
-				{ ...state[index], ...action.data },
-				...state.slice(index + 1)
+				...state.slice(cardIndex - 1, cardIndex),
+				{ ...state[cardIndex], ...action.data },
+				...state.slice(cardIndex + 1)
 			];
 		case DELETE:
-			index = findIndex(state, action.id);
-			return [...state.slice(index - 1, index), ...state.slice(index + 1)];
-		case NEW_TOPIC_ACTIVITY:
-			index = findIndex(state, action.id);
+			cardIndex = findIndex(state, action.card_id);
 			return [
-				...state.slice(index - 1, index),
+				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(cardIndex + 1)
+			];
+		case NEW_TOPIC_ACTIVITY:
+			cardIndex = findIndex(state, action.topic_card_id);
+			return [
+				...state.slice(cardIndex - 1, cardIndex),
 				{
-					...state[index],
+					...state[cardIndex],
 					activity: {
-						...state[index].activity,
+						...state[cardIndex].activity,
 						[action.activity]: [
-							...state[index].activity[action.activity],
+							...state[cardIndex].activity[action.activity],
 							{ ...action.data }
 						]
 					}
 				},
-				...state.slice(index + 1)
+				...state.slice(cardIndex + 1)
 			];
-		case NEW_QUIZ_QR:
-			index = findIndex(state, action.id);
+		case SET_QUIZ_ACTIVITY:
+			cardIndex = findIndex(state, action.card_id);
 			return [
-				...state.slice(index - 1, index),
+				...state.slice(cardIndex - 1, cardIndex),
+				{ ...state[cardIndex], activity: [...action.data] },
+				...state.slice(cardIndex + 1)
+			];
+		case NEW_QUIZ_Q_OR_R:
+			cardIndex = findIndex(state, action.quiz_card_id);
+			return [
+				...state.slice(cardIndex - 1, cardIndex),
 				{
-					...state[index],
-					[action.key]: [...state[index][action.key], { ...action.data }]
+					...state[cardIndex],
+					[action.key]: [...state[cardIndex][action.key], { ...action.data }]
 				},
-				...state.slice(index + 1)
+				...state.slice(cardIndex + 1)
 			];
 		case NEW_QUIZ_ANSWER:
-			index = findIndex(state, action.id);
-			questions = state[index].questions;
-			index2 = findIndex(questions, action.id2);
+			cardIndex = findIndex(state, action.quiz_card_id);
+			questions = state[cardIndex].questions;
+			questionIndex = findIndex(questions, action.quiz_question_id);
 			return [
-				...state.slice(index - 1, index),
+				...state.slice(cardIndex - 1, cardIndex),
 				{
-					...state[index],
+					...state[cardIndex],
 					questions: [
-						...questions.slice(index2 - 1, index2),
+						...questions.slice(questionIndex - 1, questionIndex),
 						{
-							...questions[index2],
-							answers: [...questions[index2].answers, { ...action.data }]
+							...questions[questionIndex],
+							answers: [...questions[questionIndex].answers, { ...action.data }]
 						},
-						...questions.slice(index2 + 1)
+						...questions.slice(questionIndex + 1)
 					]
 				},
-				...state.slice(index + 1)
+				...state.slice(cardIndex + 1)
 			];
 		case EDIT_QUIZ_QUESTION:
-			index = findIndex(state, action.id);
-			questions = state[index].questions;
-			index2 = findIndex(questions, action.id2);
+			cardIndex = findIndex(state, action.quiz_card_id);
+			questions = state[cardIndex].questions;
+			questionIndex = findIndex(questions, action.quiz_question_id);
 			return [
-				...state.slice(index - 1, index),
+				...state.slice(cardIndex - 1, cardIndex),
 				{
-					...state[index],
+					...state[cardIndex],
 					questions: [
-						...questions.slice(index2 - 1, index2),
-						{ ...questions[index2], question: action.question },
-						...questions.slice(index2 + 1)
+						...questions.slice(questionIndex - 1, questionIndex),
+						{ ...questions[questionIndex], question: action.question },
+						...questions.slice(questionIndex + 1)
 					]
 				},
-				...state.slice(index + 1)
+				...state.slice(cardIndex + 1)
 			];
 		case EDIT_QUIZ_ANSWER:
-			index = findIndex(state, action.id);
-			questions = state[index].questions;
-			index2 = findIndex(questions, action.id2);
-			answers = questions[index2].answers;
-			index3 = findIndex(answers, action.id3);
+			cardIndex = findIndex(state, action.quiz_card_id);
+			questions = state[cardIndex].questions;
+			questionIndex = findIndex(questions, action.quiz_question_id);
+			answers = questions[questionIndex].answers;
+			answerIndex = findIndex(answers, action.quiz_answer_id);
 			return [
-				...state.slice(index - 1, index),
+				...state.slice(cardIndex - 1, cardIndex),
 				{
-					...state[index],
+					...state[cardIndex],
 					questions: [
-						...questions.slice(index2 - 1, index2),
+						...questions.slice(questionIndex - 1, questionIndex),
 						{
-							...questions[index2],
+							...questions[questionIndex],
 							answers: [
-								...answers.slice(index3 - 1, index3),
+								...answers.slice(answerIndex - 1, answerIndex),
 								{
-									...answers[index3],
+									...answers[answerIndex],
 									answer: action.answer,
 									correct: action.correct
 								},
-								answers.slice(index3 + 1)
+								answers.slice(answerIndex + 1)
 							]
 						},
-						...questions.slice(index2 + 1)
+						...questions.slice(questionIndex + 1)
 					]
 				},
-				...state.slice(index + 1)
+				...state.slice(cardIndex + 1)
 			];
 		case DELETE_QUIZ_QUESTION:
-			index = findIndex(state, action.id);
-			questions = state[index].questions;
-			index2 = findIndex(questions, index2);
+			cardIndex = findIndex(state, action.quiz_card_id);
+			questions = state[cardIndex].questions;
+			questionIndex = findIndex(questions, action.quiz_question_id);
 			return [
-				...state.slice(index - 1, index),
+				...state.slice(cardIndex - 1, cardIndex),
 				{
-					...state[index],
+					...state[cardIndex],
 					questions: [
-						...questions.slice(index2 - 1),
-						...questions.slice(index2 + 1)
+						...questions.slice(questionIndex - 1),
+						...questions.slice(questionIndex + 1)
 					]
 				},
-				...state.slice(index + 1)
+				...state.slice(cardIndex + 1)
 			];
 		case DELETE_QUIZ_ANSWER:
-			index = findIndex(state, action.id);
-			questions = state[index].questions;
-			index2 = findIndex(questions, action.id2);
-			answers = questions[index2].answers;
-			index3 = findIndex(answers, action.id3);
+			cardIndex = findIndex(state, action.quiz_card_id);
+			questions = state[cardIndex].questions;
+			questionIndex = findIndex(questions, action.quiz_question_id);
+			answers = questions[questionIndex].answers;
+			answerIndex = findIndex(answers, action.quiz_answer_id);
 			return [
-				...state.slice(index - 1, index),
+				...state.slice(cardIndex - 1, cardIndex),
 				{
-					...state[index],
+					...state[cardIndex],
 					questions: [
-						...questions.slice(index2 - 1, index2),
+						...questions.slice(questionIndex - 1, questionIndex),
 						{
-							...questions[index2],
+							...questions[questionIndex],
 							answers: [
-								...answers.slice(index3 - 1, index3),
-								...answers[index3 + 1]
+								...answers.slice(answerIndex - 1, answerIndex),
+								...answers.slice(answerIndex + 1)
 							]
 						},
-						...questions.slice(index2 + 1)
+						...questions.slice(questionIndex + 1)
 					]
 				},
-				...state.slice(index)
+				...state.slice(cardIndex)
 			];
 		default:
 			throw new Error(
