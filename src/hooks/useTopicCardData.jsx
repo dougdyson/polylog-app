@@ -43,10 +43,11 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			})
 			.then(res => {
 				const id = res.data.id;
-				dispatch({
-					type: NEW,
-					data: { id, lecture_id, title, description, position }
-				});
+				!session_uuid &&
+					dispatch({
+						type: NEW,
+						data: { id, lecture_id, title, description, position }
+					});
 			});
 	};
 
@@ -121,28 +122,42 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 	};
 
 	React.useEffect(() => {
-		const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+		if (session_uuid) {
+			const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
-		webSocket.onopen = () => {
-			webSocket.send("ping");
-		};
+			// webSocket.onopen = () => {
+			// 	webSocket.send("ping");
+			// };
 
-		webSocket.onmessage = event => {
-			const data = JSON.parse(event.data);
-			console.log(data);
+			webSocket.onmessage = event => {
+				const data = JSON.parse(event.data);
+				console.log(data);
 
-			// if (data.type === SET_INTERVIEW) {
-			// 	if (interview) {
-			// 		dispatch({ type: SET_INTERVIEW, id, interview: { ...interview } });
-			// 	} else {
-			// 		dispatch({ type: SET_INTERVIEW, id, interview: null });
-			// 	}
-			// }
-		};
+				const id = data.topic_card_id;
+				const lecture_id = data.lecture_id;
+				const title = data.title;
+				const description = data.description;
+				const position = data.position;
 
-		return () => {
-			webSocket.close();
-		};
+				switch (data.type) {
+					case "NEW_TOPIC_CARD":
+						return dispatch({
+							type: NEW,
+							data: { id, lecture_id, title, description, position }
+						});
+					case "EDIT_TOPIC_CARD":
+						return;
+					default:
+						throw new Error(
+							`Tried to reduce with unsupported action type: ${data.type}`
+						);
+				}
+			};
+
+			return () => {
+				webSocket.close();
+			};
+		}
 	}, []);
 
 	return {

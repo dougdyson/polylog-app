@@ -63,7 +63,7 @@ const useQuizCardData = (lecture_id, session_uuid = null) => {
 					type: NEW_QUIZ_Q_OR_R,
 					key: "questions",
 					quiz_card_id,
-					data: { id, question }
+					data: { id, question, answers: [] }
 				});
 			});
 	};
