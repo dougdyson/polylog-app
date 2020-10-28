@@ -9,11 +9,9 @@ import ConfusedEmoji from '../ConfusedEmoji/ConfusedEmoji';
 import '../../App.css';
 import './TopicCard.css';
 
-
-// lecture controls only visible for lecturers
-
 export default function Topic (props) {
   
+  // to clean up
   const reactions_positive = props.responses.reactions_positive;
   const reactions_negative = props.responses.reactions_negative;
   const title = props.responses.title;
@@ -46,9 +44,12 @@ export default function Topic (props) {
       />
       <hr className={`hr ${display}`}/>
       <div className={`emoji ${display}`}>
-        {/* onClick events for reactions */}
+        
+        {/* add onClick events for reactions */}
         <ConfusedEmoji className='icon emoji-spacing' /> ({reactions_negative})
         <ThumbsUpEmoji className='icon emoji-spacing'/> ({reactions_positive})
+
+        {/* add onClick for new topic response */}
         <div className='new_response_button'><NewIcon /></div>
       </div>
     </main>
