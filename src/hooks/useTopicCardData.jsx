@@ -123,7 +123,9 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 	React.useEffect(() => {
 		const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
-		webSocket.send("ping");
+		webSocket.onopen = () => {
+			webSocket.send("ping");
+		};
 
 		webSocket.onmessage = event => {
 			const data = JSON.parse(event.data);
