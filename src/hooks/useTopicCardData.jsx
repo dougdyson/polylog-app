@@ -107,17 +107,18 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				position
 			})
 			.then(() => {
-				dispatch({
-					type: EDIT,
-					card_id: topic_card_id,
-					data: { title, description, position }
-				});
+				!session_uuid &&
+					dispatch({
+						type: EDIT,
+						card_id: topic_card_id,
+						data: { title, description, position }
+					});
 			});
 	};
 
 	const deleteTopicCard = topic_card_id => {
 		return axios.delete(`/topic/card/${topic_card_id}`).then(() => {
-			dispatch({ type: DELETE, card_id: topic_card_id });
+			!session_uuid && dispatch({ type: DELETE, card_id: topic_card_id });
 		});
 	};
 
@@ -133,7 +134,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				const data = JSON.parse(event.data);
 				console.log(data);
 
-				const id = data.topic_card_id;
+				const topic_card_id = data.topic_card_id;
 				const lecture_id = data.lecture_id;
 				const title = data.title;
 				const description = data.description;
@@ -143,10 +144,22 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 					case "NEW_TOPIC_CARD":
 						return dispatch({
 							type: NEW,
-							data: { id, lecture_id, title, description, position }
+							data: {
+								id: topic_card_id,
+								lecture_id,
+								title,
+								description,
+								position
+							}
 						});
 					case "EDIT_TOPIC_CARD":
-						return;
+						return dispatch({
+							type: EDIT,
+							card_id: topic_card_id,
+							data: { title, description, position }
+						});
+					case "DELETE_TOPIC_CARD":
+						return dispatch({ type: DELETE, card_id: topic_card_id });
 					default:
 						throw new Error(
 							`Tried to reduce with unsupported action type: ${data.type}`
