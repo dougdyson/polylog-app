@@ -7,12 +7,17 @@ import answer_icon from './answer_icon.svg';
 
 export default function DisplayAnswerResponse (props) {
 
-  console.log(props);
-
-  // for clean up
-  const answer = props.answer.response;
-  const student_name = props.answer.student_name;
-  const timestamp = props.answer.timestamp;
+  // for clean up with state
+  let answer        = '';
+  let student_name  = 'user name';
+  let timestamp     = 'timestamp';
+  
+  let size = Object.keys(props).length;
+  if (size) {
+    answer        = props.answer.response;
+    student_name  = props.answer.student_name;
+    timestamp     = props.answer.timestamp;
+  }
 
   return (
     <section className="answer-response">
@@ -26,7 +31,7 @@ export default function DisplayAnswerResponse (props) {
       <div className='answer_response_bubble'>
         <TextareaAutosize
           className='answer_response'
-          placeholder='Enter question' 
+          placeholder='Enter answer' 
           value={answer}
         />
       </div>

@@ -11,15 +11,25 @@ import './TopicCard.css';
 
 export default function Topic (props) {
   
-  // to clean up
-  const reactions_positive = props.responses.reactions_positive;
-  const reactions_negative = props.responses.reactions_negative;
-  const title = props.responses.title;
-  const description = props.responses.description;
-  const display = props.description;
-
-  return (
+  // to clean up with state
+  let reactions_positive  = 0;
+  let reactions_negative  = 0;
+  let title               = '';
+  let description         = '';
+  let display             = false;
   
+  let size = Object.keys(props).length;
+  if (size) {
+    console.log(props);
+    reactions_positive  = props.responses.reactions_positive;
+    reactions_negative  = props.responses.reactions_negative;
+    title               = props.responses.title;
+    description         = props.responses.description;
+    display             = props.description;
+  }
+  
+  return (
+    
     <main className='topic-card'>
       <div className='topic-card-header'>
         <VisibleIcon />
@@ -35,15 +45,15 @@ export default function Topic (props) {
       <TextareaAutosize 
         //  readOnly if not owner
         
-        className={`topic-card-description ${display}`}
+        className={`topic-card-description`}
         placeholder='Enter topic description...'
         test_id='topic_card_description'
         rows='3'
         value={description}
         style={{display: {display} ? 'flex' : 'none' }}
       />
-      <hr className={`hr ${display}`}/>
-      <div className={`emoji ${display}`}>
+      <hr className={`hr`}/>
+      <div className={`emoji`}>
         
         {/* add onClick events for reactions */}
         <ConfusedEmoji className='icon emoji-spacing' /> ({reactions_negative})

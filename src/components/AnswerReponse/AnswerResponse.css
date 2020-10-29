@@ -1,14 +1,12 @@
 .answer-response {
-  border: 1px;
+  /* border: 1px; */
   border-radius: 10px;
   padding: 10px;
   border-color: lightgray;
-  border-width: 1px;
-  border-style: solid;
 }
 
 .answer_response_bubble {
-  border: 1px;
+  /* border: 1px; */
   border-radius: 10px;
   background-color: whitesmoke;
   padding: 10px;

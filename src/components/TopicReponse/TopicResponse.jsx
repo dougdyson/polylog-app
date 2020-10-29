@@ -8,13 +8,20 @@ import comment_icon from './comment_icon.svg';
 
 export default function DisplayTopicResponse (props) {
 
-  console.log(props);
   
-  // for clean up
-  const response = props.topic_response.response;
-  const student_name = props.topic_response.student_name;
-  const timestamp = props.topic_response.timestamp;
-  const variant = props.variant;
+  // for clean up with state
+  let response      = '';
+  let student_name  = 'user name';
+  let timestamp     = 'timestamp';
+  let variant       = 'question';
+  
+  let size = Object.keys(props).length;
+  if (size) {
+    response      = props.topic_response.response;
+    student_name  = props.topic_response.student_name;
+    timestamp     = props.topic_response.timestamp;
+    variant       = props.variant;
+  }
 
   // variant icons and styles
   let response_icon = '';
