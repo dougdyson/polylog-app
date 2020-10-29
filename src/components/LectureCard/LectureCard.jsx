@@ -5,8 +5,6 @@ import EditIcon from '../EditIcon/EditIcon';
 
 import './LectureCard.css';
 
-
-
 function LectureCard(props) {
   
   // for clean up with state props

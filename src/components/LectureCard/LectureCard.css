@@ -8,11 +8,12 @@
   align-items: center;
   justify-content: space-evenly;
   color: black;
-  width: 70%
+  width: 90%;
+  margin-bottom: 10px;
 }
 
 .lecture-card:hover {
-  background-color: lightyellow;
+  background-color: #FFFFEF;
   box-shadow: 2px 2px lightgray;
 }
 
