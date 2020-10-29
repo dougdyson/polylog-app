@@ -1,6 +1,6 @@
 import React from 'react';
 import LectureInfo from '../LectureInfo/LectureInfo';
-import TopicContainer from '../TopicContainer/TopicContainer';
+import TopicContainer from '../TopicCard/TopicCard';
 
 
 export default function ActivityFeed(props) {
