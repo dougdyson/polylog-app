@@ -5,9 +5,16 @@ import EditIcon from '../EditIcon/EditIcon';
 
 import './LectureCard.css';
 
-function LectureCard(props) {
+// for cleanup with state
+// for clean up with state
+let title = 'Lecture Title';
 
-  const title = props.title;
+
+function LectureCard(props) {
+  let size = Object.keys(props).length;
+  if (size) {
+    title = props.title;
+  }
   
   return (
     <section className="lecture-card">

@@ -6,4 +6,4 @@ export default {
   component: Lectures
 }
 
-export const LecturesPage = () => {<Lectures content='Hello!' />}
+export const LecturesPage = () => <Lectures />

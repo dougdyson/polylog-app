@@ -1,19 +1,17 @@
 import React from 'react';
 import Nav from '../Nav/Nav';
+import LectureCard from '../LectureCard/LectureCard'
 
 import './Lectures.css'
-import bg_yellow_bottom from './bg-yellow-bottom.svg';
+// import bg_yellow_bottom from './bg-yellow-bottom.svg';
 
-export default function lectures () {
-
-  // const message = props.content;
+export default function Lectures () {
 
   return (
-    <section>
-      <div>
-        <Nav />
-        <h1>Hello!</h1>
-      </div>
-    </section>
+    <div>
+      <Nav />
+      <h2>Lectures</h2>
+      <LectureCard />
+    </div>
   )
 }
