@@ -1,0 +1,25 @@
+.nav-top {
+  display: flex;
+  justify-content: space-around ;
+}
+
+
+.nav-top-left {
+  display: flex;
+  align-items: center;
+  justify-items: flex-start;
+}
+
+.nav-top-menu-item-left {
+  padding-left: 40px;
+}
+
+.nav-top-right {
+  display: flex;
+  align-items: center;
+  justify-items: flex-end;
+}
+
+.nav-top-menu-item-right {
+  padding-left: 40px;
+}
