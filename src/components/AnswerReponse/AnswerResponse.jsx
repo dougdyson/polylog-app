@@ -27,7 +27,7 @@ export default function DisplayAnswerResponse (props) {
           <img className="answer-response-icon" src={answer_icon}></img>
         <div className='answer_response_bubble'>
           <TextareaAutosize
-            className='answer_response'
+            className='answer-response-textarea'
             placeholder='Enter answer' 
             // value={answer}
             />

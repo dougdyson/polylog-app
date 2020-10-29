@@ -39,14 +39,14 @@
   cursor: default;
 }
 
-.answer_response {
+.answer-response-textarea {
   color: black;
   background-color: whitesmoke;
   font-size: 12px;
   opacity: 0.8;
   margin-block-end: .5em;
   padding:0 10px;
-  width: 94%;
+  width: 91%;
   word-wrap: break-word;
   align-items: center;
   opacity: 0.8;

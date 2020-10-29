@@ -11,15 +11,14 @@
 }
 
 .topic-info-title {
-  width: 88%;
-  word-wrap: break-word;
+  width: 84%;
+  /* word-wrap: break-word; */
   display: flex;
   align-items: center;
   opacity: 0.8;
   font-size: 18px;
   padding: 10px;
   border: none;
-  display: flex;
   outline: none;
   font-weight: bold;
 }
@@ -27,8 +26,8 @@
 .topic-info-description {
   opacity: 0.8;
   margin-block-end: .5em;
-  padding:10px 20px;
-  width: 89%;
+  padding: 10px 20px;
+  width: 85.75%;
   word-wrap: break-word;
   align-items: center;
   opacity: 0.8;
