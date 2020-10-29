@@ -12,7 +12,7 @@ export default function lecture (props) {
   // lecture controls only visible for lecturers
 
   // to clean up
-  let variant = 'lecture-controls-hidden';
+  let variant = 'lecture-controls-visible';
   let title = '';
   let description = '';
 
