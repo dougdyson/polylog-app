@@ -17,4 +17,5 @@ export default {
   component: TopicResponse
 }
 
-export const Question = () => <TopicResponse topic_response={topic_reponse} />
+export const Question = () => <TopicResponse topic_response={topic_reponse} variant="question"/>
+export const Comment = () => <TopicResponse topic_response={topic_reponse} variant="comment"/>
