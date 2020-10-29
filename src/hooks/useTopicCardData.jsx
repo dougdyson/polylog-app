@@ -9,18 +9,18 @@ import {
 	NEW_TOPIC_ACTIVITY
 } from "../reducers/reducer";
 
-const useTopicCardData = (lecture_id, session_uuid = null) => {
+const useTopicCardData = (lecture_id, session_id = null) => {
 	const [topicCards, dispatch] = React.useReducer(reducer, []);
 
 	React.useEffect(() => {
 		axios.get(`/topic/card/${lecture_id}`).then(res => {
 			dispatch({ type: SET, data: res.data });
 
-			if (session_uuid) {
+			if (session_id) {
 				res.data.forEach(topicCard => {
 					const card_id = topicCard.id;
 					axios
-						.get(`/topic/responses/${card_id}`, { params: { session_uuid } })
+						.get(`/topic/responses/${card_id}`, { params: { session_id } })
 						.then(res => {
 							dispatch({
 								type: EDIT,
@@ -43,7 +43,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			})
 			.then(res => {
 				const id = res.data.id;
-				!session_uuid &&
+				!session_id &&
 					dispatch({
 						type: NEW,
 						data: { id, lecture_id, title, description, position }
@@ -58,22 +58,13 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 		type,
 		response
 	) => {
-		return axios
-			.post(`/topic/response`, {
-				topic_card_id,
-				session_id,
-				student_id,
-				type,
-				response
-			})
-			.then(res => {
-				// dispatch({
-				// 	type: NEW_TOPIC_ACTIVITY,
-				// 	activity: "responses",
-				// 	topic_card_id,
-				// 	data: { ...res.data }
-				// });
-			});
+		return axios.post(`/topic/response`, {
+			topic_card_id,
+			session_id,
+			student_id,
+			type,
+			response
+		});
 	};
 
 	const newTopicReaction = (
@@ -82,21 +73,12 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 		student_id,
 		reaction
 	) => {
-		return axios
-			.post(`/topic/reaction`, {
-				topic_card_id,
-				session_id,
-				student_id,
-				reaction
-			})
-			.then(res => {
-				dispatch({
-					type: NEW_TOPIC_ACTIVITY,
-					activity: "reactions",
-					topic_card_id,
-					data: { ...res.data }
-				});
-			});
+		return axios.post(`/topic/reaction`, {
+			topic_card_id,
+			session_id,
+			student_id,
+			reaction
+		});
 	};
 
 	const editTopicCard = (topic_card_id, title, description, position) => {
@@ -107,7 +89,7 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				position
 			})
 			.then(() => {
-				!session_uuid &&
+				!session_id &&
 					dispatch({
 						type: EDIT,
 						card_id: topic_card_id,
@@ -118,12 +100,12 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 
 	const deleteTopicCard = topic_card_id => {
 		return axios.delete(`/topic/card/${topic_card_id}`).then(() => {
-			!session_uuid && dispatch({ type: DELETE, card_id: topic_card_id });
+			!session_id && dispatch({ type: DELETE, card_id: topic_card_id });
 		});
 	};
 
 	React.useEffect(() => {
-		if (session_uuid) {
+		if (session_id) {
 			const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
 			// webSocket.onopen = () => {
@@ -131,6 +113,10 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 			// };
 
 			webSocket.onmessage = event => {
+				// from hook send session_id to body of post/put/delete
+				// than the ws call can send a current_session_id
+				// if session_id === current_session_id
+
 				const data = JSON.parse(event.data);
 				console.log(data);
 
@@ -144,6 +130,9 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				const student_id = data.student_id;
 				const type = data.responseType;
 				const response = data.response;
+
+				const topic_reaction_id = data.topic_reaction_id;
+				const reaction = data.reaction;
 
 				switch (data.type) {
 					case "NEW_TOPIC_CARD":
@@ -169,6 +158,17 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 								response
 							}
 						});
+					case "NEW_TOPIC_REACTION":
+						return dispatch({
+							type: NEW_TOPIC_ACTIVITY,
+							activity: "reactions",
+							topic_card_id,
+							data: {
+								id: topic_reaction_id,
+								student_id,
+								reaction
+							}
+						});
 					case "EDIT_TOPIC_CARD":
 						return dispatch({
 							type: EDIT,
@@ -187,13 +187,6 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 						);
 				}
 			};
-
-			// dispatch({
-			// 	type: NEW_TOPIC_ACTIVITY,
-			// 	activity: "responses",
-			// 	topic_card_id,
-			// 	data: { ...res.data }
-			// });
 
 			return () => {
 				webSocket.close();

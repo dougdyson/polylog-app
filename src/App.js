@@ -45,9 +45,9 @@ function App() {
 		// 		"What is react?"
 		// 	);
 		// }, 2000);
-		// setTimeout(() => {
-		// 	newTopicReaction(1, "4a115ab1-c845-412a-b868-531cf505bf45", 1, true);
-		// }, 2000);
+		setTimeout(() => {
+			newTopicReaction(1, "4a115ab1-c845-412a-b868-531cf505bf45", 1, true);
+		}, 3000);
 		// editTopicCard(2, "React Title", "React description", 8);
 		// deleteTopicCard(1);
 		// newQuizCard(1, "Quiz From React", 8);
