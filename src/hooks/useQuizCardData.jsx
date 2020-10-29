@@ -96,21 +96,12 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 		session_id,
 		student_id
 	) => {
-		return axios
-			.post(`/quiz/response`, {
-				quiz_card_id,
-				quiz_answer_id,
-				session_id,
-				student_id
-			})
-			.then(res => {
-				// dispatch({
-				// 	type: NEW_QUIZ_Q_OR_R,
-				// 	key: "activity",
-				// 	quiz_card_id,
-				// 	data: { ...res.data }
-				// });
-			});
+		return axios.post(`/quiz/response`, {
+			quiz_card_id,
+			quiz_answer_id,
+			session_id,
+			student_id
+		});
 	};
 
 	const editQuizCard = (quiz_card_id, title, position) => {
@@ -120,11 +111,12 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 				position
 			})
 			.then(() => {
-				dispatch({
-					type: EDIT,
-					card_id: quiz_card_id,
-					data: { title, position }
-				});
+				!session_id &&
+					dispatch({
+						type: EDIT,
+						card_id: quiz_card_id,
+						data: { title, position }
+					});
 			});
 	};
 
@@ -258,6 +250,12 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 								quiz_answer_id,
 								student_id
 							}
+						});
+					case "EDIT_QUIZ_CARD":
+						return dispatch({
+							type: EDIT,
+							card_id: quiz_card_id,
+							data: { title, position }
 						});
 					default:
 						throw new Error(
