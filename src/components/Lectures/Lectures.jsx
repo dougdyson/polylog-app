@@ -4,15 +4,15 @@ import Nav from '../Nav/Nav';
 import './Lectures.css'
 import bg_yellow_bottom from './bg-yellow-bottom.svg';
 
-export default function lectures (props) {
+export default function lectures () {
 
-  const message = props.content;
+  // const message = props.content;
 
   return (
     <section>
       <div>
         <Nav />
-        <h1>{message}</h1>
+        <h1>Hello!</h1>
       </div>
     </section>
   )
