@@ -9,7 +9,7 @@
 .answer_response_bubble {
   border-radius: 10px;
   background-color: whitesmoke;
-  padding: 10px;
+  padding: 10px 0;
   margin-left: 4%;
   width: 94%;
 }

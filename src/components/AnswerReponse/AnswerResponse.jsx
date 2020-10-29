@@ -32,7 +32,7 @@ export default function DisplayAnswerResponse (props) {
         <TextareaAutosize
           className='answer_response'
           placeholder='Enter answer' 
-          value={answer}
+          // value={answer}
         />
       </div>
   
