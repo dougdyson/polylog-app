@@ -67,12 +67,12 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				response
 			})
 			.then(res => {
-				dispatch({
-					type: NEW_TOPIC_ACTIVITY,
-					activity: "responses",
-					topic_card_id,
-					data: { ...res.data }
-				});
+				// dispatch({
+				// 	type: NEW_TOPIC_ACTIVITY,
+				// 	activity: "responses",
+				// 	topic_card_id,
+				// 	data: { ...res.data }
+				// });
 			});
 	};
 
@@ -140,6 +140,11 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 				const description = data.description;
 				const position = data.position;
 
+				const topic_response_id = data.topic_response_id;
+				const student_id = data.student_id;
+				const type = data.responseType;
+				const response = data.response;
+
 				switch (data.type) {
 					case "NEW_TOPIC_CARD":
 						return dispatch({
@@ -152,11 +157,27 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 								position
 							}
 						});
+					case "NEW_TOPIC_RESPONSE":
+						return dispatch({
+							type: NEW_TOPIC_ACTIVITY,
+							activity: "responses",
+							topic_card_id,
+							data: {
+								id: topic_response_id,
+								student_id,
+								type,
+								response
+							}
+						});
 					case "EDIT_TOPIC_CARD":
 						return dispatch({
 							type: EDIT,
 							card_id: topic_card_id,
-							data: { title, description, position }
+							data: {
+								title,
+								description,
+								position
+							}
 						});
 					case "DELETE_TOPIC_CARD":
 						return dispatch({ type: DELETE, card_id: topic_card_id });
@@ -166,6 +187,13 @@ const useTopicCardData = (lecture_id, session_uuid = null) => {
 						);
 				}
 			};
+
+			// dispatch({
+			// 	type: NEW_TOPIC_ACTIVITY,
+			// 	activity: "responses",
+			// 	topic_card_id,
+			// 	data: { ...res.data }
+			// });
 
 			return () => {
 				webSocket.close();
