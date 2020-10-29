@@ -5,12 +5,13 @@ import EditIcon from '../EditIcon/EditIcon';
 
 import './LectureCard.css';
 
-// default text for now
-let title = 'Lecture Title';
 
 
 function LectureCard(props) {
   
+  // for clean up with state props
+  // default text for now
+  let title = 'Lecture Title';
   // if props then assign
   let size = Object.keys(props).length;
   if (size) {

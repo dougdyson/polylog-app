@@ -7,7 +7,7 @@ export default function Nav () {
   return (
     <section className='nav-top'>
       <div className='nav-top-left'>
-        <Logo />
+        <a href='#'><Logo /></a>
         <div className='nav-top-menu-item-left'><a href='#'>team</a></div>
         <div className='nav-top-menu-item-left'><a href='#'>coming soon!</a></div>
       </div>
