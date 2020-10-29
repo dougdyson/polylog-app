@@ -10,6 +10,7 @@ const useLectureData = lecturer_id => {
 		axios.get(`/lecture/${lecturer_id}`).then(res => {
 			dispatch({ type: SET, data: res.data });
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const newLecture = (lecturer_id, title, description) => {

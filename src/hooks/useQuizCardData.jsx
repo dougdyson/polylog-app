@@ -33,6 +33,7 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 				});
 			}
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const newQuizCard = (lecture_id, title, position) => {
@@ -307,6 +308,7 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 				webSocket.close();
 			};
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return {

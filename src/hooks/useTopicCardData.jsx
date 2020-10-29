@@ -31,6 +31,7 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 				});
 			}
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const newTopicCard = (lecture_id, title, description, position) => {
@@ -191,6 +192,7 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 				webSocket.close();
 			};
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return {
