@@ -40,7 +40,11 @@ const useLectureData = lecturer_id => {
 		});
 	};
 
-	return { lectures, newLecture, editLecture, deleteLecture };
+	const newSession = lecture_id => {
+		return axios.post(`/session`, { lecture_id });
+	};
+
+	return { lectures, newLecture, editLecture, deleteLecture, newSession };
 };
 
 export default useLectureData;

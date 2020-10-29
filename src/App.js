@@ -7,9 +7,13 @@ import useQuizCardData from "./hooks/useQuizCardData";
 
 function App() {
 	// KEEP THIS FOR TESTING PURPOSES
-	// const { lectures, newLecture, editLecture, deleteLecture } = useLectureData(
-	// 	1
-	// );
+	const {
+		lectures,
+		newLecture,
+		editLecture,
+		deleteLecture,
+		newSession
+	} = useLectureData(1);
 	// const {
 	// 	topicCards,
 	// 	newTopicCard,
@@ -18,23 +22,24 @@ function App() {
 	// 	editTopicCard,
 	// 	deleteTopicCard
 	// } = useTopicCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
-	const {
-		quizCards,
-		newQuizCard,
-		newQuizQuestion,
-		newQuizAnswer,
-		newQuizResponse,
-		editQuizCard,
-		editQuizQuestion,
-		editQuizAnswer,
-		deleteQuizCard,
-		deleteQuizQuestion,
-		deleteQuizAnswer
-	} = useQuizCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
+	// const {
+	// 	quizCards,
+	// 	newQuizCard,
+	// 	newQuizQuestion,
+	// 	newQuizAnswer,
+	// 	newQuizResponse,
+	// 	editQuizCard,
+	// 	editQuizQuestion,
+	// 	editQuizAnswer,
+	// 	deleteQuizCard,
+	// 	deleteQuizQuestion,
+	// 	deleteQuizAnswer
+	// } = useQuizCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
 	React.useEffect(() => {
 		// newLecture(1, "Lecture from react", "description from react");
 		// editLecture(2, "Edit lecture from react", "edit description from react");
 		// deleteLecture(1);
+		// newSession(1).then(res => console.log(res.data.id));
 		// newTopicCard(1, "React Title", "React description", 8);
 		// setTimeout(() => {
 		// 	newTopicResponse(
