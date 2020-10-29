@@ -34,23 +34,26 @@ export default function DisplayTopicResponse (props) {
   return (
     <section className="topic-response">
 
-      <div className='topic_response_user'>
-        {student_name + ' @ '}
-        {' ' + timestamp}
+      <div className='topic-response-row'>
+        <div className='topic-response-bubble'>
+          <TextareaAutosize
+            className='topic-text-area'
+            placeholder='Enter question' 
+            value={response}
+          />
+        </div>
         <img className="topic-response-icon" src={response_icon}></img>
       </div>
       
-      <div className='topic_response_bubble'>
-        <TextareaAutosize
-          className='topic_response'
-          placeholder='Enter question' 
-          value={response}
-        />
-      </div>
-  
-      <div className="response-button">
-        <Button className="reply">reply</Button>
-        <Button className="submit">Submit</Button>
+      <div className='topic-response-row'>
+        <div className="response-button">
+          <Button className="reply">reply</Button>
+          <div className='topic_response_user'>
+            {student_name + ' @ '}
+            {' ' + timestamp}
+          </div>
+          <Button className="submit">Submit</Button>
+        </div>
       </div>
     </section>
   )

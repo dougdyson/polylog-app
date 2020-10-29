@@ -22,22 +22,24 @@ export default function DisplayAnswerResponse (props) {
   return (
     <section className="answer-response">
 
-      <div className='answer_response_user'>
-        <img className="answer-response-icon" src={answer_icon}></img>
-        {student_name + ' @ '}
-        {' ' + timestamp}
-      </div>
       
-      <div className='answer_response_bubble'>
-        <TextareaAutosize
-          className='answer_response'
-          placeholder='Enter answer' 
-          // value={answer}
-        />
+      <div className='answer-response-row'>
+          <img className="answer-response-icon" src={answer_icon}></img>
+        <div className='answer_response_bubble'>
+          <TextareaAutosize
+            className='answer_response'
+            placeholder='Enter answer' 
+            // value={answer}
+            />
+        </div>
       </div>
-  
-      <div className="answer_button">
-        <Button className="submit">Submit</Button>
+      <div className='answer-response-row'>
+        <div className='answer-response-user'>
+          {student_name + ' @ ' + timestamp}
+        </div>
+        <div className="answer-button">
+          <Button className="submit">Submit</Button>
+        </div>
       </div>
     </section>
   )
