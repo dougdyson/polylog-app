@@ -104,12 +104,12 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 				student_id
 			})
 			.then(res => {
-				dispatch({
-					type: NEW_QUIZ_Q_OR_R,
-					key: "activity",
-					quiz_card_id,
-					data: { ...res.data }
-				});
+				// dispatch({
+				// 	type: NEW_QUIZ_Q_OR_R,
+				// 	key: "activity",
+				// 	quiz_card_id,
+				// 	data: { ...res.data }
+				// });
 			});
 	};
 
@@ -218,6 +218,7 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 				const answer = data.answer;
 				const correct = data.correct;
 
+				const quiz_response_id = data.quiz_response_id;
 				const student_id = data.student_id;
 
 				switch (data.type) {
@@ -245,6 +246,18 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 							quiz_card_id,
 							quiz_question_id,
 							data: { id: quiz_answer_id, quiz_question_id, answer, correct }
+						});
+					case "NEW_QUIZ_RESPONSE":
+						return dispatch({
+							type: NEW_QUIZ_Q_OR_R,
+							key: "activity",
+							quiz_card_id,
+							data: {
+								id: quiz_response_id,
+								quiz_question_id,
+								quiz_answer_id,
+								student_id
+							}
 						});
 					default:
 						throw new Error(
