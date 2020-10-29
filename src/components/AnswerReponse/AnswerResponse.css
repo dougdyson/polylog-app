@@ -1,8 +1,8 @@
 .answer-response {
   border-radius: 10px;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 10px 20px;
   border-color: lightgray;
-  width: 99.25%;
+  width: 98%;
   margin-right: 10%;
 }
 
@@ -11,7 +11,7 @@
   background-color: whitesmoke;
   padding: 10px 0;
   margin-left: 4%;
-  width: 94%;
+  width: 92%;
 }
 
 .answer_response_user {

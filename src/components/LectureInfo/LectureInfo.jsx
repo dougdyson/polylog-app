@@ -12,11 +12,16 @@ export default function lecture (props) {
   // lecture controls only visible for lecturers
 
   // to clean up
-  const variant = props.variant;
-  const title = props.lecture_info.title;
-  const description = props.lecture_info.description;
+  let variant = 'lecture-controls-hidden';
+  let title = '';
+  let description = '';
 
-  // hooks
+  let size = Object.keys(props).length;
+  if (size) {
+    variant = props.variant;
+    title = props.lecture_info.title;
+    description = props.lecture_info.description;
+  }
   
   // page layout
   return (
