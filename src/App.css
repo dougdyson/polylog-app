@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #E5E5E5;
 }
 
 .App-logo {
@@ -26,6 +27,25 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.icon {
+  opacity: 0.5;
+}
+
+.icon-normal {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-large {
+  width: 40px;
+  height: 40px;
+}
+
+.icon:hover {
+  opacity: 1.0;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
