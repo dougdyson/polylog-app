@@ -118,7 +118,6 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 				// if session_id === current_session_id
 
 				const data = JSON.parse(event.data);
-				console.log(data);
 
 				const topic_card_id = data.topic_card_id;
 				const lecture_id = data.lecture_id;

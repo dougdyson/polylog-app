@@ -44,10 +44,11 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 			})
 			.then(res => {
 				const id = res.data.id;
-				dispatch({
-					type: NEW,
-					data: { id, lecture_id, title, position, questions: [] }
-				});
+				!session_id &&
+					dispatch({
+						type: NEW,
+						data: { id, lecture_id, title, position, questions: [] }
+					});
 			});
 	};
 
@@ -186,6 +187,56 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 			});
 		});
 	};
+
+	React.useEffect(() => {
+		if (session_id) {
+			const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
+			// webSocket.onopen = () => {
+			// 	webSocket.send("ping");
+			// };
+
+			webSocket.onmessage = event => {
+				// from hook send session_id to body of post/put/delete
+				// than the ws call can send a current_session_id
+				// if session_id === current_session_id
+
+				const data = JSON.parse(event.data);
+				console.log(data);
+
+				const quiz_card_id = data.quiz_card_id;
+				const lecture_id = data.lecture_id;
+				const title = data.title;
+				const position = data.position;
+
+				const student_id = data.student_id;
+				const type = data.responseType;
+				const response = data.response;
+
+				switch (data.type) {
+					case "NEW_QUIZ_CARD":
+						return dispatch({
+							type: NEW,
+							data: {
+								id: quiz_card_id,
+								lecture_id,
+								title,
+								position,
+								questions: []
+							}
+						});
+					default:
+						throw new Error(
+							`Tried to reduce with unsupported action type: ${data.type}`
+						);
+				}
+			};
+
+			return () => {
+				webSocket.close();
+			};
+		}
+	}, []);
 
 	return {
 		quizCards,
