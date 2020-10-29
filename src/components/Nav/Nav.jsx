@@ -8,12 +8,12 @@ export default function Nav () {
     <section className='nav-top'>
       <div className='nav-top-left'>
         <Logo />
-        <div className='nav-top-menu-item-left'>Team</div>
-        <div className='nav-top-menu-item-left'>Coming Soon!</div>
+        <div className='nav-top-menu-item-left'><a href='#'>team</a></div>
+        <div className='nav-top-menu-item-left'><a href='#'>coming soon!</a></div>
       </div>
 
       <div className='nav-top-right'>
-        <div className='nav-top-menu-item-right'>Login</div>
+        <div className='nav-top-menu-item-right'><a href='#'>login</a></div>
         <div className='nav-top-menu-item-right'>
           <Button variant='nav-bar'>SIGN UP</Button>
         </div>
