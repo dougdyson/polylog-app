@@ -200,11 +200,12 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 			// };
 
 			webSocket.onmessage = event => {
-				// from hook send session_id to body of post/put/delete
-				// than the ws call can send a current_session_id
-				// if session_id === current_session_id
-
 				const data = JSON.parse(event.data);
+				// from hook send session_id to body of post/put/delete
+				// than the ws call can send a session_id
+				// I need to add session_id to every ws and hook function
+				// lost of work do if you have extra time
+				// if session_id === data.session_id
 				console.log(data);
 
 				const quiz_card_id = data.quiz_card_id;
@@ -298,9 +299,9 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 							quiz_answer_id
 						});
 					default:
-						throw new Error(
-							`Tried to reduce with unsupported action type: ${data.type}`
-						);
+					// throw new Error(
+					// 	`Tried to reduce with unsupported action type: ${data.type}`
+					// );
 				}
 			};
 
