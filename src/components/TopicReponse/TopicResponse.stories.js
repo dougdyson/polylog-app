@@ -9,7 +9,7 @@ const topic_reponse =  {
   "type": "question",
   "response": "This is a topic response",
   "student_name": "Janna Warden",  // <- need to get from ID
-  "timestamp": "20 Oct 2020 - 9:32am " // <- need to add to schema
+  "timestamp": "20 Oct 2020, 9:32am " // <- need to add to schema
 }
 
 export default {

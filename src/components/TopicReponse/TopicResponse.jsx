@@ -13,10 +13,9 @@ export default function DisplayTopicResponse (props) {
   const timestamp = props.topic_response.timestamp;
 
   return (
-    <section>
+    <section className="topic-response">
       <div className="topic_response_user">
-        {student_name + ' '}
-         - 
+        {student_name + ' @ '}
         {' ' + timestamp}
          
         <img className="topic-response-icon" src={question_icon}></img>
@@ -31,7 +30,7 @@ export default function DisplayTopicResponse (props) {
       
       <div className="response-button">
         <Button className="reply">reply</Button>
-        <Button className="submit-response">Submit</Button>
+        <Button className="submit">Submit</Button>
       </div>
     </section>
   )
