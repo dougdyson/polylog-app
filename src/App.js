@@ -58,7 +58,7 @@ function App() {
 		// }, 2000);
 		// editQuizCard(1, "New title from react", 8);
 		// editQuizQuestion(1, "Edit question from react");
-		editQuizAnswer(1, "Edit answer from react", true);
+		// editQuizAnswer(1, "Edit answer from react", true);
 		// deleteQuizCard(1);
 		// deleteQuizQuestion(1);
 		// deleteQuizAnswer(1);

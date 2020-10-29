@@ -158,7 +158,7 @@ export const reducer = (state, action) => {
 				{
 					...state[cardIndex],
 					questions: [
-						...questions.slice(questionIndex - 1),
+						...questions.slice(questionIndex - 1, questionIndex),
 						...questions.slice(questionIndex + 1)
 					]
 				},
@@ -186,7 +186,7 @@ export const reducer = (state, action) => {
 						...questions.slice(questionIndex + 1)
 					]
 				},
-				...state.slice(cardIndex)
+				...state.slice(cardIndex + 1)
 			];
 		default:
 			throw new Error(

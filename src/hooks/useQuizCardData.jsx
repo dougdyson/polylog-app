@@ -160,14 +160,19 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 
 	const deleteQuizCard = quiz_card_id => {
 		return axios.delete(`/quiz/card/${quiz_card_id}`).then(() => {
-			dispatch({ type: DELETE, card_id: quiz_card_id });
+			!session_id && dispatch({ type: DELETE, card_id: quiz_card_id });
 		});
 	};
 
 	const deleteQuizQuestion = quiz_question_id => {
 		return axios.delete(`/quiz/question/${quiz_question_id}`).then(res => {
 			const quiz_card_id = res.data.quiz_card_id;
-			dispatch({ type: DELETE_QUIZ_QUESTION, quiz_card_id, quiz_question_id });
+			!session_id &&
+				dispatch({
+					type: DELETE_QUIZ_QUESTION,
+					quiz_card_id,
+					quiz_question_id
+				});
 		});
 	};
 
@@ -175,12 +180,13 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 		return axios.delete(`/quiz/answer/${quiz_answer_id}`).then(res => {
 			const quiz_card_id = res.data.quiz_card_id;
 			const quiz_question_id = res.data.quiz_question_id;
-			dispatch({
-				type: DELETE_QUIZ_ANSWER,
-				quiz_card_id,
-				quiz_question_id,
-				quiz_answer_id
-			});
+			!session_id &&
+				dispatch({
+					type: DELETE_QUIZ_ANSWER,
+					quiz_card_id,
+					quiz_question_id,
+					quiz_answer_id
+				});
 		});
 	};
 
@@ -274,6 +280,21 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 							quiz_answer_id,
 							answer,
 							correct
+						});
+					case "DELETE_QUIZ_CARD":
+						return dispatch({ type: DELETE, card_id: quiz_card_id });
+					case "DELETE_QUIZ_QUESTION":
+						return dispatch({
+							type: DELETE_QUIZ_QUESTION,
+							quiz_card_id,
+							quiz_question_id
+						});
+					case "DELETE_QUIZ_ANSWER":
+						return dispatch({
+							type: DELETE_QUIZ_ANSWER,
+							quiz_card_id,
+							quiz_question_id,
+							quiz_answer_id
 						});
 					default:
 						throw new Error(
