@@ -141,7 +141,7 @@ export const reducer = (state, action) => {
 									answer: action.answer,
 									correct: action.correct
 								},
-								answers.slice(answerIndex + 1)
+								...answers.slice(answerIndex + 1)
 							]
 						},
 						...questions.slice(questionIndex + 1)
