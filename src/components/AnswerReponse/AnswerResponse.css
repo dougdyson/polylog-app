@@ -1,17 +1,17 @@
 .answer-response {
-  /* border: 1px; */
   border-radius: 10px;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   border-color: lightgray;
+  width: 99.25%;
+  margin-right: 10%;
 }
 
 .answer_response_bubble {
-  /* border: 1px; */
   border-radius: 10px;
   background-color: whitesmoke;
   padding: 10px;
-  margin-left: 6%;
-  width: 88%;
+  margin-left: 4%;
+  width: 94%;
 }
 
 .answer_response_user {
@@ -21,7 +21,6 @@
   color: #7e7e7e;
   font-size: 12px;
   font-style: italic;
-  padding: 0 0 5px 0px;
   width: auto;
 }
 

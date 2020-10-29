@@ -5,8 +5,6 @@ import AnswerResponse from '../AnswerReponse/AnswerResponse';
 
 export default function TopicContainer(props) {
 
-  console.log(props);
-
   return (
     <div>
       <TopicCard />
@@ -14,4 +12,5 @@ export default function TopicContainer(props) {
       <AnswerResponse />
     </div>
   );
+  
 }

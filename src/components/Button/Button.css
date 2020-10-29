@@ -109,6 +109,7 @@
   background-color: white;
   opacity: .5;
   font-size: 12px;
+  padding-left: 10px;
 }
 
 .reply:hover {
