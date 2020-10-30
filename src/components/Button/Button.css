@@ -122,13 +122,12 @@
   width: auto;
   height: 20px;
   background-color: white;
-  margin: 10px 5px 0 0;
+  margin: 10px 0 0 0;
 }
 
 .close:hover {
   color: black;
   box-shadow: none;
   border: 0;
-  outline-style: solid;
-  outline-color: #9e9e9e;
+  outline: thin solid #e4e4e4;
 }
