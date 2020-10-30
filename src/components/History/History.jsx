@@ -2,8 +2,8 @@ import React from 'react';
 import { ReactComponent as SessionHistoryIcon } from './double-zag-stats-icon.svg';
 import { ReactComponent as HistoryKeyArt } from './history-key-art.svg';
 
-import './History.css'
-import ConfusedEmoji from '../ConfusedEmoji/ConfusedEmoji';
+import './History.css';
+import "fontsource-roboto";
 
 function History(props) {
 
