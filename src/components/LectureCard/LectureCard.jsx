@@ -22,7 +22,7 @@ function LectureCard(props) {
 			{/* props.newSession should be used for the play card */}
 			{mode === PLAY}
 			{/* Still need History component */}
-			{/* Hard code history for now? Or I can make the function to make get request to get data */}
+			{/* props.lectureSessionHistory(props.key) returns promise of session data for lecture */}
 			{mode === HISTORY}
 		</React.Fragment>
 	);

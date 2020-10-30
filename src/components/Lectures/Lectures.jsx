@@ -14,6 +14,7 @@ export default function Lectures() {
 		newLecture,
 		editLecture,
 		deleteLecture,
+		lectureSessionHistory,
 		newSession
 		// The number being passed here should be the user_id
 	} = useLectureData(1);
@@ -26,6 +27,7 @@ export default function Lectures() {
 				newLecture={newLecture}
 				editLecture={() => transition(ACTIVITY_FEED)}
 				deleteLecture={deleteLecture}
+				lectureSessionHistory={lectureSessionHistory}
 				newSession={newSession}
 			/>
 		);
