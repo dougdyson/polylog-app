@@ -12,7 +12,6 @@ function App() {
 	// 	newLecture,
 	// 	editLecture,
 	// 	deleteLecture,
-	// 	newSession
 	// } = useLectureData(1);
 	// const {
 	// 	topicCards,
