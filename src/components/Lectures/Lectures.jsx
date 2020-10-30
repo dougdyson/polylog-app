@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../Nav/Nav";
 import LectureCard from "../LectureCard/LectureCard";
+import NewIcon from "../NewIcon/NewIcon";
 import { ReactComponent as LecturerKeyArt } from "./lecturer-key-art.svg";
 import useLectureData from "../../hooks/useLectureData";
 import "./Lectures.css";
@@ -23,7 +24,10 @@ export default function Lectures() {
 	return (
 		<div>
 			<Nav />
-			<h2>Lectures</h2>
+			<div className="lectures-page-header">
+				<NewIcon new_class="icon icon-large" />
+				<h2 className="lectures-page-title">Lectures</h2>
+			</div>
 			<div className="lectures-container">
 				<div className="lectures-list">{lecturesList}</div>
 				<div className="lecturer-key-art">
