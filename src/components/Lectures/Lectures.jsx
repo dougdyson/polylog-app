@@ -6,7 +6,7 @@ import { ReactComponent as LecturerKeyArt } from "./lecturer-key-art.svg";
 import useLectureData from "../../hooks/useLectureData";
 import useVisualMode from "../../hooks/useVisualMode";
 import "./Lectures.css";
-// import bg_yellow_bottom from './bg-yellow-bottom.svg';
+// import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
 export default function Lectures() {
 	const {
@@ -18,6 +18,10 @@ export default function Lectures() {
 		newSession
 		// The number being passed here should be the user_id
 	} = useLectureData(1);
+
+	const KEY_ART = "KEY_ART";
+	const ACTIVITY_FEED = "ACTIVITY_FEED";
+	const { mode, transition, back } = useVisualMode(KEY_ART);
 
 	const lecturesList = lectures.map(lecture => {
 		return (
@@ -31,10 +35,6 @@ export default function Lectures() {
 			/>
 		);
 	});
-
-	const KEY_ART = "KEY_ART";
-	const ACTIVITY_FEED = "ACTIVITY_FEED";
-	const { mode, transition, back } = useVisualMode(KEY_ART);
 
 	return (
 		<div>
