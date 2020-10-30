@@ -1,32 +1,43 @@
 import React from 'react';
-import './LectureInfo.css';
-import '../../App.css';
+import TextareaAutosize from 'react-textarea-autosize';
 
 import Button from '../Button/Button'
 import NewIcon from '../NewIcon/NewIcon'
 
-const title = "Really Long Lecture Title With Big Fancy Words, Even Breaking Onto A New Line!";
-const description = 'Compellingly visualize resource-leveling mindshare after 2.0 relationships. Distinctively coordinate competitive initiatives whereas emerging e-markets.';
+import './LectureInfo.css';
+import '../../App.css';
 
-export default function name(props) {
 
+export default function lecture (props) {
   // lecture controls only visible for lecturers
-  const { variant = 'invisible', ...rest} = props
 
-  // hooks
+  // to clean up
+  let variant = 'lecture-controls-visible';
+  let title = '';
+  let description = '';
 
+  let size = Object.keys(props).length;
+  if (size) {
+    variant = props.variant;
+    title = props.lecture_info.title;
+    description = props.lecture_info.description;
+  }
   
   // page layout
   return (
     <section className='lecture-info'>
-      <div className='lecture-info-title'>
-        <h3>{title}</h3> 
-      </div>
-      <div className='lecture-info-description'>
-        {description}
-      </div>
+        <TextareaAutosize 
+          className='lecture-info-title'
+          placeholder="Lecture Title"
+          value={title}
+        /> 
+      <TextareaAutosize 
+        className='lecture-info-description'
+        placeholder="Lecture Description"
+        value={description}
+      />
       <div className={variant}> 
-        <NewIcon new_class='icon icon-large'/>
+        <NewIcon new_class='icon icon-normal'/>
         <Button variant='card-mover'>∨</Button>
         <Button variant='card-mover'>∧</Button>
         top

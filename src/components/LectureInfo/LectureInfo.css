@@ -1,29 +1,44 @@
 .lecture-info {
-  /* width: 300px; */
   height: 100%;
   background-color: white;
-  display:
 }
 
 .lecture-info-title {
   opacity: 0.8;
-  font-size: 19px;
+  font-size: 20px;
   justify-content: flex-start;
-  width: auto
+  /* width: auto; */
+  width: 94%;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  /* font-size: 18px; */
+  padding: 10px;
+  border: none;
+  display: flex;
+  outline: none;
+  font-weight: bold;
 }
 
 .lecture-info-description{
   color: #7E7E7E;
-  size: 14px;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-block-end: .5em;
+  padding:10px;
+  width: 94%;
+  word-wrap: break-word;
+  align-items: center;
+  opacity: 0.8;
+  border: none;
+  outline: none;
 }
 
-.lecture-controls-display {
+.lecture-controls-visible {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  /* width: 60%; */
-  padding-top: 20px;
-  color: blue
+  justify-content: space-between;
+  padding: 10px 20%;
 }
 
 .lecture-controls-hidden {

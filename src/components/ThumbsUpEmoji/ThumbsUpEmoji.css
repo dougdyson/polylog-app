@@ -1,9 +1,9 @@
-img {
+.thumbs-up-emoji {
   width: 24px;
-  opacity: 50%;
+  opacity: 75%;
 }
 
-img:hover {
+.thumbs-up-emoji:hover {
   opacity: 100%;
   cursor: pointer;
 }

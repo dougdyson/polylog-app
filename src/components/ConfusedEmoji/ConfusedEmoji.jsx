@@ -5,7 +5,7 @@ import './ConfusedEmoji.css';
 function ConfusedEmoji() {
   return (
     <div>
-      <img src={confusedEmoji}/>
+      <img className="confused-emoji" src={confusedEmoji}/>
     </div>
   )
 }

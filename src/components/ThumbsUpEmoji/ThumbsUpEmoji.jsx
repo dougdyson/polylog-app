@@ -5,7 +5,7 @@ import './ThumbsUpEmoji.css';
 function ThumbsUpEmoji() {
   return (
     <div>
-      <img src={thumbsUp}/>
+      <img className="thumbs-up-emoji" src={thumbsUp}/>
     </div>
   )
 }
