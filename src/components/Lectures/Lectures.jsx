@@ -6,12 +6,12 @@ import { ReactComponent as LecturerKeyArt } from './lecturer-key-art.svg';
 
 import "fontsource-roboto";
 import './Lectures.css';
-import '../../App.css';
+// import '../../App.css';
 
 export default function Lectures () {
 
   return (
-    <div className='lectures-container'>
+    <div>
       <Nav />
         <div className='lectures-page-header'>
           <NewIcon new_class="icon icon-large" />
