@@ -1,32 +1,19 @@
 import React from "react";
-import useVisualMode from "../../hooks/useVisualMode";
 import PlayIcon from "../PlayIcon/PlayIcon";
 import HistoryIcon from "../HistoryIcon/HistoryIcon";
 import EditIcon from "../EditIcon/EditIcon";
 import "./LectureCard.css";
 
-function LectureCard(props) {
-	// for clean up with state props
-	// default text for now
-	let title = "Lecture Title";
-	// if props then assign
-	let size = Object.keys(props).length;
-	if (size) {
-		title = props.title;
-	}
-	const SHOW = "SHOW";
-
-	const { mode, transition, back } = useVisualMode(SHOW);
-
+function Show(props) {
 	return (
 		<section className="lecture-card">
-			<div className="lecture-card-title">{title}</div>
+			<div className="lecture-card-title">{props.title}</div>
 			{/* <div></div> */}
-			<PlayIcon />
-			<HistoryIcon />
-			<EditIcon />
+			<PlayIcon onPlay={props.onPlay} />
+			<HistoryIcon onHistory={props.onHistory} />
+			<EditIcon onEdit={props.onEdit} />
 		</section>
 	);
 }
 
-export default LectureCard;
+export default Show;

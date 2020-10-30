@@ -1,12 +1,12 @@
-import {ReactComponent as EditIcon} from "./edit-black-18dp.svg";
-import '../../App.css';
+import { ReactComponent as EditIcon } from "./edit-black-18dp.svg";
+import "../../App.css";
 
-function PencilIcon() {
-  return (
-    <div>
-      <EditIcon className="icon"/>
-    </div>
-  )
+function PencilIcon(props) {
+	return (
+		<div>
+			<EditIcon className="icon" onClick={props.onEdit} />
+		</div>
+	);
 }
 
 export default PencilIcon;

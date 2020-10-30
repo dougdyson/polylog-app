@@ -18,14 +18,22 @@ export default function Lectures() {
 	} = useLectureData(1);
 
 	const lecturesList = lectures.map(lecture => {
-		return <LectureCard title={lecture.title} />;
+		return (
+			<LectureCard
+				key={lecture.id}
+				title={lecture.title}
+				editLecture={editLecture}
+				deleteLecture={deleteLecture}
+				newSession={newSession}
+			/>
+		);
 	});
 
 	return (
 		<div>
 			<Nav />
 			<div className="lectures-page-header">
-				<NewIcon new_class="icon icon-large" />
+				<NewIcon new_class="icon icon-large" newLecture={newLecture} />
 				<h2 className="lectures-page-title">Lectures</h2>
 			</div>
 			<div className="lectures-container">

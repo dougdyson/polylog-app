@@ -4,7 +4,7 @@ import useVisualMode from "../../hooks/useVisualMode";
 
 function LectureCard(props) {
 	const SHOW = "SHOW";
-	const NEW_SESSION = "NEW_SESSION";
+	const PLAY = "PLAY";
 	const HISTORY = "HISTORY";
 	const EDIT = "EDIT";
 
@@ -13,12 +13,22 @@ function LectureCard(props) {
 	return (
 		<React.Fragment>
 			{/* Show mode will need to take props for buttons to transition */}
-			{mode === SHOW && <Show title={props.title} />}
+			{mode === SHOW && (
+				<Show
+					title={props.title}
+					onPlay={() => transition(PLAY)}
+					onHistory={() => transition(HISTORY)}
+					onEdit={() => transition(EDIT)}
+				/>
+			)}
 			{/* Still need NewSession component */}
-			{mode === NEW_SESSION}
+			{/* props.newSession should be used for the play card */}
+			{mode === PLAY}
 			{/* Still need History component */}
+			{/* Hard code history for now? Or I can make the function to make get request to get data */}
 			{mode === HISTORY}
 			{/* Still need Edit component */}
+			{/* props.editLecture */}
 			{mode === EDIT}
 		</React.Fragment>
 	);
