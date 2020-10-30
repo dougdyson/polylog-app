@@ -1,6 +1,7 @@
 import './Nav.css';
 import {ReactComponent as Logo} from "./polylog-logo.svg";
 import Button from '../Button/Button';
+import "fontsource-roboto";
 
 export default function Nav () {
 

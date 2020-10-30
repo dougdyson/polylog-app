@@ -4,6 +4,7 @@ import HistoryIcon from '../HistoryIcon/HistoryIcon';
 import EditIcon from '../EditIcon/EditIcon';
 
 import './LectureCard.css';
+import "fontsource-roboto";
 
 function LectureCard(props) {
   

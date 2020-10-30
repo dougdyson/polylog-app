@@ -6,7 +6,7 @@ import { ReactComponent as LecturerKeyArt } from './lecturer-key-art.svg';
 
 import "fontsource-roboto";
 import './Lectures.css';
-// import '../../App.css';
+import '../../App.css';
 
 export default function Lectures () {
 

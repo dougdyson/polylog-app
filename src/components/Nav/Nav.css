@@ -1,10 +1,11 @@
 .nav-top {
   display: flex;
   justify-content: space-between ;
+  font-family: 'roboto';
 }
 
 a {
-  font-size: 18px;
+  font-size: 16px;
   color: #7e7e7e;
   text-decoration: none;
 }
