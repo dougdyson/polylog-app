@@ -1,5 +1,6 @@
 .topic-info {
   display: flex-inline;
+  font-family: 'roboto';
 }
 
 .topic-info-header {
@@ -21,6 +22,7 @@
   border: none;
   outline: none;
   font-weight: bold;
+  font-family: 'roboto';
 }
 
 .topic-info-description {
@@ -34,6 +36,7 @@
   font-size: 13px;
   border: none;
   outline: none;
+  font-family: 'roboto';
 }
 
 .topic-info-description .expanded {

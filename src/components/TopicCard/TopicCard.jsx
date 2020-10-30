@@ -3,7 +3,7 @@ import TopicInfo from '../TopicInfo/TopicInfo';
 import TopicResponse from '../TopicReponse/TopicResponse';
 import AnswerResponse from '../AnswerReponse/AnswerResponse';
 
-import './TopicCard.css'
+import "fontsource-roboto";
 
 export default function TopicContainer(props) {
 

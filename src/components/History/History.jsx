@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button/Button';
 import { ReactComponent as SessionHistoryIcon } from './double-zag-stats-icon.svg';
 import { ReactComponent as HistoryKeyArt } from './history-key-art.svg';
 
@@ -47,10 +48,15 @@ function History(props) {
 
   return (
     <section className='history-container'>
-      <div className='history-card-header'>
-        <SessionHistoryIcon className='history-icon' />
-        <h2 className='history-card-title'>Lecture Reporting</h2>
+
+      <div className='history-card-header-row'>
+        <div className='history-card-header'>
+          <SessionHistoryIcon className='history-icon' />
+          <h2 className='history-card-title'>Lecture Reporting</h2>
+        </div>
+        <Button variant='close'>x</Button>
       </div>
+
       <div className='history-lecture-title'>
         {title}
       </div>

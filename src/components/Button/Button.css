@@ -116,3 +116,17 @@
   opacity: 1;
   cursor: pointer;
 }
+
+.close{
+  color: lightgray;
+  width: auto;
+  height: 20px;
+  background-color: white;
+  padding: 10px;
+}
+
+.close:hover {
+  color: black;
+  box-shadow: none;
+  border: 0;
+}

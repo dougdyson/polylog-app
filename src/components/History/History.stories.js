@@ -1,7 +1,6 @@
 import React from 'react';
 
 import History from './History';
-import lecture from '../LectureInfo/LectureInfo';
 
 export default {
   title: 'History',
@@ -27,4 +26,4 @@ let lectureHistory = {
 }
 
 export const SessionHistory = () => <History />
-export const MonthlyReport = () => <History history={lectureHistory} />
+export const SampleReport = () => <History history={lectureHistory} />

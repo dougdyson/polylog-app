@@ -13,3 +13,4 @@ export const OK = () => <Button variant='ok'>OK</Button>
 export const Next = () => <Button variant='card-mover'>∨</Button>
 export const Previous = () => <Button variant='card-mover'>∧</Button>
 export const Submit = () => <Button variant='submit'>Submit</Button>
+export const Close = () => <Button variant='close'>X</Button>

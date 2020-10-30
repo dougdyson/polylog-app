@@ -4,6 +4,11 @@
   font-family: 'Roboto';
 }
 
+.history-card-header-row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .history-card-header {
   display: flex;
   align-items: center;
@@ -14,12 +19,14 @@
 }
 
 .history-card-title {
+  display: flex;
   font-size: 18px;
   padding-left: 10px;
   color: #c4c4c4;
 }
 
 .history-lecture-title{
+  display: flex;
   font-size: 18px;
   columns: black;
   padding: 10px 0;
