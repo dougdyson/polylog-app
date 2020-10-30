@@ -4,6 +4,7 @@ import LectureCard from "../LectureCard/LectureCard";
 import NewIcon from "../NewIcon/NewIcon";
 import { ReactComponent as LecturerKeyArt } from "./lecturer-key-art.svg";
 import useLectureData from "../../hooks/useLectureData";
+import useVisualMode from "../../hooks/useVisualMode";
 import "./Lectures.css";
 // import bg_yellow_bottom from './bg-yellow-bottom.svg';
 
@@ -22,6 +23,7 @@ export default function Lectures() {
 			<LectureCard
 				key={lecture.id}
 				title={lecture.title}
+				newLecture={newLecture}
 				editLecture={editLecture}
 				deleteLecture={deleteLecture}
 				newSession={newSession}
@@ -29,18 +31,28 @@ export default function Lectures() {
 		);
 	});
 
+	const KEY_ART = "KEY_ART";
+	const ACTIVITY_FEED = "ACTIVITY_FEED";
+	const { mode, transition, back } = useVisualMode(KEY_ART);
+
 	return (
 		<div>
 			<Nav />
 			<div className="lectures-page-header">
-				<NewIcon new_class="icon icon-large" newLecture={newLecture} />
+				<NewIcon
+					new_class="icon icon-large"
+					onNew={() => transition(ACTIVITY_FEED)}
+				/>
 				<h2 className="lectures-page-title">Lectures</h2>
 			</div>
 			<div className="lectures-container">
 				<div className="lectures-list">{lecturesList}</div>
-				<div className="lecturer-key-art">
-					<LecturerKeyArt />
-				</div>
+				{mode === KEY_ART && (
+					<div className="lecturer-key-art">
+						<LecturerKeyArt />
+					</div>
+				)}
+				{mode === ACTIVITY_FEED}
 			</div>
 		</div>
 	);
