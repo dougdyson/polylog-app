@@ -66,7 +66,9 @@ export default function Lectures() {
 						<LecturerKeyArt />
 					</div>
 				)}
-				{mode === HISTORY && <History lecture={currentLecture} />}
+				{mode === HISTORY && (
+					<History lecture={currentLecture} onClose={back} />
+				)}
 				{mode === ACTIVITY_FEED}
 			</div>
 		</div>

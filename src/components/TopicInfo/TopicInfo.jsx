@@ -8,6 +8,7 @@ import ConfusedEmoji from '../ConfusedEmoji/ConfusedEmoji';
 
 import '../../App.css';
 import './TopicInfo.css';
+import "fontsource-roboto";
 
 export default function Topic (props) {
   

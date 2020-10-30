@@ -1,6 +1,12 @@
 import React from "react";
+import PlayIcon from "../PlayIcon/PlayIcon";
+import HistoryIcon from "../HistoryIcon/HistoryIcon";
+import EditIcon from "../EditIcon/EditIcon";
 import Show from "./Show";
 import useVisualMode from "../../hooks/useVisualMode";
+
+import "./LectureCard.css";
+import "fontsource-roboto";
 
 function LectureCard(props) {
 	const SHOW = "SHOW";

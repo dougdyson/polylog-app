@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as SessionHistoryIcon } from "./double-zag-stats-icon.svg";
 import { ReactComponent as HistoryKeyArt } from "./history-key-art.svg";
+import Button from "../Button/Button";
 import useSessionHistory from "../../hooks/useSessionHistory";
 import "./History.css";
 import "fontsource-roboto";
@@ -10,10 +11,16 @@ function History(props) {
 
 	return (
 		<section className="history-container">
-			<div className="history-card-header">
-				<SessionHistoryIcon className="history-icon" />
-				<h2 className="history-card-title">Lecture Reporting</h2>
+			<div className="history-card-header-row">
+				<div className="history-card-header">
+					<SessionHistoryIcon className="history-icon" />
+					<h2 className="history-card-title">Lecture Reporting</h2>
+				</div>
+				<Button variant="close" onClick={props.onClose}>
+					x
+				</Button>
 			</div>
+
 			<div className="history-lecture-title">{props.lecture.title}</div>
 			<div className="history-dates">
 				{history.created_at &&
@@ -102,6 +109,7 @@ function History(props) {
 				<div>Open in Google Sheets</div>
 				<div>coming soon</div>
 			</div>
+
 			<div className="history-key-art">
 				<HistoryKeyArt />
 			</div>
