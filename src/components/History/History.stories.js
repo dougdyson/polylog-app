@@ -7,4 +7,4 @@ export default {
   component: History
 }
 
-export const SessionHistory = () => <History message='Hello!' />
+export const SessionHistory = () => <History />

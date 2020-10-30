@@ -27,21 +27,21 @@ function History(props) {
 
   let size = Object.keys(props).length;
   if (size) {
-    let title               = props.title;
-    let startDate           = props.startDate;
-    let endDate             = props.endDat;
-    let lectureSessions     = props.lectureSessions;
-    let totalAttendees      = props.totalAttendees;
-    let avgAttendees        = props.avgAttendees;
-    let thumbsUps           = props.thumbsUps;
-    let confused            = props.confused;
-    let questions           = props.questions;
-    let answers             = props.answers;
-    let comments            = props.comments;
-    let quizzes             = props.quizzes;
-    let correctResponses    = props.correctResponses;
-    let incorrectResponses  = props.incorrectResponses;
-    let polls               = props.polls;
+    title               = props.title;
+    startDate           = props.startDate;
+    endDate             = props.endDate;
+    lectureSessions     = props.lectureSessions;
+    totalAttendees      = props.totalAttendees;
+    avgAttendees        = props.avgAttendees;
+    thumbsUps           = props.thumbsUps;
+    confused            = props.confused;
+    questions           = props.questions;
+    answers             = props.answers;
+    comments            = props.comments;
+    quizzes             = props.quizzes;
+    correctResponses    = props.correctResponses;
+    incorrectResponses  = props.incorrectResponses;
+    polls               = props.polls;
   }
 
   return (
