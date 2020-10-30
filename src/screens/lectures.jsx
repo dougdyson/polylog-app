@@ -1,9 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import Lectures from "../components/Lectures/Lectures";
 
 // eslint-disable-next-line
 export default [
 	<Route key="lectures" path="/lectures">
-		<h1>Lectures Go Here!</h1>
+		<Lectures />
 	</Route>
 ];
