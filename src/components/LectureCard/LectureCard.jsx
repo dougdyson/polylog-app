@@ -6,7 +6,6 @@ function LectureCard(props) {
 	const SHOW = "SHOW";
 	const PLAY = "PLAY";
 	const HISTORY = "HISTORY";
-	const EDIT = "EDIT";
 	const { mode, transition, back } = useVisualMode(SHOW);
 
 	return (
