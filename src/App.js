@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Screens from "./screens";
 import useLectureData from "./hooks/useLectureData";
 import useTopicCardData from "./hooks/useTopicCardData";

@@ -24,7 +24,6 @@ export default function Lectures() {
 			<LectureCard
 				key={lecture.id}
 				title={lecture.title}
-				newLecture={newLecture}
 				editLecture={() => transition(ACTIVITY_FEED)}
 				deleteLecture={deleteLecture}
 				lectureSessionHistory={lectureSessionHistory}
@@ -43,7 +42,10 @@ export default function Lectures() {
 			<div className="lectures-page-header">
 				<NewIcon
 					new_class="icon icon-large"
-					onNew={() => transition(ACTIVITY_FEED)}
+					onNew={() => {
+						// The number being passed here should be the user_id
+						newLecture(1).then(() => transition(ACTIVITY_FEED));
+					}}
 				/>
 				<h2 className="lectures-page-title">Lectures</h2>
 			</div>

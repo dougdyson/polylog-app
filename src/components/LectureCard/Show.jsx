@@ -8,7 +8,6 @@ function Show(props) {
 	return (
 		<section className="lecture-card">
 			<div className="lecture-card-title">{props.title}</div>
-			{/* <div></div> */}
 			<PlayIcon onPlay={props.onPlay} />
 			<HistoryIcon onHistory={props.onHistory} />
 			<EditIcon onEdit={props.onEdit} />

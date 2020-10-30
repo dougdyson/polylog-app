@@ -183,9 +183,6 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 					case "DELETE_TOPIC_CARD":
 						return dispatch({ type: DELETE, card_id: topic_card_id });
 					default:
-					// throw new Error(
-					// 	`Tried to reduce with unsupported action type: ${data.type}`
-					// );
 				}
 			};
 

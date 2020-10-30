@@ -299,9 +299,6 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 							quiz_answer_id
 						});
 					default:
-					// throw new Error(
-					// 	`Tried to reduce with unsupported action type: ${data.type}`
-					// );
 				}
 			};
 
