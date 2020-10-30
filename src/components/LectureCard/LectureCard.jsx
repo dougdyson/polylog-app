@@ -1,30 +1,27 @@
-import React from 'react';
-import PlayIcon from '../PlayIcon/PlayIcon';
-import HistoryIcon from '../HistoryIcon/HistoryIcon';
-import EditIcon from '../EditIcon/EditIcon';
-
-import './LectureCard.css';
+import React from "react";
+import Show from "./Show";
+import useVisualMode from "../../hooks/useVisualMode";
 
 function LectureCard(props) {
-  
-  // for clean up with state props
-  // default text for now
-  let title = 'Lecture Title';
-  // if props then assign
-  let size = Object.keys(props).length;
-  if (size) {
-    title = props.title;
-  }
-  
-  return (
-    <section className="lecture-card">
-      <div className="lecture-card-title">{title}</div>
-      {/* <div></div> */}
-      <PlayIcon />
-      <HistoryIcon />
-      <EditIcon />
-    </section>
-  );
+	const SHOW = "SHOW";
+	const NEW_SESSION = "NEW_SESSION";
+	const HISTORY = "HISTORY";
+	const EDIT = "EDIT";
+
+	const { mode, transition, back } = useVisualMode(SHOW);
+
+	return (
+		<section className="lecture-card">
+			{/* Show mode will need to take props for buttons to transition */}
+			{mode === SHOW && <Show title={props.title} />}
+			{/* Still need NewSession component */}
+			{mode === NEW_SESSION}
+			{/* Still need History component */}
+			{mode === HISTORY}
+			{/* Still need Edit component */}
+			{mode === EDIT}
+		</section>
+	);
 }
 
 export default LectureCard;
