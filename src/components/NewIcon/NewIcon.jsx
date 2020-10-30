@@ -5,7 +5,7 @@ function StartSession(props) {
 	const { new_class = "icon", children, ...rest } = props;
 	return (
 		<div>
-			<NewIcon className={`${new_class}`} onClick={"Do something"} />
+			<NewIcon className={`${new_class}`} />
 		</div>
 	);
 }

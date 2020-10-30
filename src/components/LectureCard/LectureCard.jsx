@@ -12,7 +12,6 @@ function LectureCard(props) {
 
 	return (
 		<React.Fragment>
-			{/* Show mode will need to take props for buttons to transition */}
 			{mode === SHOW && (
 				<Show
 					title={props.title}
