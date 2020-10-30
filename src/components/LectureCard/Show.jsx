@@ -19,13 +19,13 @@ function LectureCard(props) {
 	const { mode, transition, back } = useVisualMode(SHOW);
 
 	return (
-		<React.Fragment>
+		<section className="lecture-card">
 			<div className="lecture-card-title">{title}</div>
 			{/* <div></div> */}
 			<PlayIcon />
 			<HistoryIcon />
 			<EditIcon />
-		</React.Fragment>
+		</section>
 	);
 }
 

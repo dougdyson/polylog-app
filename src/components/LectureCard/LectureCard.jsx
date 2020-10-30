@@ -11,7 +11,7 @@ function LectureCard(props) {
 	const { mode, transition, back } = useVisualMode(SHOW);
 
 	return (
-		<section className="lecture-card">
+		<React.Fragment>
 			{/* Show mode will need to take props for buttons to transition */}
 			{mode === SHOW && <Show title={props.title} />}
 			{/* Still need NewSession component */}
@@ -20,7 +20,7 @@ function LectureCard(props) {
 			{mode === HISTORY}
 			{/* Still need Edit component */}
 			{mode === EDIT}
-		</section>
+		</React.Fragment>
 	);
 }
 
