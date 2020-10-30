@@ -117,7 +117,7 @@
   cursor: pointer;
 }
 
-.close{
+.close {
   color: lightgray;
   width: auto;
   height: 20px;
@@ -129,4 +129,6 @@
   color: black;
   box-shadow: none;
   border: 0;
+  outline-style: solid;
+  outline-color: #9e9e9e;
 }
