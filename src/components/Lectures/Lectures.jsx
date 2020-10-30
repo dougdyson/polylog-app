@@ -11,7 +11,7 @@ import "./Lectures.css";
 // import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
-let lectureClicked = null;
+let currentLecture = null;
 export default function Lectures() {
 	const {
 		lectures,
@@ -28,8 +28,8 @@ export default function Lectures() {
 	const ACTIVITY_FEED = "ACTIVITY_FEED";
 	const { mode, transition, back } = useVisualMode(KEY_ART);
 
-	const lectureClickTransition = (lecture_id, mode) => {
-		lectureClicked = lecture_id;
+	const lectureClickTransition = (lecture, mode) => {
+		currentLecture = lecture;
 		transition(mode);
 	};
 
@@ -40,7 +40,7 @@ export default function Lectures() {
 				title={lecture.title}
 				onEdit={() => transition(ACTIVITY_FEED)}
 				onDelete={deleteLecture}
-				onHistory={() => lectureClickTransition(lecture.id, HISTORY)}
+				onHistory={() => lectureClickTransition(lecture, HISTORY)}
 				newSession={newSession}
 			/>
 		);
@@ -66,7 +66,7 @@ export default function Lectures() {
 						<LecturerKeyArt />
 					</div>
 				)}
-				{mode === HISTORY && <History lecture_id={lectureClicked} />}
+				{mode === HISTORY && <History lecture={currentLecture} />}
 				{mode === ACTIVITY_FEED}
 			</div>
 		</div>

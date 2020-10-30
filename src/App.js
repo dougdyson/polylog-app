@@ -4,6 +4,7 @@ import Screens from "./screens";
 import useLectureData from "./hooks/useLectureData";
 import useTopicCardData from "./hooks/useTopicCardData";
 import useQuizCardData from "./hooks/useQuizCardData";
+// Refactor the hook functions to use objects as params instead of a shit amount of stuff
 
 function App() {
 	// KEEP THIS FOR TESTING PURPOSES
