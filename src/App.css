@@ -1,7 +1,6 @@
 .App {
   padding: 40px;
-  width: 960px;
-  background-color: #FDFDFD;
+  max-width: 960px;
 }
 
 .App-logo {
