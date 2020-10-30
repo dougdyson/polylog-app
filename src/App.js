@@ -36,6 +36,7 @@ function App() {
 	// 	deleteQuizAnswer
 	// } = useQuizCardData(1, "4a115ab1-c845-412a-b868-531cf505bf45");
 	React.useEffect(() => {
+		// newSession(1);
 		// newLecture(1, "Lecture from react", "description from react");
 		// editLecture(2, "Edit lecture from react", "edit description from react");
 		// deleteLecture(1);
