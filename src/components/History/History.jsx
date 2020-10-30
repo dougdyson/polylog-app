@@ -145,6 +145,7 @@ function History(props) {
         <div>Open in Google Sheets</div>
         <div>coming soon</div>
       </div>
+      
       <div className='history-key-art'>
         <HistoryKeyArt />
       </div>
