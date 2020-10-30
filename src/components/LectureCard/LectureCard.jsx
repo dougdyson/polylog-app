@@ -16,7 +16,7 @@ function LectureCard(props) {
 					title={props.title}
 					onPlay={() => transition(PLAY)}
 					onHistory={() => transition(HISTORY)}
-					onEdit={() => transition(EDIT)}
+					onEdit={props.editLecture}
 				/>
 			)}
 			{/* Still need NewSession component */}
@@ -25,9 +25,6 @@ function LectureCard(props) {
 			{/* Still need History component */}
 			{/* Hard code history for now? Or I can make the function to make get request to get data */}
 			{mode === HISTORY}
-			{/* Still need Edit component */}
-			{/* props.editLecture */}
-			{mode === EDIT}
 		</React.Fragment>
 	);
 }

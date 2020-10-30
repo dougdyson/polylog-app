@@ -24,7 +24,7 @@ export default function Lectures() {
 				key={lecture.id}
 				title={lecture.title}
 				newLecture={newLecture}
-				editLecture={editLecture}
+				editLecture={() => transition(ACTIVITY_FEED)}
 				deleteLecture={deleteLecture}
 				newSession={newSession}
 			/>
