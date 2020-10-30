@@ -1,3 +1,7 @@
+.lectures-container {
+  font-family: 'roboto';
+}
+
 .lectures-page-header{
   display: flex;
   align-items: center;

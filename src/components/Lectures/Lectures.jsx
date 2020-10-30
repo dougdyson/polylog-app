@@ -4,13 +4,14 @@ import LectureCard from '../LectureCard/LectureCard';
 import NewIcon from '../NewIcon/NewIcon';
 import { ReactComponent as LecturerKeyArt } from './lecturer-key-art.svg';
 
+import "fontsource-roboto";
 import './Lectures.css';
 import '../../App.css';
 
 export default function Lectures () {
 
   return (
-    <div>
+    <div className='lectures-container'>
       <Nav />
         <div className='lectures-page-header'>
           <NewIcon new_class="icon icon-large" />
