@@ -9,7 +9,7 @@ export default function Nav () {
       <div className='nav-top-left'>
         <a href='#'><Logo /></a>
         <div className='nav-top-menu-item-left'><a href='#'>team</a></div>
-        <div className='nav-top-menu-item-left'><a href='#'>coming soon!</a></div>
+        <div className='nav-top-menu-item-left'><a href='#'>coming soon</a></div>
       </div>
 
       <div className='nav-top-right'>

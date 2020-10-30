@@ -4,8 +4,8 @@ import LectureCard from '../LectureCard/LectureCard';
 import NewIcon from '../NewIcon/NewIcon';
 import { ReactComponent as LecturerKeyArt } from './lecturer-key-art.svg';
 
-import './Lectures.css'
-// import bg_yellow_bottom from './bg-yellow-bottom.svg';
+import './Lectures.css';
+import '../../App.css';
 
 export default function Lectures () {
 
