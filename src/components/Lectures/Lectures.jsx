@@ -5,6 +5,7 @@ import NewIcon from "../NewIcon/NewIcon";
 import { ReactComponent as LecturerKeyArt } from "./lecturer-key-art.svg";
 import useLectureData from "../../hooks/useLectureData";
 import useVisualMode from "../../hooks/useVisualMode";
+import "fontsource-roboto";
 import "./Lectures.css";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
