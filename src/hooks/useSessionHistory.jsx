@@ -7,9 +7,7 @@ const useSessionHistory = (lecture_id = null) => {
 
 	React.useEffect(() => {
 		if (lecture_id) {
-			return axios
-				.get(`/session/${lecture_id}`)
-				.then(res => setHistory({ ...res }));
+			axios.get(`/session/${lecture_id}`).then(res => setHistory({ ...res }));
 		}
 	}, []);
 

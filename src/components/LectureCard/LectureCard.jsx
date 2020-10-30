@@ -11,11 +11,10 @@ function LectureCard(props) {
 		<React.Fragment>
 			{mode === SHOW && (
 				<Show
-					key={props.key}
 					title={props.title}
 					onPlay={() => transition(PLAY)}
-					onHistory={props.lectureSessionHistory}
-					onEdit={props.editLecture}
+					onHistory={props.onHistory}
+					onEdit={props.onEdit}
 				/>
 			)}
 			{/* Still need NewSession component */}

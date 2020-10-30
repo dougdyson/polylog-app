@@ -11,6 +11,7 @@ import "./Lectures.css";
 // import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
+let lectureClicked = null;
 export default function Lectures() {
 	const {
 		lectures,
@@ -27,17 +28,19 @@ export default function Lectures() {
 	const ACTIVITY_FEED = "ACTIVITY_FEED";
 	const { mode, transition, back } = useVisualMode(KEY_ART);
 
-	// First I need the data
-	// I need to add history stats to the lectures state?
+	const lectureClickTransition = (lecture_id, mode) => {
+		lectureClicked = lecture_id;
+		transition(mode);
+	};
 
 	const lecturesList = lectures.map(lecture => {
 		return (
 			<LectureCard
 				key={lecture.id}
 				title={lecture.title}
-				editLecture={() => transition(ACTIVITY_FEED)}
-				deleteLecture={deleteLecture}
-				lectureSessionHistory={() => transition(HISTORY)}
+				onEdit={() => transition(ACTIVITY_FEED)}
+				onDelete={deleteLecture}
+				onHistory={() => lectureClickTransition(lecture.id, HISTORY)}
 				newSession={newSession}
 			/>
 		);
@@ -63,9 +66,7 @@ export default function Lectures() {
 						<LecturerKeyArt />
 					</div>
 				)}
-				{/* I can return the id of the lecture the button was clicked on */}
-				{/* After that I can find the lecture element in the array and render the history component */}
-				{mode === HISTORY && <History lecture_id={1} />}
+				{mode === HISTORY && <History lecture_id={lectureClicked} />}
 				{mode === ACTIVITY_FEED}
 			</div>
 		</div>
