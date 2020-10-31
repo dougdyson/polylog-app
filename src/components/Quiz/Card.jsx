@@ -9,6 +9,7 @@ export default function Card(props) {
 		return (
 			<Question
 				key={question.id}
+				id={question.id}
 				question={question.question}
 				answers={question.answers}
 			/>

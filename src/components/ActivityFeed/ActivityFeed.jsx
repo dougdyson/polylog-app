@@ -21,7 +21,6 @@ export default function ActivityFeed(props) {
 		newQuizCard,
 		newQuizQuestion,
 		newQuizAnswer,
-		newQuizResponse,
 		editQuizCard,
 		editQuizQuestion,
 		editQuizAnswer,
@@ -49,6 +48,12 @@ export default function ActivityFeed(props) {
 		return (
 			<Card
 				key={quizCard.position}
+				id={quizCard.id}
+				title={quizCard.title}
+				onEdit={editQuizCard}
+				onDelete={deleteQuizCard}
+				onQestion={{ newQuizQuestion, editQuizQuestion, deleteQuizQuestion }}
+				onAnswer={{ newQuizAnswer, editQuizAnswer, deleteQuizAnswer }}
 				questions={quizCard.questions}
 				session={props.session}
 			/>
@@ -74,7 +79,10 @@ export default function ActivityFeed(props) {
 			<LectureInfo
 				lecture={props.lecture}
 				onEdit={props.onEdit}
+				// onNew should bring up a list and that list to choose card type
 				onNew={newTopicCard}
+				newTopic={newTopicCard}
+				newQuiz={newQuizCard}
 				cardsList={cardsList}
 			/>
 			{cardsList}

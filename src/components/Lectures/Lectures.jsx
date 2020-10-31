@@ -13,6 +13,8 @@ import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
 // You can pass components down as props instead of passing all the data down the tree
+
+// Keeps track of which lecture was clicked
 let currentLecture = null;
 export default function Lectures() {
 	const {
