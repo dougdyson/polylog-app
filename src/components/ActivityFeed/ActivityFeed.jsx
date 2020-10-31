@@ -14,7 +14,7 @@ export default function ActivityFeed(props) {
       <div className='activity-feed-card-header-row'>
         <div className='activity-feed-card-header'>
           <ActivityFeedIcon className='activity-feed-icon' />
-          <h2 className='activity-feed-card-title'>Lecture Activity Feed</h2>
+          <h2 className='activity-feed-card-title'>Lecture Feed</h2>
         </div>
         <Button variant='close'>x</Button>
       </div>
