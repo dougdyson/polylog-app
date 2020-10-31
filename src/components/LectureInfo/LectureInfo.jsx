@@ -6,6 +6,7 @@ import NewIcon from '../NewIcon/NewIcon'
 
 import './LectureInfo.css';
 import '../../App.css';
+import "fontsource-roboto";
 
 
 export default function lecture (props) {
@@ -25,22 +26,24 @@ export default function lecture (props) {
   
   // page layout
   return (
-    <section className='lecture-info'>
+    <section className='lecture-container'>
+      <div className='lecture-info'>
+          <TextareaAutosize 
+            className='lecture-info-title'
+            placeholder="Lecture Title"
+            // value={title}
+          /> 
         <TextareaAutosize 
-          className='lecture-info-title'
-          placeholder="Lecture Title"
-          value={title}
-        /> 
-      <TextareaAutosize 
-        className='lecture-info-description'
-        placeholder="Lecture Description"
-        value={description}
-      />
-      <div className={variant}> 
-        <NewIcon new_class='icon icon-normal'/>
-        <Button variant='card-mover'>∨</Button>
-        <Button variant='card-mover'>∧</Button>
-        top
+          className='lecture-info-description'
+          placeholder="Lecture Description"
+          // value={description}
+        />
+        <div className={variant}> 
+          <NewIcon new_class='icon icon-normal'/>
+          <Button variant='card-mover'>∨</Button>
+          <Button variant='card-mover'>∧</Button>
+          <div className='lecture-goto-top'>top</div>
+        </div>
       </div>
     </section>
   )

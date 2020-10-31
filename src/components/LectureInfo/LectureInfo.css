@@ -1,44 +1,65 @@
+.lecture-container {
+  font-family: 'Roboto';
+}
+
 .lecture-info {
   height: 100%;
   background-color: white;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .lecture-info-title {
   opacity: 0.8;
   font-size: 20px;
   justify-content: flex-start;
-  /* width: auto; */
-  width: 94%;
+  width: auto;
   word-wrap: break-word;
   display: flex;
   align-items: center;
   opacity: 0.8;
-  /* font-size: 18px; */
   padding: 10px;
   border: none;
   display: flex;
   outline: none;
   font-weight: bold;
+  width: 90%;
+  font-family: 'roboto';
 }
 
 .lecture-info-description{
   color: #7E7E7E;
   font-size: 14px;
   opacity: 0.8;
-  margin-block-end: .5em;
+  margin-block-end: 1em;
   padding:10px;
-  width: 94%;
+  width: 90%;
   word-wrap: break-word;
   align-items: center;
   opacity: 0.8;
   border: none;
   outline: none;
+  font-family: 'roboto';
+}
+
+.lecture-goto-top {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #c4c4c4;
+}
+
+.lecture-goto-top:hover {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
 }
 
 .lecture-controls-visible {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20%;
+  padding: 0 10px;
+  /* border-bottom: #7E7E7E; */
 }
 
 .lecture-controls-hidden {

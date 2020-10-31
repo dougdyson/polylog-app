@@ -1,5 +1,4 @@
 .topic-info {
-  display: flex-inline;
   font-family: 'roboto';
 }
 
@@ -8,17 +7,19 @@
   justify-content: left;
   align-items: center;
   color: black;
-  padding-left: 20px
+}
+
+.topic-info-visbility {
+  width: 20px;
+  height: 20px;;
 }
 
 .topic-info-title {
-  width: 84%;
-  /* word-wrap: break-word; */
+  width: 88%;
   display: flex;
   align-items: center;
   opacity: 0.8;
   font-size: 18px;
-  padding: 10px;
   border: none;
   outline: none;
   font-weight: bold;
@@ -26,14 +27,15 @@
 }
 
 .topic-info-description {
+  color: #7E7E7E;
+  font-size: 14px;
   opacity: 0.8;
-  margin-block-end: .5em;
-  padding: 10px 20px;
-  width: 85.75%;
+  margin-block-end: 1em;
+  padding:10px;
+  width: 90%;
   word-wrap: break-word;
   align-items: center;
   opacity: 0.8;
-  font-size: 13px;
   border: none;
   outline: none;
   font-family: 'roboto';
@@ -48,8 +50,9 @@
 }
 
 hr {
-  width: 96%;
+  width: 98%;
   opacity: 25%;
+  /* padding-top: */
 }
 
 hr .expanded {
@@ -61,11 +64,10 @@ hr .collapsed {
 }
 
 .emoji {
+  display: flex;
   align-items: center;
   justify-content: flex-end;
   color: #7E7E7E;
-  padding: 0px 20px;
-  display: flex;
 }
 
 .emoji img {
@@ -85,12 +87,12 @@ hr .collapsed {
   display: none;
 }
 
-.emoji img {
-  padding-left: 20px;
-  padding-right: 5px;
+.reaction-counter {
+  font-size: 14px;
+  color: #c4c4c4;
 }
 
 .new_response_button {
-  padding-left: 20px;
+  margin-left: 20px;
   padding-right: 5px;
 }

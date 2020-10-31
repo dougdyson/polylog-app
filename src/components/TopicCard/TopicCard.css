@@ -1,6 +1,6 @@
-.topic-info-container {
-  border-style: solid;
-  border-radius: 12px;
-  border-width: 1px;
-  border-color: lightgray;
+.topic-card-container {
+  padding: 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
