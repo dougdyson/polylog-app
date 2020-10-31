@@ -1,8 +1,6 @@
 import React from "react";
 
 function Message(props) {
-	console.log(props);
-
 	return (
 		<div className="quiz-answer-message">
 			{props.message || "Make a selection above"}

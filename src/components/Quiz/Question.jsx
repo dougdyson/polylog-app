@@ -11,6 +11,7 @@ export default function Question(props) {
 				id={answer.id}
 				answer={answer.answer}
 				correct={answer.correct}
+				session={props.session}
 			/>
 		);
 	});

@@ -89,6 +89,8 @@ export default function Lectures() {
 						lecture={currentLecture}
 						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
+						// Remove session once you're done with testing
+						session={"4a115ab1-c845-412a-b868-531cf505bf45"}
 					/>
 				)}
 			</div>

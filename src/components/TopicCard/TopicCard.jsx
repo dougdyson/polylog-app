@@ -11,11 +11,13 @@ export default function TopicContainer(props) {
 		<div className="topic-card-container">
 			<TopicInfo
 				id={props.id}
-				session={props.session}
 				title={props.title}
 				description={props.description}
-				onEdit={props.onEdit}
+				activity={props.activity}
 				position={props.position}
+				onEdit={props.onEdit}
+				onReaction={props.onReaction}
+				session={props.session}
 			/>
 			{props.session && <TopicResponse />}
 			{props.session && <AnswerResponse />}

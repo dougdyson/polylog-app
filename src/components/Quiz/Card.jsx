@@ -12,6 +12,7 @@ export default function Card(props) {
 				id={question.id}
 				question={question.question}
 				answers={question.answers}
+				session={props.session}
 			/>
 		);
 	});

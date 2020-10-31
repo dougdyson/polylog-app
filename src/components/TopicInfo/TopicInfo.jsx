@@ -14,10 +14,15 @@ export default function Topic(props) {
 	// to clean up with state
 	let reactions_positive = 0;
 	let reactions_negative = 0;
+
+	// This controls editing lecture cards
+	// true turn edit off
 	let display = false;
 
 	const [title, setTitle] = React.useState(props.title || "");
 	const [description, setDescription] = React.useState(props.description || "");
+
+	props.activity && console.log(props.activity.reactions);
 
 	return (
 		<main className="topic-info">
@@ -58,6 +63,7 @@ export default function Topic(props) {
 			<hr className={`hr`} />
 			<div className={`emoji`}>
 				{/* add onClick events for reactions */}
+				{/* props.onReaction */}
 				{props.session && (
 					<React.Fragment>
 						<ConfusedEmoji className="icon emoji-spacing" />{" "}

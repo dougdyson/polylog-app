@@ -12,15 +12,18 @@ export default function ActivityFeed(props) {
 	const {
 		topicCards,
 		newTopicCard,
+		newTopicResponse,
+		newTopicReaction,
 		editTopicCard,
 		deleteTopicCard
-	} = useTopicCardData(props.lecture.id);
+	} = useTopicCardData(props.lecture.id, props.session);
 
 	const {
 		quizCards,
 		newQuizCard,
 		newQuizQuestion,
 		newQuizAnswer,
+		newQuizResponse,
 		editQuizCard,
 		editQuizQuestion,
 		editQuizAnswer,
@@ -37,8 +40,12 @@ export default function ActivityFeed(props) {
 				id={topicCard.id}
 				title={topicCard.title}
 				description={topicCard.description}
+				activity={topicCard.activity}
+				position={topicCard.position}
 				onEdit={editTopicCard}
 				onDelete={deleteTopicCard}
+				onResponse={newTopicResponse}
+				onReaction={newTopicReaction}
 				session={props.session}
 			/>
 		);
@@ -50,11 +57,14 @@ export default function ActivityFeed(props) {
 				key={quizCard.position}
 				id={quizCard.id}
 				title={quizCard.title}
+				questions={quizCard.questions}
+				activity={quizCard.activity}
+				position={quizCard.position}
 				onEdit={editQuizCard}
 				onDelete={deleteQuizCard}
+				onResponse={newQuizResponse}
 				onQestion={{ newQuizQuestion, editQuizQuestion, deleteQuizQuestion }}
 				onAnswer={{ newQuizAnswer, editQuizAnswer, deleteQuizAnswer }}
-				questions={quizCard.questions}
 				session={props.session}
 			/>
 		);
