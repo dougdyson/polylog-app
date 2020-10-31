@@ -19,6 +19,7 @@ const useLectureData = lecturer_id => {
 			.then(res => {
 				const id = res.data.id;
 				dispatch({ type: NEW, data: { id, title, description } });
+				return res.data;
 			});
 	};
 

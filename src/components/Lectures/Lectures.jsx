@@ -55,7 +55,9 @@ export default function Lectures() {
 					new_class="icon icon-large"
 					onNew={() => {
 						// The number being passed here should be the user_id
-						newLecture(1).then(() => transition(ACTIVITY_FEED));
+						newLecture(1).then(lecture =>
+							lectureClickTransition(lecture, ACTIVITY_FEED)
+						);
 					}}
 				/>
 				<h2 className="lectures-page-title">Lectures</h2>

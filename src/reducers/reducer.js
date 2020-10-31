@@ -42,20 +42,17 @@ export const reducer = (state, action) => {
 		case EDIT:
 			cardIndex = findIndex(state, action.card_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{ ...state[cardIndex], ...action.data },
 				...state.slice(cardIndex + 1)
 			];
 		case DELETE:
 			cardIndex = findIndex(state, action.card_id);
-			return [
-				...state.slice(cardIndex - 1, cardIndex),
-				...state.slice(cardIndex + 1)
-			];
+			return [...state.slice(0, cardIndex), ...state.slice(cardIndex + 1)];
 		case NEW_TOPIC_ACTIVITY:
 			cardIndex = findIndex(state, action.topic_card_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{
 					...state[cardIndex],
 					activity: {
@@ -71,14 +68,14 @@ export const reducer = (state, action) => {
 		case SET_QUIZ_ACTIVITY:
 			cardIndex = findIndex(state, action.card_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{ ...state[cardIndex], activity: [...action.data] },
 				...state.slice(cardIndex + 1)
 			];
 		case NEW_QUIZ_Q_OR_R:
 			cardIndex = findIndex(state, action.quiz_card_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{
 					...state[cardIndex],
 					[action.key]: [...state[cardIndex][action.key], { ...action.data }]
@@ -90,11 +87,11 @@ export const reducer = (state, action) => {
 			questions = state[cardIndex].questions;
 			questionIndex = findIndex(questions, action.quiz_question_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{
 					...state[cardIndex],
 					questions: [
-						...questions.slice(questionIndex - 1, questionIndex),
+						...questions.slice(0, questionIndex),
 						{
 							...questions[questionIndex],
 							answers: [...questions[questionIndex].answers, { ...action.data }]
@@ -109,11 +106,11 @@ export const reducer = (state, action) => {
 			questions = state[cardIndex].questions;
 			questionIndex = findIndex(questions, action.quiz_question_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{
 					...state[cardIndex],
 					questions: [
-						...questions.slice(questionIndex - 1, questionIndex),
+						...questions.slice(0, questionIndex),
 						{ ...questions[questionIndex], question: action.question },
 						...questions.slice(questionIndex + 1)
 					]
@@ -127,15 +124,15 @@ export const reducer = (state, action) => {
 			answers = questions[questionIndex].answers;
 			answerIndex = findIndex(answers, action.quiz_answer_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{
 					...state[cardIndex],
 					questions: [
-						...questions.slice(questionIndex - 1, questionIndex),
+						...questions.slice(0, questionIndex),
 						{
 							...questions[questionIndex],
 							answers: [
-								...answers.slice(answerIndex - 1, answerIndex),
+								...answers.slice(0, answerIndex),
 								{
 									...answers[answerIndex],
 									answer: action.answer,
@@ -154,11 +151,11 @@ export const reducer = (state, action) => {
 			questions = state[cardIndex].questions;
 			questionIndex = findIndex(questions, action.quiz_question_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{
 					...state[cardIndex],
 					questions: [
-						...questions.slice(questionIndex - 1, questionIndex),
+						...questions.slice(0, questionIndex),
 						...questions.slice(questionIndex + 1)
 					]
 				},
@@ -171,15 +168,15 @@ export const reducer = (state, action) => {
 			answers = questions[questionIndex].answers;
 			answerIndex = findIndex(answers, action.quiz_answer_id);
 			return [
-				...state.slice(cardIndex - 1, cardIndex),
+				...state.slice(0, cardIndex),
 				{
 					...state[cardIndex],
 					questions: [
-						...questions.slice(questionIndex - 1, questionIndex),
+						...questions.slice(0, questionIndex),
 						{
 							...questions[questionIndex],
 							answers: [
-								...answers.slice(answerIndex - 1, answerIndex),
+								...answers.slice(0, answerIndex),
 								...answers.slice(answerIndex + 1)
 							]
 						},
