@@ -14,8 +14,8 @@ export default function Lecture(props) {
 	// lecture controls only visible for lecturers
 
 	// Check if there is an element before accessing .props
-	const nextPosition = props.cardsList[props.cardsList.length - 1]
-		? props.cardsList[props.cardsList.length - 1].props.position
+	const nextPosition = props.cardsList.length
+		? props.cardsList[props.cardsList.length - 1].props.position + 1
 		: 1;
 
 	// page layout
