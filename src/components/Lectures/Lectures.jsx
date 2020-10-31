@@ -8,7 +8,7 @@ import useLectureData from "../../hooks/useLectureData";
 import useSessionHistory from "../../hooks/useSessionHistory";
 import useVisualMode from "../../hooks/useVisualMode";
 import "./Lectures.css";
-// import "fontsource-roboto";
+import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
 let currentLecture = null;

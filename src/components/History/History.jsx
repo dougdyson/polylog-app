@@ -4,7 +4,6 @@ import { ReactComponent as HistoryKeyArt } from "./history-key-art.svg";
 import Button from "../Button/Button";
 import useSessionHistory from "../../hooks/useSessionHistory";
 import "./History.css";
-import "fontsource-roboto";
 
 function History(props) {
 	const { history } = useSessionHistory(props.lecture.id);
