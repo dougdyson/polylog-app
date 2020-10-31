@@ -15,6 +15,7 @@ export default function TopicContainer(props) {
 				title={props.title}
 				description={props.description}
 				onEdit={props.onEdit}
+				position={props.position}
 			/>
 			{props.session && <TopicResponse />}
 			{props.session && <AnswerResponse />}

@@ -30,10 +30,14 @@ export default function Topic(props) {
 					placeholder="Topic Title"
 					test_id="topic-info-title"
 					value={title}
-					// The number here is the position not sure how to handle that yet
 					onChange={event => {
 						setTitle(event.target.value);
-						props.onEdit(props.id, event.target.value, description, 8);
+						props.onEdit(
+							props.id,
+							event.target.value,
+							description,
+							props.position
+						);
 					}}
 				/>
 			</div>
@@ -45,10 +49,9 @@ export default function Topic(props) {
 				test_id="topic_info_description"
 				rows="3"
 				value={description}
-				// The number here is the position not sure how to handle that yet
 				onChange={event => {
 					setDescription(event.target.value);
-					props.onEdit(props.id, title, event.target.value, 8);
+					props.onEdit(props.id, title, event.target.value, props.position);
 				}}
 				style={{ display: { display } ? "flex" : "none" }}
 			/>

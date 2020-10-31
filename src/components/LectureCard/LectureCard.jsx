@@ -5,7 +5,7 @@ import useVisualMode from "../../hooks/useVisualMode";
 function LectureCard(props) {
 	const SHOW = "SHOW";
 	const PLAY = "PLAY";
-	const { mode, transition, back } = useVisualMode(SHOW);
+	const { mode, transition } = useVisualMode(SHOW);
 
 	return (
 		<React.Fragment>

@@ -49,7 +49,6 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 						type: NEW,
 						data: { id, lecture_id, title, description, position }
 					});
-				// return res.data;
 			});
 	};
 

@@ -15,18 +15,6 @@ export default function Lecture(props) {
 	);
 	// lecture controls only visible for lecturers
 
-	// to clean up
-	// let variant = "lecture-controls-visible";
-	// let title = "";
-	// let description = "";
-
-	// let size = Object.keys(props).length;
-	// if (size) {
-	// 	variant = props.variant;
-	// 	title = props.lecture_info.title;
-	// 	description = props.lecture_info.description;
-	// }
-
 	// page layout
 	return (
 		<section className="lecture-container">
@@ -53,7 +41,15 @@ export default function Lecture(props) {
 				<div className={"lecture-controls-visible"}>
 					<NewIcon
 						new_class="icon icon-normal"
-						onNew={() => props.onNew(props.lecture.id)}
+						//The last param is the last position of the cards plus one
+						onNew={() =>
+							props.onNew(
+								props.lecture.id,
+								null,
+								null,
+								props.cardsList[props.cardsList.length - 1].props.position + 1
+							)
+						}
 					/>
 					<Button variant="card-mover">∨</Button>
 					<Button variant="card-mover">∧</Button>

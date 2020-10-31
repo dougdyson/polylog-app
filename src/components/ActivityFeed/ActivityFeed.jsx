@@ -23,12 +23,15 @@ export default function ActivityFeed(props) {
 				title={topicCard.title}
 				description={topicCard.description}
 				onEdit={editTopicCard}
+				position={topicCard.position}
 			/>
 		);
-
-		// Combine topicCards and quizCards and sort by position
-		// Render combined list below
 	});
+
+	// Combine topicCards and quizCards and sort by position
+	// Render combined list below
+	const cardsList = [...topicCardsList];
+
 	return (
 		<div className="activity-feed-container">
 			<div className="activity-feed-card-header-row">
@@ -44,6 +47,7 @@ export default function ActivityFeed(props) {
 				lecture={props.lecture}
 				onEdit={props.onEdit}
 				onNew={newTopicCard}
+				cardsList={cardsList}
 			/>
 			{topicCardsList}
 		</div>
