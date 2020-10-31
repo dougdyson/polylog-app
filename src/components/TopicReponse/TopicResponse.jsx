@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 import './TopicResponse.css';
 import question_icon from './question_icon.svg';
 import comment_icon from './comment_icon.svg';
+import "fontsource-roboto";
 
 export default function DisplayTopicResponse (props) {
 

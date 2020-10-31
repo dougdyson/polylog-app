@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 
 import './AnswerResponse.css';
 import answer_icon from './answer_icon.svg';
+import "fontsource-roboto";
 
 export default function DisplayAnswerResponse (props) {
 
@@ -21,10 +22,9 @@ export default function DisplayAnswerResponse (props) {
 
   return (
     <section className="answer-response">
-
       
       <div className='answer-response-row'>
-          <img className="answer-response-icon" src={answer_icon}></img>
+        <img className="answer-response-icon" src={answer_icon}></img>
         <div className='answer_response_bubble'>
           <TextareaAutosize
             className='answer-response-textarea'
@@ -33,6 +33,7 @@ export default function DisplayAnswerResponse (props) {
             />
         </div>
       </div>
+      
       <div className='answer-response-row'>
         <div className='answer-response-user'>
           {student_name + ' @ ' + timestamp}

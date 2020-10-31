@@ -33,14 +33,14 @@ export default function Topic (props) {
     
     <main className='topic-info'>
       <div className='topic-info-header'>
-        <VisibleIcon />
+        <VisibleIcon className='topic-info-visbility' />
         <TextareaAutosize 
           // readOnly if not owner
 
           className='topic-info-title' 
           placeholder='Topic Title'  
           test_id='topic-info-title'
-          value={title}
+          // value={title}
         />
       </div>
       <TextareaAutosize 
@@ -50,15 +50,15 @@ export default function Topic (props) {
         placeholder='Enter topic description...'
         test_id='topic_info_description'
         rows='3'
-        value={description}
+        // value={description}
         style={{display: {display} ? 'flex' : 'none' }}
       />
       <hr className={`hr`}/>
       <div className={`emoji`}>
         
         {/* add onClick events for reactions */}
-        <ConfusedEmoji className='icon emoji-spacing' /> ({reactions_negative})
-        <ThumbsUpEmoji className='icon emoji-spacing'/> ({reactions_positive})
+        <ConfusedEmoji className='icon emoji-spacing' /> <span className='reaction-counter'>({reactions_negative})</span>
+        <ThumbsUpEmoji className='icon emoji-spacing'/> <span className='reaction-counter'>({reactions_positive})</span>
 
         {/* add onClick for new topic response */}
         <div className='new_response_button'><NewIcon /></div>

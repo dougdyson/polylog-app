@@ -1,0 +1,27 @@
+.activity-feed-container {
+  max-width: 300px;
+  padding: 0 20px;
+  font-family: 'Roboto';
+  outline: thin solid #e4e4e4;
+}
+
+.activity-feed-card-header-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-feed-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.activity-feed-icon {
+  opacity: .15;
+}
+
+.activity-feed-card-title {
+  display: flex;
+  font-size: 18px;
+  padding-left: 10px;
+  color: #c4c4c4;
+}
