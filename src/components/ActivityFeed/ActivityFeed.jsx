@@ -2,6 +2,8 @@ import React from 'react';
 import Button from '../Button/Button';
 import LectureInfo from '../LectureInfo/LectureInfo';
 import TopicCard from '../TopicCard/TopicCard';
+import QuizCard from '../Quiz/QuizCard';
+
 import { ReactComponent as ActivityFeedIcon } from './playlist_add_check-24px.svg';
 
 import './ActivityFeed.css'
@@ -22,6 +24,7 @@ export default function ActivityFeed(props) {
       <LectureInfo />
       <div className='card-feed-container'>
         <TopicCard />
+        <QuizCard />
       </div>
     </div>
   );

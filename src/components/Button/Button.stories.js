@@ -14,6 +14,7 @@ export const Next = () => <Button variant='card-mover'>next</Button>
 export const Previous = () => <Button variant='card-mover'>back</Button>
 export const Submit = () => <Button variant='submit'>Submit</Button>
 export const Close = () => <Button variant='close'>X</Button>
-export const Answer = () => <Button variant='quiz-answer-button'>Quiz answer selection</Button>
+export const Answer = () => <Button variant='quiz-answer-button'>Quiz answer choice</Button>
+export const Selected = () => <Button variant='quiz-answer-selected'>Selected quiz answer choice</Button>
 export const Correct = () => <Button variant='quiz-answer-correct'>Correct Quiz Answer</Button>
 export const Incorrect = () => <Button variant='quiz-answer-incorrect'>Incorrect Quiz Answer</Button>

@@ -5,17 +5,14 @@ import "fontsource-roboto";
 
 export default function Question(props) {
 
-  // initializel; replace with state
-  let question = 'Enter quiz question'
+  // initialize; replace with state
   const size = Object.keys(props).length;
 
-  if (size) {
-    question = props.question;
-  }
+  let question = (size) ? props.question : 'Enter quiz question'
 
   return (
-    <div className='quiz-question'>
-      {question}
-    </div>
+      <div className='quiz-quesion'>
+        {question}
+      </div>
   );
 }

@@ -9,7 +9,7 @@ export default function Answer(props) {
   console.log(props);
   
   // initialize; clean up with state
-  let answer = 'Enter answer question'
+  let answer = 'Select answer to question'
   
   const size = Object.keys(props).length;
 
