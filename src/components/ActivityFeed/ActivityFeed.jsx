@@ -50,7 +50,7 @@ export default function ActivityFeed(props) {
 				lecture={props.lecture}
 				onEdit={props.onEdit}
 				onNew={newTopicCard}
-				cardsList={cardsList}
+				cardsList={cardsList || []}
 			/>
 			{cardsList}
 		</div>

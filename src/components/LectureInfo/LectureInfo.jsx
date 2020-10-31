@@ -13,6 +13,11 @@ export default function Lecture(props) {
 	);
 	// lecture controls only visible for lecturers
 
+	// Check if there is an element before accessing .props
+	const nextPosition = props.cardsList[props.cardsList.length - 1]
+		? props.cardsList[props.cardsList.length - 1].props.position
+		: 1;
+
 	// page layout
 	return (
 		<section className="lecture-container">
@@ -41,12 +46,7 @@ export default function Lecture(props) {
 						new_class="icon icon-normal"
 						//The last param is the last position of the cards plus one
 						onNew={() =>
-							props.onNew(
-								props.lecture.id,
-								null,
-								null,
-								props.cardsList[props.cardsList.length - 1].props.position + 1
-							)
+							props.onNew(props.lecture.id, null, null, nextPosition)
 						}
 					/>
 					<Button variant="card-mover">∨</Button>
