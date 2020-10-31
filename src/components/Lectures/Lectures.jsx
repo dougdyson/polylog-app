@@ -48,6 +48,11 @@ export default function Lectures() {
 		);
 	});
 
+	// Sort lectures by id
+	lecturesList.sort((a, b) => {
+		return a.key > b.key ? 1 : -1;
+	});
+
 	return (
 		<div>
 			<Nav />
