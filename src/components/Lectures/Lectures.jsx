@@ -4,6 +4,7 @@ import LectureCard from "../LectureCard/LectureCard";
 import NewIcon from "../NewIcon/NewIcon";
 import { ReactComponent as LecturerKeyArt } from "./lecturer-key-art.svg";
 import History from "../History/History";
+import ActivityFeed from "../ActivityFeed/ActivityFeed";
 import useLectureData from "../../hooks/useLectureData";
 import useSessionHistory from "../../hooks/useSessionHistory";
 import useVisualMode from "../../hooks/useVisualMode";
@@ -38,7 +39,7 @@ export default function Lectures() {
 			<LectureCard
 				key={lecture.id}
 				title={lecture.title}
-				onEdit={() => transition(ACTIVITY_FEED)}
+				onEdit={() => lectureClickTransition(lecture, ACTIVITY_FEED)}
 				onDelete={deleteLecture}
 				onHistory={() => lectureClickTransition(lecture, HISTORY)}
 				newSession={newSession}
@@ -69,7 +70,13 @@ export default function Lectures() {
 				{mode === HISTORY && (
 					<History lecture={currentLecture} onClose={back} />
 				)}
-				{mode === ACTIVITY_FEED}
+				{mode === ACTIVITY_FEED && (
+					<ActivityFeed
+						lecture={currentLecture}
+						onClose={back}
+						onEdit={editLecture}
+					/>
+				)}
 			</div>
 		</div>
 	);
