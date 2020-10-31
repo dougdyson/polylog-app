@@ -5,6 +5,7 @@ import TopicCard from '../TopicCard/TopicCard';
 import { ReactComponent as ActivityFeedIcon } from './playlist_add_check-24px.svg';
 
 import './ActivityFeed.css'
+import "fontsource-roboto";
 
 
 export default function ActivityFeed(props) {

@@ -1,0 +1,12 @@
+.quiz-question {
+  font-size: 18;
+  font-family: 'roboto';
+}
+
+.quiz-answer-message {
+  font-size: 18;
+  color: #7e7e7e;
+  font-family: 'roboto';
+  display: flex;
+  justify-content: center;
+}
