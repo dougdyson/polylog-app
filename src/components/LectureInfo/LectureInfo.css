@@ -2,6 +2,11 @@
   font-family: 'Roboto';
 }
 
+.lecture-header-row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .lecture-info {
   height: 100%;
   background-color: white;

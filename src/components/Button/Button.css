@@ -134,3 +134,11 @@
   border: 0;
   outline: thin solid #e4e4e4;
 }
+
+.close-activity-feed {
+  color: lightgray;
+  width: auto;
+  height: 20px;
+  background-color: white;
+  margin: 0 0 0 0;
+}
