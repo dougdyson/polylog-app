@@ -27,7 +27,7 @@ export default function Lectures() {
 	const KEY_ART = "KEY_ART";
 	const HISTORY = "HISTORY";
 	const ACTIVITY_FEED = "ACTIVITY_FEED";
-	const { mode, transition, back } = useVisualMode(KEY_ART);
+	const { mode, transition } = useVisualMode(KEY_ART);
 
 	const lectureClickTransition = (lecture, mode) => {
 		currentLecture = lecture;
@@ -39,6 +39,7 @@ export default function Lectures() {
 			<LectureCard
 				key={lecture.id}
 				title={lecture.title}
+				// onEdit doesn't transition to another activity feed if it is already open
 				onEdit={() => lectureClickTransition(lecture, ACTIVITY_FEED)}
 				onDelete={deleteLecture}
 				onHistory={() => lectureClickTransition(lecture, HISTORY)}
@@ -70,12 +71,15 @@ export default function Lectures() {
 					</div>
 				)}
 				{mode === HISTORY && (
-					<History lecture={currentLecture} onClose={back} />
+					<History
+						lecture={currentLecture}
+						onClose={() => transition(KEY_ART)}
+					/>
 				)}
 				{mode === ACTIVITY_FEED && (
 					<ActivityFeed
 						lecture={currentLecture}
-						onClose={back}
+						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
 					/>
 				)}
