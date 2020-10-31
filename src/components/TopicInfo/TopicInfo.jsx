@@ -1,8 +1,6 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import NewIcon from '../NewIcon/NewIcon';
-import VisibleIcon from '../VisibleIcon/VisibleIcon';
-import VisibleOffIcon from '../VisibleOffIcon/VisibleOffIcon';
 import ThumbsUpEmoji from '../ThumbsUpEmoji/ThumbsUpEmoji';
 import ConfusedEmoji from '../ConfusedEmoji/ConfusedEmoji';
 
@@ -33,7 +31,6 @@ export default function Topic (props) {
     
     <main className='topic-info'>
       <div className='topic-info-header'>
-        <VisibleIcon className='topic-info-visbility' />
         <TextareaAutosize 
           // readOnly if not owner
 

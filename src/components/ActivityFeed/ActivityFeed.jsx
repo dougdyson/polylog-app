@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import LectureInfo from '../LectureInfo/LectureInfo';
-import TopicContainer from '../TopicCard/TopicCard';
+import TopicCard from '../TopicCard/TopicCard';
 import { ReactComponent as ActivityFeedIcon } from './playlist_add_check-24px.svg';
 
 import './ActivityFeed.css'
@@ -19,7 +19,9 @@ export default function ActivityFeed(props) {
         <Button variant='close'>x</Button>
       </div>
       <LectureInfo />
-      <TopicContainer />
+      <div className='card-feed-container'>
+        <TopicCard />
+      </div>
     </div>
   );
 }

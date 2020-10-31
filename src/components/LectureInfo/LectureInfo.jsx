@@ -41,8 +41,8 @@ export default function lecture (props) {
           />
           <div className={variant}> 
             <NewIcon new_class='icon icon-normal'/>
-            <Button variant='card-mover'>∨</Button>
-            <Button variant='card-mover'>∧</Button>
+            <Button variant='card-mover'>next</Button>
+            <Button variant='card-mover'>previous</Button>
             <div className='lecture-goto-top'>top</div>
           </div>
         </div>

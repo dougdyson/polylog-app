@@ -73,13 +73,14 @@
 }
 
 .card-mover {
-  width: 88px;
-  height: 23px;
-  left: 1169px;
-  top: 224px;
-  background: #E4E4E4;
-  border-radius: 5px;
-  color: #444053
+  background-color: white;
+  border-color: #9e9e9e;
+  border-style: solid;
+  font-size: 12px;
+  color: #9e9e9e;
+  border-width: 1px;
+  border-radius: 10px;
+  width: 80px;
 }
 
 .card-mover:hover {
@@ -88,20 +89,22 @@
 }
 
 .submit {
-  color: darkgray;
-  background: whitesmoke;
+  color: #7e7e7e;
+  /* background: whitesmoke; */
   border-radius: 10px;
   border-style: solid;
   border-width: .1em;
-  border-color: darkgray;
-  font-family: 'roboto';
+  border-color: #7E7E7E;
+  background-color: white;
   font-size: 10px;
+  /* color: darkgray; */
+  border: thin solid darkgray;
 }
 
 .submit:hover {
-  color: #000000;
+  color: black;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  border-color: darkgray;
+  border-color: black;
   cursor: pointer;
 }
 
@@ -110,9 +113,8 @@
   color: blue;
   background-color: white;
   opacity: .5;
-  font-size: 10px;
+  font-size: 12px;
   padding-left: 10px;
-  font-family: 'roboto';
 }
 
 .reply:hover {
