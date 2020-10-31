@@ -7,12 +7,12 @@ import Button from '../Button/Button';
 
 export default function Card(props) {
   return (
-    <Section>
+    <section>
       <QuizIcon />
       <Question />
       <Answer />
       <Message />
       <Button variant='submit'>SUBMIT</Button>
-    </Section>
+    </section>
   );
 }
