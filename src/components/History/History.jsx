@@ -3,8 +3,10 @@ import { ReactComponent as SessionHistoryIcon } from "./double-zag-stats-icon.sv
 import { ReactComponent as HistoryKeyArt } from "./history-key-art.svg";
 import Button from "../Button/Button";
 import useSessionHistory from "../../hooks/useSessionHistory";
+import lectureContext from "../../contexts/LectureContext";
 import "./History.css";
 
+// Add some conditionals || if there's no data ie start date and quiz responses
 function History(props) {
 	const { history } = useSessionHistory(props.lecture.id);
 

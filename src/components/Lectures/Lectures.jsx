@@ -12,6 +12,7 @@ import "./Lectures.css";
 import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
+// You can pass components down as props instead of passing all the data down the tree
 let currentLecture = null;
 export default function Lectures() {
 	const {
@@ -42,13 +43,13 @@ export default function Lectures() {
 				// onEdit doesn't transition to another activity feed if it is already open
 				onEdit={() => lectureClickTransition(lecture, ACTIVITY_FEED)}
 				onDelete={deleteLecture}
+				// History feed only updates properly when you close the feed first
 				onHistory={() => lectureClickTransition(lecture, HISTORY)}
 				newSession={newSession}
 			/>
 		);
 	});
 
-	// Sort lectures by id
 	lecturesList.sort((a, b) => {
 		return a.key > b.key ? 1 : -1;
 	});
