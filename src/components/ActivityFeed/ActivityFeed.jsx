@@ -2,9 +2,10 @@ import React from "react";
 import Button from "../Button/Button";
 import LectureInfo from "../LectureInfo/LectureInfo";
 import TopicContainer from "../TopicCard/TopicCard";
-import { ReactComponent as ActivityFeedIcon } from "./playlist_add_check-24px.svg";
+import Card from "../Quiz/Card";
 import useTopicCardData from "../../hooks/useTopicCardData";
-
+import useQuizCardData from "../../hooks/useQuizCardData";
+import { ReactComponent as ActivityFeedIcon } from "./playlist_add_check-24px.svg";
 import "./ActivityFeed.css";
 
 export default function ActivityFeed(props) {
@@ -15,24 +16,48 @@ export default function ActivityFeed(props) {
 		deleteTopicCard
 	} = useTopicCardData(props.lecture.id);
 
+	const {
+		quizCards,
+		newQuizCard,
+		newQuizQuestion,
+		newQuizAnswer,
+		newQuizResponse,
+		editQuizCard,
+		editQuizQuestion,
+		editQuizAnswer,
+		deleteQuizCard,
+		deleteQuizQuestion,
+		deleteQuizAnswer
+	} = useQuizCardData(props.lecture.id);
+
+	// I'm using position as a key since the ids aren't unique when combining both cards list
 	const topicCardsList = topicCards.map(topicCard => {
 		return (
 			<TopicContainer
-				key={topicCard.id}
+				key={topicCard.position}
 				id={topicCard.id}
 				title={topicCard.title}
 				description={topicCard.description}
 				onEdit={editTopicCard}
 				onDelete={deleteTopicCard}
-				position={topicCard.position}
+				session={props.session}
 			/>
 		);
 	});
 
-	// sort combined cards list by position
-	const cardsList = [...topicCardsList];
+	const quizCardsList = quizCards.map(quizCard => {
+		return (
+			<Card
+				key={quizCard.position}
+				questions={quizCard.questions}
+				session={props.session}
+			/>
+		);
+	});
+
+	const cardsList = [...topicCardsList, ...quizCardsList];
 	cardsList.sort((a, b) => {
-		return a.props.position > b.props.position ? 1 : -1;
+		return a.key > b.key ? 1 : -1;
 	});
 
 	return (

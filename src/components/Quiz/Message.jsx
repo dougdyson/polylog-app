@@ -1,22 +1,13 @@
-import React from 'react';
+import React from "react";
 
 function Message(props) {
+	console.log(props);
 
-  console.log(props);
-
-   // initializel; replace with state
-   let message = 'Make a selection above'
-   const size = Object.keys(props).length;
- 
-   if (size) {
-     message = props.message;
-   }
-
-  return (
-    <div className='quiz-answer-message'>
-      {message}
-    </div>
-  );
+	return (
+		<div className="quiz-answer-message">
+			{props.message || "Make a selection above"}
+		</div>
+	);
 }
 
 export default Message;
