@@ -23,6 +23,7 @@ export default function ActivityFeed(props) {
 				title={topicCard.title}
 				description={topicCard.description}
 				onEdit={editTopicCard}
+				onDelete={deleteTopicCard}
 				position={topicCard.position}
 			/>
 		);

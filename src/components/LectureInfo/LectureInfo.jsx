@@ -1,9 +1,7 @@
 import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
-
 import Button from "../Button/Button";
 import NewIcon from "../NewIcon/NewIcon";
-
 import "./LectureInfo.css";
 import "../../App.css";
 import "fontsource-roboto";
