@@ -15,10 +15,6 @@ export default function ActivityFeed(props) {
 		deleteTopicCard
 	} = useTopicCardData(props.lecture.id);
 
-	// React.useEffect(() => {
-	// 	editTopicCard(1, "Cool", "test", 3);
-	// }, []);
-
 	const topicCardsList = topicCards.map(topicCard => {
 		return (
 			<TopicContainer
@@ -29,6 +25,9 @@ export default function ActivityFeed(props) {
 				onEdit={editTopicCard}
 			/>
 		);
+
+		// Combine topicCards and quizCards and sort by position
+		// Render combined list below
 	});
 	return (
 		<div className="activity-feed-container">
@@ -41,7 +40,11 @@ export default function ActivityFeed(props) {
 					x
 				</Button>
 			</div>
-			<LectureInfo lecture={props.lecture} onEdit={props.onEdit} />
+			<LectureInfo
+				lecture={props.lecture}
+				onEdit={props.onEdit}
+				onNew={newTopicCard}
+			/>
 			{topicCardsList}
 		</div>
 	);

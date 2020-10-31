@@ -51,7 +51,10 @@ export default function Lecture(props) {
 					}}
 				/>
 				<div className={"lecture-controls-visible"}>
-					<NewIcon new_class="icon icon-normal" />
+					<NewIcon
+						new_class="icon icon-normal"
+						onNew={() => props.onNew(props.lecture.id)}
+					/>
 					<Button variant="card-mover">∨</Button>
 					<Button variant="card-mover">∧</Button>
 					<div className="lecture-goto-top">top</div>
