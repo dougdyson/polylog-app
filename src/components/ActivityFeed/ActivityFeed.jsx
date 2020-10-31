@@ -28,9 +28,11 @@ export default function ActivityFeed(props) {
 		);
 	});
 
-	// Combine topicCards and quizCards and sort by position
-	// Render combined list below
+	// sort combined cards list by position
 	const cardsList = [...topicCardsList];
+	cardsList.sort((a, b) => {
+		return a.props.position > b.props.position ? 1 : -1;
+	});
 
 	return (
 		<div className="activity-feed-container">
@@ -49,7 +51,7 @@ export default function ActivityFeed(props) {
 				onNew={newTopicCard}
 				cardsList={cardsList}
 			/>
-			{topicCardsList}
+			{cardsList}
 		</div>
 	);
 }
