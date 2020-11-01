@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import LectureInfo from "../LectureInfo/LectureInfo";
 import TopicCard from "../TopicCard/TopicCard";
-import Card from "../Quiz/Card";
+import QuizCard from "../Quiz/QuizCard";
 import useTopicCardData from "../../hooks/useTopicCardData";
 import useQuizCardData from "../../hooks/useQuizCardData";
 import { ReactComponent as ActivityFeedIcon } from "./playlist_add_check-24px.svg";
@@ -57,7 +57,7 @@ export default function ActivityFeed(props) {
 
 	const quizCardsList = quizCards.map(quizCard => {
 		return (
-			<Card
+			<QuizCard
 				key={quizCard.position}
 				id={quizCard.id}
 				title={quizCard.title}

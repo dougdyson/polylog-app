@@ -1,58 +1,58 @@
-import React from 'react';
-import { ReactComponent as QuizIcon} from './done_all-24px.svg'
-import Question from './Question';
-import Answer from './Answer';
-import Message from './Message';
-import Button from '../Button/Button';
-import CorrectAnswerCount from './CorrectAnswerCount';
-import IncorrectAnswerCount from './IncorrectAnswerCount';
+import React from "react";
+import { ReactComponent as QuizIcon } from "./done_all-24px.svg";
+import Question from "./Question";
+import Answer from "./Answer";
+import Message from "./Message";
+import Button from "../Button/Button";
+import CorrectAnswerCount from "./CorrectAnswerCount";
+import IncorrectAnswerCount from "./IncorrectAnswerCount";
 
-import './quiz.css';
-import '../Button/Button.css'
+import "./quiz.css";
+import "../Button/Button.css";
 
 export default function Card(props) {
+	const quizQuestionsList = props.questions.map(question => {
+		return (
+			<Question
+				key={question.id}
+				id={question.id}
+				question={question.question}
+				answers={question.answers}
+				session={props.session}
+			/>
+		);
+	});
 
-  // initialize; replace with state
-  const size = Object.keys(props).length;
+	return (
+		<section className="quiz-container">
+			<div className="quiz-header-row">
+				<div className="quiz-card-header">
+					<QuizIcon className="quiz-header-icon" />
+					<h2 className="quiz-header-title">Quiz</h2>
+				</div>
 
-  const isLecturer = (size) ? props.lecturer : true;
+				<a className="quiz-delete" href="">
+					delete
+				</a>
+			</div>
+			{quizQuestionsList}
+			<div>
+				{props.lecturer === props.user && props.session && (
+					<div>
+						{/* props.activity */}
+						<CorrectAnswerCount />
+						<IncorrectAnswerCount />
+					</div>
+				)}
 
-  return (
-    <section className='quiz-container'>
-
-      <div className='quiz-header-row'>
-        <div className='quiz-card-header'>
-          <QuizIcon className='quiz-header-icon' />
-          <h2 className='quiz-header-title'>Quiz</h2>
-        </div>
-        
-        { isLecturer && (
-          <a className='quiz-delete' href='#'>delete</a>
-        )}
-
-      </div>
-      <Question />
-      <div>
-        <Answer />
-        <Message />
-       
-        { (isLecturer)
-            ? <div>
-                <CorrectAnswerCount />
-                <IncorrectAnswerCount />
-              </div>
-            : ''
-        }
-
-        <div className='quiz-button'>
-          { (isLecturer)
-              ? <Button variant='submit'>SAVE</Button>
-              // save could make quiz visible too
-              : <Button variant='save-quiz'>SUBMIT</Button> 
-          }
-        </div>
-
-      </div>
-    </section>
-  );
+				<div className="quiz-button">
+					{props.lecturer === props.user ? (
+						<Button variant="save-quiz">SAVE</Button>
+					) : (
+						<Button variant="submit">SUBMIT</Button>
+					)}
+				</div>
+			</div>
+		</section>
+	);
 }

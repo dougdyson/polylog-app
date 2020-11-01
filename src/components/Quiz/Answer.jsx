@@ -7,8 +7,6 @@ import "fontsource-roboto";
 // import { render } from '@testing-library/react';
 
 export default function Answer(props) {
-	console.log(props);
-
 	// initialize; replace with state
 	const size = Object.keys(props).length;
 
