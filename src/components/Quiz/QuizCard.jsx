@@ -21,6 +21,8 @@ export default function Card(props) {
 				onQuestion={props.onQuestion}
 				onAnswer={props.onAnswer}
 				session={props.session}
+				user={props.user}
+				lecturer={props.lecturer}
 			/>
 		);
 	});
@@ -45,9 +47,11 @@ export default function Card(props) {
 					<h2 className="quiz-header-title">Quiz</h2>
 				</div>
 
-				<a className="quiz-delete" href="">
-					delete
-				</a>
+				{props.lecturer === props.user && (
+					<a className="quiz-delete" href="">
+						delete
+					</a>
+				)}
 			</div>
 			{quizQuestionsList}
 			<div>
@@ -57,13 +61,6 @@ export default function Card(props) {
 						<IncorrectAnswerCount answerCount={incorrectAnswerCount} />
 					</div>
 				)}
-
-				<div className="quiz-button">
-					{props.lecturer !== props.user && props.session && (
-						// onClick newQuizResponse
-						<Button variant="submit">SUBMIT</Button>
-					)}
-				</div>
 			</div>
 		</section>
 	);

@@ -57,7 +57,9 @@ export default function Answer(props) {
 			)}
 
 			{props.lecturer !== props.user && (
-				<Button variant="quiz-answer-button">{props.answer}</Button>
+				// onClick newQuizResponse
+				// Change color of button to reflect correct/incorrect
+				<Button variant="quiz-answer-button">{props.answer.answer}</Button>
 			)}
 		</div>
 	);

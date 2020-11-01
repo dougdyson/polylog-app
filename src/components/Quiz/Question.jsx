@@ -16,6 +16,8 @@ export default function Question(props) {
 				answer={answer}
 				session={props.session}
 				onAnswer={props.onAnswer}
+				user={props.user}
+				lecturer={props.lecturer}
 			/>
 		);
 	});
@@ -40,7 +42,6 @@ export default function Question(props) {
 
 			{quizAnswersList}
 			{props.lecturer === props.user && (
-				// Here
 				<NewAnswerIcon
 					onNew={() => props.onAnswer.newQuizAnswer(props.id, "", false)}
 				/>
