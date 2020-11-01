@@ -27,6 +27,7 @@ export default function Topic(props) {
 			if (response.type === "question") {
 				return (
 					<TopicResponse
+						key={response.id}
 						id={response.id}
 						topicCard={props.id}
 						response={response.response}
@@ -40,6 +41,7 @@ export default function Topic(props) {
 				if (response.type === "answer") {
 					return (
 						<AnswerResponse
+							key={response.id}
 							id={response.id}
 							topicCard={props.id}
 							response={response.response}
@@ -63,6 +65,7 @@ export default function Topic(props) {
 			props.onReaction(props.id, props.session, props.user, reaction);
 	};
 
+	// Websockets doesn't update the value of title or description outside of state so the changes aren't reflected here
 	return (
 		<div className="topic-card-container">
 			<main className="topic-info">

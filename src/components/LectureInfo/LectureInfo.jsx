@@ -17,7 +17,7 @@ export default function Lecture(props) {
 		? props.cardsList[props.cardsList.length - 1].props.position + 1
 		: 1;
 
-	// page layout
+	// Websockets doesn't update the value of title or description outside of state so the changes aren't reflected here
 	return (
 		<section className="lecture-container">
 			{/* <div className='lectu' ><Button variant='close'>X</Button></div> */}
@@ -27,7 +27,7 @@ export default function Lecture(props) {
 					placeholder="Lecture Title"
 					value={title}
 					onChange={event => {
-						setTitle(event.target.value);
+						setTitle(props.lecture.title);
 						props.onEdit(props.lecture.id, event.target.value, description);
 					}}
 					readOnly={props.lecturer !== props.user}
@@ -47,7 +47,6 @@ export default function Lecture(props) {
 					<div className={"lecture-controls-visible"}>
 						<NewIcon
 							new_class="icon icon-normal"
-							//The last param is the last position of the cards plus one
 							onNew={() =>
 								props.onNew(props.lecture.id, null, null, nextPosition)
 							}

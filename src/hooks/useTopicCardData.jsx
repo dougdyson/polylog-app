@@ -142,7 +142,6 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 				// I need to add session_id to every ws and hook function
 				// lost of work do if you have extra time
 				// if session_id === data.session_id
-
 				const topic_card_id = data.topic_card_id;
 				const lecture_id = data.lecture_id;
 				const title = data.title;
