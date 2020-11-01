@@ -78,8 +78,8 @@
 }
 
 .quiz-answer-settings-row {
-  padding-left: 10px;
-  
+  display: flex;
+  padding: 0 10px;
 }
 
 .quiz-answer-correct-checkbox {
@@ -89,12 +89,21 @@
   /* margin-left: 14px; */
 }
 
-.quiz-answer-delete {
+.quiz-answer-correct-checkbox {
   font-family: 'roboto';
   color: #c4c4c4;
   font-size: 10px;
   align-items: center;
   display: inline-flex;
+  width: 100%;
+}
+
+.answer-save-delete a {
+  font-family: 'roboto';
+  color: #c4c4c4;
+  font-size: 10px;
+  align-items: center;
+  display: flex;
 }
 
 .quiz-answer-column {

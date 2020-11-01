@@ -19,8 +19,12 @@ export default function Answer(props) {
     <div>
       <TextareaAutosize className='quiz-answer-textarea' placeholder='Enter answer' />
       <div className='quiz-answer-settings-row'>
-        <input type="checkbox" onclick="setState()"></input><span className='quiz-answer-delete'>set correct answer</span>
-        <a href='#' >save</a>
+        <div className='quiz-answer-correct-checkbox'>
+          <input type="checkbox" onclick="setState()"></input>set correct answer
+        </div>
+        <div className='answer-save-delete'>
+          <a href='#' >save</a>
+        </div>
       </div>
       <Button variant='quiz-answer-button'>{answer}</Button>
     </div>
