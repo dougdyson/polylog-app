@@ -21,13 +21,6 @@ export default function Card(props) {
       </div>
       <Question />
       <div>
-        {/* not selected */}
-        <Answer /> 
-        {/* selected */}
-        <Answer />
-        {/* correct */}
-        <Answer />
-        {/* incorrect */}
         <Answer />
         <Message />
         <div className='quiz-button'>
