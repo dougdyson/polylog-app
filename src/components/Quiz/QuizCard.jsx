@@ -15,7 +15,7 @@ export default function Card(props) {
   // initialize; replace with state
   const size = Object.keys(props).length;
 
-  const isLecturer = (size) ? props.lecturer : false;
+  const isLecturer = (size) ? props.lecturer : true;
 
   return (
     <section className='quiz-container'>
@@ -25,7 +25,11 @@ export default function Card(props) {
           <QuizIcon className='quiz-header-icon' />
           <h2 className='quiz-header-title'>Quiz</h2>
         </div>
-        <a className='quiz-delete' href='#'>delete</a>
+        
+        { isLecturer && (
+          <a className='quiz-delete' href='#'>delete</a>
+        )}
+
       </div>
       <Question />
       <div>

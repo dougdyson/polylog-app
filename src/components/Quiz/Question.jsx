@@ -11,7 +11,9 @@ export default function Question(props) {
   // initialize; replace with state
   const size = Object.keys(props).length;
 
-  const question = (size) ? props.question : 'Enter quiz question'
+  const question = (size) ? props.question : 'Enter quiz question';
+
+  const isLecturer = (size) ? props.lecturer : false;
 
   return (
       <div>
@@ -21,7 +23,12 @@ export default function Question(props) {
           test_id='quiz-question'
           // value={question}
         />
-        <NewAnswerIcon />
+        
+        {(isLecturer)
+          ? <NewAnswerIcon />
+          : ''
+        }
+        
       </div>
   );
 }
