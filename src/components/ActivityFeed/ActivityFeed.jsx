@@ -47,6 +47,8 @@ export default function ActivityFeed(props) {
 				onResponse={newTopicResponse}
 				onReaction={newTopicReaction}
 				session={props.session}
+				user={props.user}
+				lecturer={props.lecture.lecturer_id}
 			/>
 		);
 	});
@@ -66,6 +68,8 @@ export default function ActivityFeed(props) {
 				onQestion={{ newQuizQuestion, editQuizQuestion, deleteQuizQuestion }}
 				onAnswer={{ newQuizAnswer, editQuizAnswer, deleteQuizAnswer }}
 				session={props.session}
+				user={props.user}
+				lecturer={props.lecture.lecturer_id}
 			/>
 		);
 	});

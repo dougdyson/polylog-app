@@ -5,7 +5,12 @@ import "./ThumbsUpEmoji.css";
 function ThumbsUpEmoji(props) {
 	return (
 		<div>
-			<img className="thumbs-up-emoji" src={thumbsUp} onClick={props.onClick} />
+			<img
+				className="thumbs-up-emoji"
+				src={thumbsUp}
+				alt={"thumbs up emoji"}
+				onClick={props.onClick}
+			/>
 		</div>
 	);
 }

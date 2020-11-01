@@ -12,18 +12,15 @@ import "./Lectures.css";
 import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
-// You can pass components down as props instead of passing all the data down the tree
-
 // Keeps track of which lecture was clicked
 let currentLecture = null;
 export default function Lectures() {
-	const {
-		lectures,
-		newLecture,
-		editLecture,
-		deleteLecture
-		// The number being passed here should be the user_id
-	} = useLectureData(1);
+	// The number being passed here should be come from a cookie
+	const user = 1;
+
+	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData(
+		user
+	);
 
 	const { newSession } = useSessionHistory();
 
@@ -91,6 +88,7 @@ export default function Lectures() {
 						onEdit={editLecture}
 						// Remove session once you're done with testing
 						session={"4a115ab1-c845-412a-b868-531cf505bf45"}
+						user={user}
 					/>
 				)}
 			</div>

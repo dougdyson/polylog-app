@@ -5,7 +5,6 @@ import VisibleIcon from "../VisibleIcon/VisibleIcon";
 import VisibleOffIcon from "../VisibleOffIcon/VisibleOffIcon";
 import ThumbsUpEmoji from "../ThumbsUpEmoji/ThumbsUpEmoji";
 import ConfusedEmoji from "../ConfusedEmoji/ConfusedEmoji";
-
 import "../../App.css";
 import "./TopicInfo.css";
 import "fontsource-roboto";
@@ -21,6 +20,9 @@ export default function Topic(props) {
 		props.activity.reactions.forEach(reaction => {
 			reaction.reaction ? (reactions_positive += 1) : (reactions_negative += 1);
 		});
+
+	console.log("User: ", props.user);
+	console.log("Lecturer: ", props.lecturer);
 
 	return (
 		<main className="topic-info">
@@ -40,7 +42,7 @@ export default function Topic(props) {
 							props.position
 						);
 					}}
-					// readOnly={true}
+					readOnly={props.lecturer !== props.user}
 				/>
 			</div>
 			<TextareaAutosize
@@ -53,7 +55,7 @@ export default function Topic(props) {
 					setDescription(event.target.value);
 					props.onEdit(props.id, title, event.target.value, props.position);
 				}}
-				// readOnly={true}
+				readOnly={props.lecturer !== props.user}
 			/>
 			<hr className={`hr`} />
 			<div className={`emoji`}>
@@ -62,6 +64,7 @@ export default function Topic(props) {
 						<ConfusedEmoji
 							className="icon emoji-spacing"
 							onClick={() =>
+								// Turn this into a function and add logic to stop multiple reactions
 								// The number here should be the student id
 								props.onReaction(props.id, props.session, 1, false)
 							}
@@ -69,6 +72,7 @@ export default function Topic(props) {
 						<span className="reaction-counter">({reactions_negative})</span>
 						<ThumbsUpEmoji
 							className="icon emoji-spacing"
+							// Turn this into a function and add logic to stop multiple reactions
 							// The number here should be the student id
 							onClick={() => props.onReaction(props.id, props.session, 1, true)}
 						/>

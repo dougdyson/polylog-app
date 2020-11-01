@@ -18,6 +18,8 @@ export default function TopicContainer(props) {
 				onEdit={props.onEdit}
 				onReaction={props.onReaction}
 				session={props.session}
+				user={props.user}
+				lecturer={props.lecturer}
 			/>
 			{props.session && <TopicResponse />}
 			{props.session && <AnswerResponse />}

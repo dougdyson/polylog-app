@@ -8,6 +8,7 @@ function ConfusedEmoji(props) {
 			<img
 				className="confused-emoji"
 				src={confusedEmoji}
+				alt={"confused emoji"}
 				onClick={props.onClick}
 			/>
 		</div>
