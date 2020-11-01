@@ -29,6 +29,14 @@ export default function Card(props) {
 		return a.key > b.key ? 1 : -1;
 	});
 
+	let correctAnswerCount = 0;
+	let incorrectAnswerCount = 0;
+	if (props.activity) {
+		props.activity.forEach(answer => {
+			answer.correct ? (correctAnswerCount += 1) : (incorrectAnswerCount += 1);
+		});
+	}
+
 	return (
 		<section className="quiz-container">
 			<div className="quiz-header-row">
@@ -45,9 +53,8 @@ export default function Card(props) {
 			<div>
 				{props.lecturer === props.user && props.session && (
 					<div>
-						{/* props.activity */}
-						<CorrectAnswerCount />
-						<IncorrectAnswerCount />
+						<CorrectAnswerCount answerCount={correctAnswerCount} />
+						<IncorrectAnswerCount answerCount={incorrectAnswerCount} />
 					</div>
 				)}
 
