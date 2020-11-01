@@ -21,8 +21,15 @@ export default function Topic(props) {
 			reaction.reaction ? (reactions_positive += 1) : (reactions_negative += 1);
 		});
 
-	console.log("User: ", props.user);
-	console.log("Lecturer: ", props.lecturer);
+	// If the user has already reacted do not add a new reaction
+	const addReaction = reaction => {
+		const findUser = props.activity.reactions.find(
+			reaction => props.user === reaction.student_id
+		);
+
+		!findUser &&
+			props.onReaction(props.id, props.session, props.user, reaction);
+	};
 
 	return (
 		<main className="topic-info">
@@ -63,18 +70,12 @@ export default function Topic(props) {
 					<React.Fragment>
 						<ConfusedEmoji
 							className="icon emoji-spacing"
-							onClick={() =>
-								// Turn this into a function and add logic to stop multiple reactions
-								// The number here should be the student id
-								props.onReaction(props.id, props.session, 1, false)
-							}
+							onClick={() => addReaction(false)}
 						/>
 						<span className="reaction-counter">({reactions_negative})</span>
 						<ThumbsUpEmoji
 							className="icon emoji-spacing"
-							// Turn this into a function and add logic to stop multiple reactions
-							// The number here should be the student id
-							onClick={() => props.onReaction(props.id, props.session, 1, true)}
+							onClick={() => addReaction(true)}
 						/>
 						<span className="reaction-counter">({reactions_positive})</span>
 						{/* add onClick for new topic response */}

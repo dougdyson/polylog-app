@@ -15,7 +15,7 @@ import "fontsource-roboto";
 // Keeps track of which lecture was clicked
 let currentLecture = null;
 export default function Lectures() {
-	// The number being passed here should be come from a cookie
+	// The number being passed here should be from a cookie
 	const user = 1;
 
 	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData(
