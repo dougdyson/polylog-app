@@ -28,9 +28,11 @@ export default function DisplayAnswerResponse(props) {
 			</div>
 
 			<div className="answer-response-row">
-				<div className="answer-response-user">
-					{student_name + " @ " + timestamp}
-				</div>
+				{props.id && (
+					<div className="answer-response-user">
+						{student_name + " @ " + timestamp}
+					</div>
+				)}
 				<div className="answer-button">
 					{/* onClick make call to api for new response */}
 					{!props.id && <Button className="submit">Submit</Button>}

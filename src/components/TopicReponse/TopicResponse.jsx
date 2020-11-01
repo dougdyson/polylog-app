@@ -12,13 +12,6 @@ export default function DisplayTopicResponse(props) {
 	// Get this data from db later
 	let student_name = "user name";
 	let timestamp = "timestamp";
-	// variant icons and styles
-	let response_icon = "";
-	if (props.type === "question") {
-		response_icon = question_icon;
-	} else {
-		response_icon = comment_icon;
-	}
 
 	return (
 		<section className="topic-response">
@@ -35,7 +28,7 @@ export default function DisplayTopicResponse(props) {
 						readOnly={props.id}
 					/>
 				</div>
-				<img className="topic-response-icon" alt="" src={response_icon}></img>
+				<img className="topic-response-icon" alt="" src={question_icon}></img>
 			</div>
 
 			<div className="topic-response-row">

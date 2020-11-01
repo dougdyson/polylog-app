@@ -16,15 +16,14 @@ export default function Topic(props) {
 
 	let reactions_positive = 0;
 	let reactions_negative = 0;
-	let topicQuestionsList = [];
-	let topicAnswersList = [];
+	let topicResponsesList = [];
 
 	if (props.activity) {
 		props.activity.reactions.forEach(reaction => {
 			reaction.reaction ? (reactions_positive += 1) : (reactions_negative += 1);
 		});
 
-		topicQuestionsList = props.activity.responses.map(response => {
+		topicResponsesList = props.activity.responses.map(response => {
 			if (response.type === "question") {
 				return (
 					<TopicResponse
@@ -35,29 +34,17 @@ export default function Topic(props) {
 						student={response.student_id}
 					/>
 				);
-			} else if (response.type === "comment") {
-				return (
-					<TopicResponse
-						id={response.id}
-						response={response.response}
-						type={response.type}
-						user={props.user}
-						student={response.student_id}
-					/>
-				);
-			}
-		});
-
-		topicAnswersList = props.activity.responses.map(response => {
-			if (response.type === "answer") {
-				return (
-					<AnswerResponse
-						id={props.id}
-						response={response.response}
-						user={props.user}
-						student={response.student_id}
-					/>
-				);
+			} else {
+				if (response.type === "answer") {
+					return (
+						<AnswerResponse
+							id={response.id}
+							response={response.response}
+							user={props.user}
+							student={response.student_id}
+						/>
+					);
+				}
 			}
 		});
 	}
@@ -120,16 +107,19 @@ export default function Topic(props) {
 								onClick={() => addReaction(true)}
 							/>
 							<span className="reaction-counter">({reactions_positive})</span>
-							{/* in useTopicCardData I need a new function that makes a new response without POST request */}
+							{/* When we have the list we need to change question to whatever type the user picked */}
 							<div className="new_response_button">
-								<NewIcon />
+								<NewIcon
+									onNew={() =>
+										props.onResponseLocal(props.id, props.user, "question")
+									}
+								/>
 							</div>
 						</React.Fragment>
 					)}
 				</div>
 			</main>
-			{topicQuestionsList}
-			{topicAnswersList}
+			{topicResponsesList}
 		</div>
 	);
 }
