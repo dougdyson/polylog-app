@@ -6,7 +6,7 @@ import { ReactComponent as HistoryKeyArt } from './history-key-art.svg';
 import './History.css';
 import "fontsource-roboto";
 
-function History(props) {
+export default function History(props) {
 
   // clean up with state
   // since there is a lot of code here, normally I would import the setting of some of these values to another file
@@ -152,5 +152,3 @@ function History(props) {
     </section>
   );
 }
-
-export default History;

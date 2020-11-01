@@ -1,20 +1,30 @@
 .quiz-container {
-  max-width: 25%;
   padding: 0 20px;
   font-family: 'Roboto';
-  outline: thin solid #e4e4e4;  
-  padding: 10px;
+  border: 1px solid #c4c4c4;  
+  /* padding: 10px; */
   border-radius: 10px;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
-.quiz-header {
+.quiz-header-row {
   display: flex;
-  width: 100%;
+  justify-content: space-between;
+}
+
+.quiz-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.quiz-header-title {
+  display: flex;
   font-family: 'roboto';
   color: #c4c4c4;
   font-size: 18px;
   align-items: center;
+  padding-left: 10px;
 }
 
 .quiz-header-icon {
@@ -46,9 +56,15 @@
 }
 
 .quiz-question {
+  width: 88%;
   display: flex;
-  justify-content: center;
-  color: #C4C4C4;
+  align-items: center;
+  opacity: 0.8;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-family: 'roboto';
 }
 
 .quiz-answer-column {

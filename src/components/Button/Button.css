@@ -147,15 +147,16 @@
   font-size: 14px;
   font-family: 'roboto';
   color: #7E7E7E;
-  width: 80%;
-  height: 8vh;
+  width: 90%;
+  height: 20vh;
   display: flex;
   border-radius: 10px;
   border: 1px solid #7E7E7E;
   justify-content: center;
   align-items: center;
   background-color: white;
-  margin: 20px;
+  margin: 5%;
+  padding: 10px;
 }
 
 .quiz-answer-button:hover {
