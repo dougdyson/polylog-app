@@ -37,7 +37,7 @@ export default function DisplayAnswerResponse(props) {
 					{!props.id && (
 						<Button
 							className="submit"
-							onSubmit={() =>
+							onClick={() =>
 								props.onResponse(
 									props.topicCard,
 									props.session,

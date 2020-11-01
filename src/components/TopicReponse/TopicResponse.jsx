@@ -32,7 +32,7 @@ export default function DisplayTopicResponse(props) {
 					{props.id && (
 						<Button
 							className="reply"
-							onSubmit={() =>
+							onClick={() =>
 								props.onResponseLocal(props.topicCard, props.user, "answer")
 							}
 						>
@@ -48,7 +48,7 @@ export default function DisplayTopicResponse(props) {
 					{!props.id && (
 						<Button
 							className="submit"
-							onSubmit={() =>
+							onClick={() =>
 								props.onResponse(
 									props.topicCard,
 									props.session,
