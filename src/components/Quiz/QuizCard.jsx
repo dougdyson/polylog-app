@@ -32,27 +32,23 @@ export default function Card(props) {
       <div>
         <Answer />
         <Message />
-        <div>
-            {}
-            <div className='quiz-answers-totals'>
-              Results
-            </div>
-            <div className='quiz-answers-correct-count'>
-              <CorrectAnswerCount />
-            </div>
-            <div className='quiz-answers-incorrect-count'>
-              <IncorrectAnswerCount />
-            </div>
-        </div>
+&        
+        { (isLecturer)
+            ? <div>
+                <CorrectAnswerCount />
+                <IncorrectAnswerCount />
+              </div>
+            : ''
+        }
+
         <div className='quiz-button'>
-          {
-            // bug to fix: works when the condition is backwards, which is opposite of expected
-            (props.user === props.lecturer)
-              ? <Button variant='submit'>SUBMIT</Button>
+          { (isLecturer)
+              ? <Button variant='submit'>SAVE</Button>
               // save could make quiz visible too
-              : <Button variant='save-quiz'>SAVE</Button> 
+              : <Button variant='save-quiz'>SUBMIT</Button> 
           }
         </div>
+
       </div>
     </section>
   );

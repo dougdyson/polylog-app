@@ -11,7 +11,12 @@ export default function CorrectAnswerTotal(props) {
 
   return (
     <div>
-      Correct: {correctAnswerCount}
+      <div className='quiz-answers-totals'>
+        Results
+      </div>
+      <div className='quiz-answers-correct-count'>
+        Correct: {correctAnswerCount}
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function IncorrectAnswerCount(props) {
   const incorrectAnswerCount = (size) ? props.incorrectAnswerCount : '0'
 
   return (
-    <div>
+    <div className='quiz-answers-incorrect-count'>
       Incorrect: {incorrectAnswerCount}
     </div>
   );
