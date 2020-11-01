@@ -32,7 +32,7 @@ export default function Card(props) {
       <div>
         <Answer />
         <Message />
-&        
+       
         { (isLecturer)
             ? <div>
                 <CorrectAnswerCount />
