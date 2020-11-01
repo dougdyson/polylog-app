@@ -88,7 +88,7 @@ export default function Lectures() {
 						onEdit={editLecture}
 						// Remove session once you're done with testing
 						session={"4a115ab1-c845-412a-b868-531cf505bf45"}
-						user={2}
+						user={user}
 					/>
 				)}
 			</div>

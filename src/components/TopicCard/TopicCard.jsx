@@ -16,11 +16,32 @@ export default function Topic(props) {
 
 	let reactions_positive = 0;
 	let reactions_negative = 0;
+	let topicQuestionsList = [];
+	let topicAnswersList = [];
 
-	props.activity &&
+	if (props.activity) {
 		props.activity.reactions.forEach(reaction => {
 			reaction.reaction ? (reactions_positive += 1) : (reactions_negative += 1);
 		});
+
+		topicQuestionsList = props.activity.responses.map(response => {
+			if (response.type === "question") {
+				return (
+					<TopicResponse response={response.response} type={response.type} />
+				);
+			} else if (response.type === "comment") {
+				return (
+					<TopicResponse response={response.response} type={response.type} />
+				);
+			}
+		});
+
+		topicAnswersList = props.activity.responses.map(response => {
+			if (response.type === "answer") {
+				return <AnswerResponse response={response.response} />;
+			}
+		});
+	}
 
 	// If the user has already reacted do not add a new reaction
 	const addReaction = reaction => {
@@ -88,8 +109,8 @@ export default function Topic(props) {
 					)}
 				</div>
 			</main>
-			{props.session && <TopicResponse />}
-			{props.session && <AnswerResponse />}
+			{topicQuestionsList}
+			{topicAnswersList}
 		</div>
 	);
 }
