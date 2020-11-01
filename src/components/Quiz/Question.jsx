@@ -1,5 +1,6 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import NewAnswerIcon from '../NewIcon/NewIcon'
 
 
 import './quiz.css';
@@ -10,7 +11,7 @@ export default function Question(props) {
   // initialize; replace with state
   const size = Object.keys(props).length;
 
-  let question = (size) ? props.question : 'Enter quiz question'
+  const question = (size) ? props.question : 'Enter quiz question'
 
   return (
       <div>
@@ -20,6 +21,7 @@ export default function Question(props) {
           test_id='quiz-question'
           // value={question}
         />
+        <NewAnswerIcon />
       </div>
   );
 }
