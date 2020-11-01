@@ -11,7 +11,6 @@ export default function Lecture(props) {
 	const [description, setDescription] = React.useState(
 		props.lecture.description || ""
 	);
-	// lecture controls only visible for lecturers
 
 	// Check if there is an element before accessing .props
 	const nextPosition = props.cardsList.length
@@ -31,6 +30,7 @@ export default function Lecture(props) {
 						setTitle(event.target.value);
 						props.onEdit(props.lecture.id, event.target.value, description);
 					}}
+					readOnly={props.lecturer !== props.user}
 				/>
 				<TextareaAutosize
 					className="lecture-info-description"
@@ -40,6 +40,7 @@ export default function Lecture(props) {
 						setDescription(event.target.value);
 						props.onEdit(props.lecture.id, title, event.target.value);
 					}}
+					readOnly={props.lecturer !== props.user}
 				/>
 				<div className={"lecture-controls-visible"}>
 					<NewIcon

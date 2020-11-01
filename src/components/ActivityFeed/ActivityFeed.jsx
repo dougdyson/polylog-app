@@ -98,6 +98,8 @@ export default function ActivityFeed(props) {
 				newTopic={newTopicCard}
 				newQuiz={newQuizCard}
 				cardsList={cardsList}
+				user={props.user}
+				lecturer={props.lecture.lecturer_id}
 			/>
 			{cardsList}
 		</div>
