@@ -34,8 +34,22 @@ export default function DisplayAnswerResponse(props) {
 					</div>
 				)}
 				<div className="answer-button">
-					{/* onClick make call to api for new response */}
-					{!props.id && <Button className="submit">Submit</Button>}
+					{!props.id && (
+						<Button
+							className="submit"
+							onSubmit={() =>
+								props.onResponse(
+									props.topicCard,
+									props.session,
+									props.user,
+									"answer",
+									response
+								)
+							}
+						>
+							Submit
+						</Button>
+					)}
 				</div>
 			</div>
 		</section>

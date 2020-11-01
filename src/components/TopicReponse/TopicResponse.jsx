@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 
 import "./TopicResponse.css";
 import question_icon from "./question_icon.svg";
-import comment_icon from "./comment_icon.svg";
 import "fontsource-roboto";
 
 export default function DisplayTopicResponse(props) {
@@ -22,9 +21,6 @@ export default function DisplayTopicResponse(props) {
 						placeholder="Enter question"
 						value={response}
 						onChange={event => setResponse(event.target.value)}
-						// This should be readOnly once submitted
-						// I can make a new response from local state and not include an id
-						// if a response has an id you cannot edit it
 						readOnly={props.id}
 					/>
 				</div>
@@ -33,16 +29,38 @@ export default function DisplayTopicResponse(props) {
 
 			<div className="topic-response-row">
 				<div className="response-button">
-					{/* use new function from useTopicCardData to make new local state response of type answer */}
-					{props.id && <Button className="reply">reply</Button>}
+					{props.id && (
+						<Button
+							className="reply"
+							onSubmit={() =>
+								props.onResponseLocal(props.topicCard, props.user, "answer")
+							}
+						>
+							reply
+						</Button>
+					)}
 					{props.id && (
 						<div className="topic_response_user">
 							{student_name + " @ "}
 							{" " + timestamp}
 						</div>
 					)}
-					{/* onClick make call to api for new response */}
-					{!props.id && <Button className="submit">Submit</Button>}
+					{!props.id && (
+						<Button
+							className="submit"
+							onSubmit={() =>
+								props.onResponse(
+									props.topicCard,
+									props.session,
+									props.user,
+									"question",
+									response
+								)
+							}
+						>
+							Submit
+						</Button>
+					)}
 				</div>
 			</div>
 		</section>

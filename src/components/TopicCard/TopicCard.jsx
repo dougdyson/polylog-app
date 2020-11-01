@@ -28,8 +28,10 @@ export default function Topic(props) {
 				return (
 					<TopicResponse
 						id={response.id}
+						topicCard={props.id}
 						response={response.response}
-						type={response.type}
+						onResponse={props.onResponse}
+						onResponseLocal={props.onResponseLocal}
 						user={props.user}
 						student={response.student_id}
 					/>
@@ -39,7 +41,9 @@ export default function Topic(props) {
 					return (
 						<AnswerResponse
 							id={response.id}
+							topicCard={props.id}
 							response={response.response}
+							onResponse={props.onResponse}
 							user={props.user}
 							student={response.student_id}
 						/>

@@ -77,7 +77,7 @@ export const reducer = (state, action) => {
 						...state[cardIndex].activity,
 						responses: [
 							...state[cardIndex].activity.responses.filter(
-								response => response.id === undefined
+								response => response.id !== undefined
 							)
 						]
 					}
