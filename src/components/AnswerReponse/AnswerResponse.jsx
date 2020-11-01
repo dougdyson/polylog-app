@@ -7,6 +7,8 @@ import answer_icon from "./answer_icon.svg";
 import "fontsource-roboto";
 
 export default function DisplayAnswerResponse(props) {
+	const [response, setResponse] = React.useState(props.response || "");
+	// Get this data from db later
 	let student_name = "user name";
 	let timestamp = "timestamp";
 
@@ -18,8 +20,9 @@ export default function DisplayAnswerResponse(props) {
 					<TextareaAutosize
 						className="answer-response-textarea"
 						placeholder="Enter answer"
-						value={props.response}
-						readOnly={props.student !== props.user}
+						value={response}
+						onChange={event => setResponse(event.target.value)}
+						readOnly={props.id}
 					/>
 				</div>
 			</div>
@@ -29,7 +32,8 @@ export default function DisplayAnswerResponse(props) {
 					{student_name + " @ " + timestamp}
 				</div>
 				<div className="answer-button">
-					<Button className="submit">Submit</Button>
+					{/* onClick make call to api for new response */}
+					{!props.id && <Button className="submit">Submit</Button>}
 				</div>
 			</div>
 		</section>

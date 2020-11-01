@@ -28,6 +28,7 @@ export default function Topic(props) {
 			if (response.type === "question") {
 				return (
 					<TopicResponse
+						id={response.id}
 						response={response.response}
 						type={response.type}
 						user={props.user}
@@ -37,6 +38,7 @@ export default function Topic(props) {
 			} else if (response.type === "comment") {
 				return (
 					<TopicResponse
+						id={response.id}
 						response={response.response}
 						type={response.type}
 						user={props.user}
@@ -50,7 +52,9 @@ export default function Topic(props) {
 			if (response.type === "answer") {
 				return (
 					<AnswerResponse
+						id={props.id}
 						response={response.response}
+						user={props.user}
 						student={response.student_id}
 					/>
 				);
@@ -116,7 +120,7 @@ export default function Topic(props) {
 								onClick={() => addReaction(true)}
 							/>
 							<span className="reaction-counter">({reactions_positive})</span>
-							{/* add onClick for new topic response */}
+							{/* in useTopicCardData I need a new function that makes a new response without POST request */}
 							<div className="new_response_button">
 								<NewIcon />
 							</div>

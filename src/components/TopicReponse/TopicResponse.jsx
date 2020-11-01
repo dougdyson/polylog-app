@@ -8,9 +8,10 @@ import comment_icon from "./comment_icon.svg";
 import "fontsource-roboto";
 
 export default function DisplayTopicResponse(props) {
+	const [response, setResponse] = React.useState(props.response || "");
+	// Get this data from db later
 	let student_name = "user name";
 	let timestamp = "timestamp";
-
 	// variant icons and styles
 	let response_icon = "";
 	if (props.type === "question") {
@@ -26,8 +27,12 @@ export default function DisplayTopicResponse(props) {
 					<TextareaAutosize
 						className="topic-text-area"
 						placeholder="Enter question"
-						value={props.response}
-						readOnly={props.student !== props.user}
+						value={response}
+						onChange={event => setResponse(event.target.value)}
+						// This should be readOnly once submitted
+						// I can make a new response from local state and not include an id
+						// if a response has an id you cannot edit it
+						readOnly={props.id}
 					/>
 				</div>
 				<img className="topic-response-icon" alt="" src={response_icon}></img>
@@ -35,12 +40,16 @@ export default function DisplayTopicResponse(props) {
 
 			<div className="topic-response-row">
 				<div className="response-button">
-					<Button className="reply">reply</Button>
-					<div className="topic_response_user">
-						{student_name + " @ "}
-						{" " + timestamp}
-					</div>
-					<Button className="submit">Submit</Button>
+					{/* use new function from useTopicCardData to make new local state response of type answer */}
+					{props.id && <Button className="reply">reply</Button>}
+					{props.id && (
+						<div className="topic_response_user">
+							{student_name + " @ "}
+							{" " + timestamp}
+						</div>
+					)}
+					{/* onClick make call to api for new response */}
+					{!props.id && <Button className="submit">Submit</Button>}
 				</div>
 			</div>
 		</section>
