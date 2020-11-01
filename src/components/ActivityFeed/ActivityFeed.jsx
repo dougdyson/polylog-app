@@ -13,6 +13,7 @@ export default function ActivityFeed(props) {
 		topicCards,
 		newTopicCard,
 		newTopicResponse,
+		newTopicResponseLocal,
 		newTopicReaction,
 		editTopicCard,
 		deleteTopicCard
@@ -30,7 +31,7 @@ export default function ActivityFeed(props) {
 		deleteQuizCard,
 		deleteQuizQuestion,
 		deleteQuizAnswer
-	} = useQuizCardData(props.lecture.id);
+	} = useQuizCardData(props.lecture.id, props.session);
 
 	// I'm using position as a key since the ids aren't unique when combining both cards list
 	const topicCardsList = topicCards.map(topicCard => {
@@ -45,6 +46,7 @@ export default function ActivityFeed(props) {
 				onEdit={editTopicCard}
 				onDelete={deleteTopicCard}
 				onResponse={newTopicResponse}
+				onResponseLocal={newTopicResponseLocal}
 				onReaction={newTopicReaction}
 				session={props.session}
 				user={props.user}

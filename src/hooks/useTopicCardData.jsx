@@ -6,7 +6,8 @@ import {
 	NEW,
 	EDIT,
 	DELETE,
-	NEW_TOPIC_ACTIVITY
+	NEW_TOPIC_ACTIVITY,
+	FILTER_TOPIC_RESPONSE
 } from "../reducers/reducer";
 
 const useTopicCardData = (lecture_id, session_id = null) => {
@@ -59,6 +60,7 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 		type,
 		response
 	) => {
+		dispatch({ type: FILTER_TOPIC_RESPONSE, topic_card_id });
 		return axios.post(`/topic/response`, {
 			topic_card_id,
 			session_id,
@@ -79,6 +81,19 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 			session_id,
 			student_id,
 			reaction
+		});
+	};
+
+	const newTopicResponseLocal = (topic_card_id, student_id, type) => {
+		dispatch({
+			type: NEW_TOPIC_ACTIVITY,
+			activity: "responses",
+			topic_card_id,
+			data: {
+				student_id,
+				type,
+				response: ""
+			}
 		});
 	};
 
@@ -197,6 +212,7 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 		topicCards,
 		newTopicCard,
 		newTopicResponse,
+		newTopicResponseLocal,
 		newTopicReaction,
 		editTopicCard,
 		deleteTopicCard

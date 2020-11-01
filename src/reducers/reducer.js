@@ -5,6 +5,7 @@ const NEW = "NEW";
 const EDIT = "EDIT";
 const DELETE = "DELETE";
 const NEW_TOPIC_ACTIVITY = "NEW_TOPIC_ACTIVITY";
+const FILTER_TOPIC_RESPONSE = "FILTER_TOPIC_RESPONSE";
 const SET_QUIZ_ACTIVITY = "SET_QUIZ_ACTIVITY";
 const NEW_QUIZ_Q_OR_R = "NEW_QUIZ_Q_OR_R";
 const NEW_QUIZ_ANSWER = "NEW_QUIZ_ANSWER";
@@ -20,6 +21,7 @@ export {
 	DELETE,
 	SET_QUIZ_ACTIVITY,
 	NEW_TOPIC_ACTIVITY,
+	FILTER_TOPIC_RESPONSE,
 	NEW_QUIZ_Q_OR_R,
 	NEW_QUIZ_ANSWER,
 	EDIT_QUIZ_QUESTION,
@@ -60,6 +62,23 @@ export const reducer = (state, action) => {
 						[action.activity]: [
 							...state[cardIndex].activity[action.activity],
 							{ ...action.data }
+						]
+					}
+				},
+				...state.slice(cardIndex + 1)
+			];
+		case FILTER_TOPIC_RESPONSE:
+			cardIndex = findIndex(state, action.topic_card_id);
+			return [
+				...state.slice(0, cardIndex),
+				{
+					...state[cardIndex],
+					activity: {
+						...state[cardIndex].activity,
+						responses: [
+							...state[cardIndex].activity.responses.filter(
+								response => response.id === undefined
+							)
 						]
 					}
 				},
