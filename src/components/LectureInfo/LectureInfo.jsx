@@ -42,18 +42,21 @@ export default function Lecture(props) {
 					}}
 					readOnly={props.lecturer !== props.user}
 				/>
-				<div className={"lecture-controls-visible"}>
-					<NewIcon
-						new_class="icon icon-normal"
-						//The last param is the last position of the cards plus one
-						onNew={() =>
-							props.onNew(props.lecture.id, null, null, nextPosition)
-						}
-					/>
-					<Button variant="card-mover">∨</Button>
-					<Button variant="card-mover">∧</Button>
-					<div className="lecture-goto-top">top</div>
-				</div>
+
+				{props.lecturer === props.user && (
+					<div className={"lecture-controls-visible"}>
+						<NewIcon
+							new_class="icon icon-normal"
+							//The last param is the last position of the cards plus one
+							onNew={() =>
+								props.onNew(props.lecture.id, null, null, nextPosition)
+							}
+						/>
+						<Button variant="card-mover">∨</Button>
+						<Button variant="card-mover">∧</Button>
+						<div className="lecture-goto-top">top</div>
+					</div>
+				)}
 			</div>
 		</section>
 	);
