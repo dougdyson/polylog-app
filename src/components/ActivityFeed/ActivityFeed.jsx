@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import LectureInfo from "../LectureInfo/LectureInfo";
-import TopicContainer from "../TopicCard/TopicCard";
+import TopicCard from "../TopicCard/TopicCard";
 import Card from "../Quiz/Card";
 import useTopicCardData from "../../hooks/useTopicCardData";
 import useQuizCardData from "../../hooks/useQuizCardData";
@@ -35,7 +35,7 @@ export default function ActivityFeed(props) {
 	// I'm using position as a key since the ids aren't unique when combining both cards list
 	const topicCardsList = topicCards.map(topicCard => {
 		return (
-			<TopicContainer
+			<TopicCard
 				key={topicCard.position}
 				id={topicCard.id}
 				title={topicCard.title}
