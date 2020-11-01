@@ -60,6 +60,7 @@ export default function Card(props) {
 
 				<div className="quiz-button">
 					{props.lecturer !== props.user && props.session && (
+						// onClick newQuizResponse
 						<Button variant="submit">SUBMIT</Button>
 					)}
 				</div>

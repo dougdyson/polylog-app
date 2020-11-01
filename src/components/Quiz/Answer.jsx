@@ -5,9 +5,7 @@ import "./quiz.css";
 import "fontsource-roboto";
 
 export default function Answer(props) {
-	const [answer, setAnswer] = React.useState(
-		props.answer || { answer: "", correct: false }
-	);
+	const [answer, setAnswer] = React.useState(props.answer);
 
 	return (
 		<div>
@@ -17,9 +15,13 @@ export default function Answer(props) {
 					placeholder="Enter answer"
 					value={answer.answer}
 					onChange={event => {
-						setAnswer({ answer: event.target.value, correct: answer.correct });
+						setAnswer({
+							id: answer.id,
+							answer: event.target.value,
+							correct: answer.correct
+						});
 						props.onAnswer.editQuizAnswer(
-							props.answer.id,
+							answer.id,
 							event.target.value,
 							answer.correct
 						);
@@ -33,9 +35,13 @@ export default function Answer(props) {
 						<input
 							type="checkbox"
 							onClick={() => {
-								setAnswer({ answer: answer.answer, correct: !answer.correct });
+								setAnswer({
+									id: answer.id,
+									answer: answer.answer,
+									correct: !answer.correct
+								});
 								props.onAnswer.editQuizAnswer(
-									props.answer.id,
+									answer.id,
 									answer.answer,
 									!answer.correct
 								);

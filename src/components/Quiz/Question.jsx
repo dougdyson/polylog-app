@@ -6,8 +6,6 @@ import Message from "./Message";
 import "./quiz.css";
 import "fontsource-roboto";
 
-// Gonna need a hook to manage question here
-// Also need to remove all this conditional stuff
 export default function Question(props) {
 	const [question, setQuestion] = React.useState(props.question || "");
 
@@ -42,7 +40,10 @@ export default function Question(props) {
 
 			{quizAnswersList}
 			{props.lecturer === props.user && (
-				<NewAnswerIcon onNew={() => console.log("New Answer!")} />
+				// Here
+				<NewAnswerIcon
+					onNew={() => props.onAnswer.newQuizAnswer(props.id, "", false)}
+				/>
 			)}
 		</div>
 	);
