@@ -100,6 +100,8 @@ export default function Topic(props) {
 				<hr className={`hr`} />
 				<div className={`emoji`}>
 					{props.session && (
+						// Making a new topic card and reacting to it right away crashes the app because
+						// the activity key only gets setup once on load (props.activity && shouldn't be there)
 						<React.Fragment>
 							<ConfusedEmoji
 								className="icon emoji-spacing"

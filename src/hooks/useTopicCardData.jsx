@@ -48,7 +48,14 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 				!session_id &&
 					dispatch({
 						type: NEW,
-						data: { id, lecture_id, title, description, position }
+						data: {
+							id,
+							lecture_id,
+							title,
+							description,
+							position,
+							activity: { responses: [], reactions: [] }
+						}
 					});
 			});
 	};
@@ -159,7 +166,8 @@ const useTopicCardData = (lecture_id, session_id = null) => {
 								lecture_id,
 								title,
 								description,
-								position
+								position,
+								activity: { responses: [], reactions: [] }
 							}
 						});
 					case "NEW_TOPIC_RESPONSE":
