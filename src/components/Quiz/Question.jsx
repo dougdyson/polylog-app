@@ -13,10 +13,11 @@ export default function Question(props) {
   let question = (size) ? props.question : 'Enter quiz question'
 
   return (
-      <div className='quiz-question'>
+      <div>
         <TextareaAutosize
-          placeholder='Topic Title'  
-          test_id='topic-info-title'
+          className='quiz-question'
+          placeholder='Enter quiz question'  
+          test_id='quiz-question'
           // value={question}
         />
       </div>

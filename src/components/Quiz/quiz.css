@@ -56,7 +56,7 @@
 }
 
 .quiz-question {
-  width: 88%;
+  width: 100%;
   display: flex;
   align-items: center;
   opacity: 0.8;
@@ -65,6 +65,7 @@
   outline: none;
   font-weight: bold;
   font-family: 'roboto';
+  padding-bottom: 20px;
 }
 
 .quiz-answer-column {
