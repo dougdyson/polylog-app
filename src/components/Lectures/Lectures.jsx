@@ -60,8 +60,7 @@ export default function Lectures() {
 				<NewIcon
 					new_class="icon icon-large"
 					onNew={() => {
-						// The number being passed here should be the user_id
-						newLecture(1).then(lecture =>
+						newLecture(user).then(lecture =>
 							lectureClickTransition(lecture, ACTIVITY_FEED)
 						);
 					}}
@@ -86,8 +85,7 @@ export default function Lectures() {
 						lecture={currentLecture}
 						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
-						// Remove session once you're done with testing
-						session={"4a115ab1-c845-412a-b868-531cf505bf45"}
+						// session={"4a115ab1-c845-412a-b868-531cf505bf45"}
 						user={user}
 					/>
 				)}
