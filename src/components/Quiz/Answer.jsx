@@ -23,7 +23,7 @@ export default function Answer(props) {
           <input type="checkbox" onclick="setState()"></input>set correct answer
         </div>
         <div className='answer-save-delete'>
-          <a href='#' >save</a>
+          <a href='#'>save/delete</a>
         </div>
       </div>
       <Button variant='quiz-answer-button'>{answer}</Button>

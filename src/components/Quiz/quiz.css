@@ -119,6 +119,34 @@
   padding: 20px;
 }
 
+.quiz-answers-totals {
+  font-family: 'roboto';
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+  color: #c4c4c4;
+  padding: 5px;
+}
+
+.quiz-answers-correct-count {
+  color: #006400;
+  font-family: 'roboto';
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.quiz-answers-incorrect-count {
+  color: #8B0000;
+  font-family: 'roboto';
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
 .quiz-button {
   display: flex;
   justify-content: center;
