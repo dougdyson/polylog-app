@@ -67,7 +67,7 @@ export default function ActivityFeed(props) {
 				onEdit={editQuizCard}
 				onDelete={deleteQuizCard}
 				onResponse={newQuizResponse}
-				onQestion={{ newQuizQuestion, editQuizQuestion, deleteQuizQuestion }}
+				onQuestion={{ newQuizQuestion, editQuizQuestion, deleteQuizQuestion }}
 				onAnswer={{ newQuizAnswer, editQuizAnswer, deleteQuizAnswer }}
 				session={props.session}
 				user={props.user}

@@ -9,24 +9,22 @@ import "fontsource-roboto";
 // Gonna need a hook to manage question here
 // Also need to remove all this conditional stuff
 export default function Question(props) {
+	const [question, setQuestion] = React.useState(props.question || "");
+
 	const quizAnswersList = props.answers.map(answer => {
 		return (
 			<Answer
 				key={answer.id}
-				id={answer.id}
-				answer={answer.answer}
-				correct={answer.correct}
+				answer={answer}
 				session={props.session}
+				onAnswer={props.onAnswer}
 			/>
 		);
 	});
 
-	// initialize; replace with state
-	const size = Object.keys(props).length;
-
-	const question = size ? props.question : "Enter quiz question";
-
-	const isLecturer = size ? props.lecturer : false;
+	quizAnswersList.sort((a, b) => {
+		return a.key > b.key ? 1 : -1;
+	});
 
 	return (
 		<div>
@@ -34,15 +32,18 @@ export default function Question(props) {
 				className="quiz-question"
 				placeholder="Enter quiz question"
 				test_id="quiz-question"
-				value={props.question}
+				value={question}
+				onChange={event => {
+					setQuestion(event.target.value);
+					props.onQuestion.editQuizQuestion(props.id, event.target.value);
+				}}
+				readOnly={props.lecturer !== props.user}
 			/>
 
 			{quizAnswersList}
-			{isLecturer ? <NewAnswerIcon /> : ""}
+			{props.lecturer === props.user && (
+				<NewAnswerIcon onNew={() => console.log("New Answer!")} />
+			)}
 		</div>
 	);
-}
-
-{
-	/* <Message /> */
 }

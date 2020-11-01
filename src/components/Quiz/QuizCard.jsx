@@ -18,9 +18,15 @@ export default function Card(props) {
 				id={question.id}
 				question={question.question}
 				answers={question.answers}
+				onQuestion={props.onQuestion}
+				onAnswer={props.onAnswer}
 				session={props.session}
 			/>
 		);
+	});
+
+	quizQuestionsList.sort((a, b) => {
+		return a.key > b.key ? 1 : -1;
 	});
 
 	return (
@@ -46,9 +52,7 @@ export default function Card(props) {
 				)}
 
 				<div className="quiz-button">
-					{props.lecturer === props.user ? (
-						<Button variant="save-quiz">SAVE</Button>
-					) : (
+					{props.lecturer !== props.user && props.session && (
 						<Button variant="submit">SUBMIT</Button>
 					)}
 				</div>
