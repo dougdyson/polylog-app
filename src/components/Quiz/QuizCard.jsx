@@ -15,8 +15,7 @@ export default function Card(props) {
   // initialize; replace with state
   const size = Object.keys(props).length;
 
-  const isLecturer = (size) ? props.lecturer : '0';
-
+  const isLecturer = (size) ? props.lecturer : false;
 
   return (
     <section className='quiz-container'>
