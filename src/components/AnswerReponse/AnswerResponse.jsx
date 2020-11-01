@@ -19,6 +19,7 @@ export default function DisplayAnswerResponse(props) {
 						className="answer-response-textarea"
 						placeholder="Enter answer"
 						value={props.response}
+						readOnly={props.student !== props.user}
 					/>
 				</div>
 			</div>

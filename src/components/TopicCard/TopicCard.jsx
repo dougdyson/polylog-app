@@ -27,18 +27,33 @@ export default function Topic(props) {
 		topicQuestionsList = props.activity.responses.map(response => {
 			if (response.type === "question") {
 				return (
-					<TopicResponse response={response.response} type={response.type} />
+					<TopicResponse
+						response={response.response}
+						type={response.type}
+						user={props.user}
+						student={response.student_id}
+					/>
 				);
 			} else if (response.type === "comment") {
 				return (
-					<TopicResponse response={response.response} type={response.type} />
+					<TopicResponse
+						response={response.response}
+						type={response.type}
+						user={props.user}
+						student={response.student_id}
+					/>
 				);
 			}
 		});
 
 		topicAnswersList = props.activity.responses.map(response => {
 			if (response.type === "answer") {
-				return <AnswerResponse response={response.response} />;
+				return (
+					<AnswerResponse
+						response={response.response}
+						student={response.student_id}
+					/>
+				);
 			}
 		});
 	}

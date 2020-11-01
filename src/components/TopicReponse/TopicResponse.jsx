@@ -27,6 +27,7 @@ export default function DisplayTopicResponse(props) {
 						className="topic-text-area"
 						placeholder="Enter question"
 						value={props.response}
+						readOnly={props.student !== props.user}
 					/>
 				</div>
 				<img className="topic-response-icon" alt="" src={response_icon}></img>
