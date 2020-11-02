@@ -1,5 +1,5 @@
 import React from "react";
-import confusedEmoji from "./confused_emoji.png";
+import confusedEmoji from "./confused_emoji_grey.png";
 import "./ConfusedEmoji.css";
 
 function ConfusedEmoji(props) {
