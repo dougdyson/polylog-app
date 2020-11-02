@@ -25,6 +25,7 @@ const Session = () => {
 			{lecture && (
 				<ActivityFeed
 					lecture={lecture}
+					// Confirm end meeting
 					onClose={() => console.log("close")}
 					onEdit={editLecture}
 					session={uuid}
