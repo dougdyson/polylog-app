@@ -103,16 +103,16 @@ export default function Topic(props) {
 				<div className={`emoji`}>
 					{props.session && (
 						<React.Fragment>
+              <ThumbsUpEmoji
+                className="icon emoji-spacing"
+                onClick={() => addReaction(true)}
+              />
+                <span className="reaction-counter">({reactions_positive})</span>
 							<ConfusedEmoji
 								className="icon emoji-spacing"
 								onClick={() => addReaction(false)}
 							/>
 							<span className="reaction-counter">({reactions_negative})</span>
-							<ThumbsUpEmoji
-								className="icon emoji-spacing"
-								onClick={() => addReaction(true)}
-							/>
-							<span className="reaction-counter">({reactions_positive})</span>
 							{/* When we have the list we need to change question to whatever type the user picked */}
 							<div className="new_response_button">
 								<NewIcon

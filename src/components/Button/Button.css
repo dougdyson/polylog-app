@@ -124,11 +124,11 @@
 
 .reply {
 	border: none;
-	color: blue;
+	color: #747474;
 	background-color: white;
 	opacity: 0.5;
-	font-size: 12px;
-	padding-left: 10px;
+	font-size: 10px;
+  padding-left: 10px;
 }
 
 .reply:hover {
