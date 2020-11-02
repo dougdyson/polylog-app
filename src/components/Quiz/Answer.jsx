@@ -11,12 +11,11 @@ export default function Answer(props) {
 	);
 
 	const addResponse = () => {
-		const findResponse = props.activity.find(response => {
-			return (
+		const findResponse = props.activity.find(
+			response =>
 				response.quiz_question_id === props.quiz_question_id &&
 				response.student_id === props.user
-			);
-		});
+		);
 
 		console.log(!findResponse);
 		if (!findResponse) {
@@ -55,6 +54,7 @@ export default function Answer(props) {
 					<div className="quiz-answer-correct-checkbox">
 						<input
 							type="checkbox"
+							checked={answer.correct}
 							onClick={() => {
 								setAnswer({
 									id: answer.id,
@@ -68,7 +68,6 @@ export default function Answer(props) {
 									!answer.correct
 								);
 							}}
-							checked={answer.correct}
 						></input>
 						set correct answer
 					</div>
