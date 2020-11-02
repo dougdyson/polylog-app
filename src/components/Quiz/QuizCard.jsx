@@ -55,6 +55,7 @@ export default function Card(props) {
 						delete
 					</Button>
 				)}
+        
 			</div>
 			{quizQuestionsList}
 			<div>
