@@ -51,8 +51,6 @@ export default function Lecture(props) {
 								props.onNew(props.lecture.id, null, null, nextPosition)
 							}
 						/> */}
-						<Button variant="new-topic">New Topic</Button>
-						<Button variant="card-mover">New Quiz</Button>
 					</div>
 				)}
 			</div>
