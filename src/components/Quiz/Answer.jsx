@@ -28,7 +28,7 @@ export default function Answer(props) {
 	};
 
 	return (
-		<div>
+		<div style='answers-column'>
 			{props.lecturer === props.user && (
 				<TextareaAutosize
 					className="quiz-answer-textarea"

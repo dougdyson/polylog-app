@@ -105,8 +105,9 @@
   display: flex;
 }
 
-.quiz-answer-column {
-  align-items: center;
+.quiz-answers-column {
+  display: flex;
+  justify-content: cent
 }
 
 .quiz-answer-message {
