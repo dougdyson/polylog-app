@@ -55,7 +55,12 @@ export default function Card(props) {
 					</Button>
 				)}
 			</div>
-			<QuizTitle title={props.title} />
+			<QuizTitle
+				id={props.id}
+				title={props.title}
+				onEdit={props.onEdit}
+				position={props.position}
+			/>
 			{props.lecturer === props.user && (
 				<NewIcon onNew={() => props.onQuestion.newQuizQuestion(props.id, "")} />
 			)}
