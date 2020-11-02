@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as QuizIcon } from "./done_all-24px.svg";
+import { ReactComponent as QuizIcon } from "./help_outline-24px.svg";
 import Question from "./Question";
 import Answer from "./Answer";
 import Message from "./Message";

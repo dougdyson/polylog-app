@@ -5,7 +5,7 @@ import TopicCard from "../TopicCard/TopicCard";
 import QuizCard from "../Quiz/QuizCard";
 import useTopicCardData from "../../hooks/useTopicCardData";
 import useQuizCardData from "../../hooks/useQuizCardData";
-import { ReactComponent as ActivityFeedIcon } from "./playlist_add_check-24px.svg";
+import { ReactComponent as ActivityFeedIcon } from "./dynamic_feed-24px.svg";
 import "./ActivityFeed.css";
 
 export default function ActivityFeed(props) {

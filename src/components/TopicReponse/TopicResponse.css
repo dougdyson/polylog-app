@@ -47,6 +47,7 @@
 
 .topic-response-icon {
   padding-left: 4px;
+  opacity: .5;
 }
 
 .topic-response-icon:hover {

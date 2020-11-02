@@ -1,4 +1,4 @@
-import { ReactComponent as HistoryIcon } from "./history-24px.svg";
+import { ReactComponent as HistoryIcon } from "./bar_chart-24px.svg";
 import "../../App.css";
 
 function ClockIcon(props) {
