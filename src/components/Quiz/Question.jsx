@@ -13,9 +13,14 @@ export default function Question(props) {
 		return (
 			<Answer
 				key={answer.id}
+				id={answer.id}
+				quiz_card_id={props.quiz_card_id}
+				quiz_question_id={props.id}
 				answer={answer}
-				session={props.session}
+				activity={props.activity}
 				onAnswer={props.onAnswer}
+				onResponse={props.onResponse}
+				session={props.session}
 				user={props.user}
 				lecturer={props.lecturer}
 			/>

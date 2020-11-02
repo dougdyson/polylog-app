@@ -16,10 +16,13 @@ export default function Card(props) {
 			<Question
 				key={question.id}
 				id={question.id}
+				quiz_card_id={props.id}
 				question={question.question}
 				answers={question.answers}
+				activity={props.activity}
 				onQuestion={props.onQuestion}
 				onAnswer={props.onAnswer}
+				onResponse={props.onResponse}
 				session={props.session}
 				user={props.user}
 				lecturer={props.lecturer}

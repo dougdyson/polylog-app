@@ -6,6 +6,26 @@ import "fontsource-roboto";
 
 export default function Answer(props) {
 	const [answer, setAnswer] = React.useState(props.answer);
+	const [buttonVariant, setButtonVariant] = React.useState(
+		"quiz-answer-button"
+	);
+
+	// POST to /quiz/response doesn't keep track of quiz_question_id
+	// I would need the db to return the quiz_question_id after insert
+	// And I would need to websocket to insert it into state
+	const addResponse = () => {
+		const findResponse = props.activity.find(response => {
+			return (
+				response.quiz_question_id === props.quiz_question_id &&
+				response.student_id === props.user
+			);
+		});
+
+		findResponse === undefined && answer.correct
+			? setButtonVariant("quiz-answer-correct")
+			: setButtonVariant("quiz-answer-incorrect");
+		props.onResponse(props.quiz_card_id, props.id, props.session, props.user);
+	};
 
 	return (
 		<div>
@@ -17,6 +37,7 @@ export default function Answer(props) {
 					onChange={event => {
 						setAnswer({
 							id: answer.id,
+							quiz_question_id: answer.quiz_question_id,
 							answer: event.target.value,
 							correct: answer.correct
 						});
@@ -37,6 +58,7 @@ export default function Answer(props) {
 							onClick={() => {
 								setAnswer({
 									id: answer.id,
+									quiz_question_id: answer.quiz_question_id,
 									answer: answer.answer,
 									correct: !answer.correct
 								});
@@ -57,9 +79,9 @@ export default function Answer(props) {
 			)}
 
 			{props.lecturer !== props.user && (
-				// onClick newQuizResponse
-				// Change color of button to reflect correct/incorrect
-				<Button variant="quiz-answer-button">{props.answer.answer}</Button>
+				<Button variant={buttonVariant} onClick={addResponse}>
+					{props.answer.answer}
+				</Button>
 			)}
 		</div>
 	);
