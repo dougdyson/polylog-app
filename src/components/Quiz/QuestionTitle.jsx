@@ -14,6 +14,7 @@ export default function QuestionTitle(props) {
 				setTitle(event.target.value);
 				props.onEdit(props.id, event.target.value, props.position);
 			}}
+			readOnly={props.lecturer !== props.user}
 		/>
 	);
 }
