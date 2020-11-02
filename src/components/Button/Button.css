@@ -5,8 +5,7 @@
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	border-radius: 4px;
-	border: thin solid #747474;
+	border-radius: 10px;
 	width: 94px;
 	height: 31px;
 	font-family: "Roboto", sans-serif;
@@ -126,10 +125,10 @@
 
 .reply {
 	border: none;
-	color: blue;
+	color: #747474;
 	background-color: white;
 	opacity: 0.5;
-	font-size: 12px;
+	font-size: 10px;
 	padding-left: 10px;
 }
 
@@ -183,7 +182,7 @@
 	font-size: 14px;
 	font-family: "roboto";
 	color: black;
-	background-color: #ffffef;
+	background-color: #f4f4f4;
 	border: 1px solid #747474;
 	width: 80%;
 	height: 6vh;

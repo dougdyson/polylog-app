@@ -1,11 +1,10 @@
 .quiz-container {
-  padding: 0 20px;
+  padding: 0 10px;
   font-family: 'Roboto';
-  border: 1px solid #c4c4c4;  
+  border: 1px solid #98C29A;  
   /* padding: 10px; */
   border-radius: 10px;
   margin-bottom: 20px;
-  padding-bottom: 20px;
 }
 
 .quiz-header-row {
@@ -22,7 +21,7 @@
   display: flex;
   font-family: 'roboto';
   color: #c4c4c4;
-  font-size: 18px;
+  font-size: 1px;
   align-items: center;
   padding-left: 10px;
 }
@@ -68,7 +67,7 @@
   font-weight: bold;
   font-family: 'roboto';
   padding-bottom: 20px;
-  color: #747474
+  color: black;
 }
 
 .quiz-answer-textarea {

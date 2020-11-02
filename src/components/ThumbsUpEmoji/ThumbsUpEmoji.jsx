@@ -1,5 +1,5 @@
 import React from "react";
-import thumbsUp from "./thumbs_up.png";
+import thumbsUp from "./thumbs_up_bw.png";
 import "./ThumbsUpEmoji.css";
 
 function ThumbsUpEmoji(props) {

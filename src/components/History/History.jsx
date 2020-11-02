@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as SessionHistoryIcon } from "./double-zag-stats-icon.svg";
+import { ReactComponent as SessionHistoryIcon } from "./bar_chart-24px.svg";
 import { ReactComponent as HistoryKeyArt } from "./history-key-art.svg";
 import Button from "../Button/Button";
 import useSessionHistory from "../../hooks/useSessionHistory";
