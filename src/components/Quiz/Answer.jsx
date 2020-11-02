@@ -54,7 +54,7 @@ export default function Answer(props) {
 					<div className="quiz-answer-correct-checkbox">
 						<input
 							type="checkbox"
-							checked={answer.correct}
+							defaultChecked={answer.correct}
 							onClick={() => {
 								setAnswer({
 									id: answer.id,
