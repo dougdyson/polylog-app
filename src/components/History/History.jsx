@@ -1,136 +1,102 @@
-import React from 'react';
-import Button from '../Button/Button';
-import { ReactComponent as SessionHistoryIcon } from './double-zag-stats-icon.svg';
-import { ReactComponent as HistoryKeyArt } from './history-key-art.svg';
+import React from "react";
+import { ReactComponent as SessionHistoryIcon } from "./double-zag-stats-icon.svg";
+import { ReactComponent as HistoryKeyArt } from "./history-key-art.svg";
+import Button from "../Button/Button";
+import useSessionHistory from "../../hooks/useSessionHistory";
+import lectureContext from "../../contexts/LectureContext";
+import "./History.css";
 
-import './History.css';
-import "fontsource-roboto";
+// Add some conditionals || if there's no data ie start date and quiz responses
+function History(props) {
+	const { history } = useSessionHistory(props.lecture.id);
 
-export default function History(props) {
+	return (
+		<section className="history-container">
+			<div className="history-card-header-row">
+				<div className="history-card-header">
+					<SessionHistoryIcon className="history-icon" />
+					<h2 className="history-card-title">Lecture Reporting</h2>
+				</div>
+				<Button variant="close" onClick={props.onClose}>
+					x
+				</Button>
+			</div>
 
-  // clean up with state
-  // since there is a lot of code here, normally I would import the setting of some of these values to another file
-  let title               = 'Really Long Lecture Title With Big Fancy Words, Even Breaking Onto A New Line!';
-  let startDate           = 'start date';
-  let endDate             = 'end date';
-  let lectureSessions     = '#';
-  let totalAttendees      = '#';
-  let avgAttendees        = 'avg';
-  let thumbsUps           = '#';
-  let confused            = '#';
-  let questions           = '#';
-  let answers             = '#';
-  let comments            = '#';
-  let quizzes             = '#';
-  let correctResponses    = '%';
-  let incorrectResponses  = '%';
-  let polls               = '#';
+			<div className="history-lecture-title">{props.lecture.title}</div>
+			<div className="history-dates">
+				{history.created_at &&
+					String(new Date(history.created_at)).substring(0, 15)}{" "}
+				- {String(new Date()).substring(0, 15)}
+			</div>
 
-  let size = Object.keys(props).length;
-  if (size) {
-    console.log(props);
-    title               = props.history.title;
-    startDate           = props.history.startDate;
-    endDate             = props.history.endDate;
-    lectureSessions     = props.history.lectureSessions;
-    totalAttendees      = props.history.totalAttendees;
-    avgAttendees        = props.history.avgAttendees;
-    thumbsUps           = props.history.thumbsUps;
-    confused            = props.history.confused;
-    questions           = props.history.questions;
-    answers             = props.history.answers;
-    comments            = props.history.comments;
-    quizzes             = props.history.quizzes;
-    correctResponses    = props.history.correctResponses;
-    incorrectResponses  = props.history.incorrectResponses;
-    polls               = props.history.polls;
-  }
+			<div className="history-lecture-totals">
+				<ul className="leaders">
+					<li className="bottom-padding">
+						<span>Lecture Sessions</span>
+						<span>{history.sessions_count}</span>
+					</li>
+					<li>
+						<span>Total Attendees</span>
+						<span>{history.attendees_count}</span>
+					</li>
+					<li className="bottom-padding">
+						<span>Average Attendees</span>
+						<span>{Math.floor(history.attendees_avg)}</span>
+					</li>
+				</ul>
 
-  return (
-    <section className='history-container'>
+				<div className="history-card-section">
+					<span>Engagement</span>
+				</div>
+				<ul className="leaders">
+					<li>
+						<span>Thumbs Up Reactions</span>
+						<span>{history.positive_reactions_count}</span>
+					</li>
+					<li className="bottom-padding">
+						<span>Confused Reactions</span>
+						<span>{history.negative_reactions_count}</span>
+					</li>
+				</ul>
 
-      <div className='history-card-header-row'>
-        <div className='history-card-header'>
-          <SessionHistoryIcon className='history-icon' />
-          <h2 className='history-card-title'>Lecture Reporting</h2>
-        </div>
-        <Button variant='close'>x</Button>
-      </div>
+				<div className="history-card-section">
+					<span>Participation</span>
+				</div>
+				<ul className="leaders">
+					<li>
+						<span>Questions</span>
+						<span>{history.questions_count}</span>
+					</li>
+					<li>
+						<span>Answers</span>
+						<span>{history.answers_count}</span>
+					</li>
+					<li className="bottom-padding">
+						<span>Comments</span>
+						<span>{history.comments_count}</span>
+					</li>
+				</ul>
 
-      <div className='history-lecture-title'>
-        {title}
-      </div>
-      <div className='history-dates'>
-        {startDate} - {endDate}
-      </div>
+				<div className="history-card-section">
+					<span>Comprehension</span>
+				</div>
+				<ul className="leaders">
+					<li>
+						<span>Quizzes</span>
+						<span>{history.quiz_cards_count}</span>
+					</li>
+					<li>
+						<span>Quizzes correct responses</span>
+						<span>{history.quiz_correct_count}</span>
+					</li>
+					<li className="bottom-padding">
+						<span>Quizzes incorrect responses</span>
+						<span>{history.quiz_incorrect_count}</span>
+					</li>
+				</ul>
 
-      <div className='history-lecture-totals'>
-        <ul className='leaders'>
-          <li className='bottom-padding'>
-              <span>Lecture Sessions</span>
-              <span>{lectureSessions}</span>
-          </li>
-          <li><span>Total Attendees</span>
-              <span>{totalAttendees}</span>
-          </li>
-          <li className='bottom-padding'>
-            <span >Average Attendees</span>
-            <span>{avgAttendees}</span>
-          </li>
-        </ul>
-
-        <div className='history-card-section'>
-          <span>Engagement</span>
-        </div>
-        <ul className='leaders'>
-          <li>
-            <span>Thumbs Up Reactions</span>
-            <span>{thumbsUps}</span>
-          </li>
-          <li className='bottom-padding'>
-            <span >Confused Reactions</span>
-            <span>{confused}</span>
-          </li>
-        </ul>
-
-        <div className='history-card-section'>
-          <span>Participation</span>
-        </div>
-        <ul className='leaders'>
-          <li>
-            <span>Questions</span>
-            <span>{questions}</span>
-          </li>
-          <li>
-            <span>Answers</span>
-            <span>{answers}</span>
-          </li>
-          <li className='bottom-padding'>
-            <span >Comments</span>
-            <span>{comments}</span>
-          </li>
-        </ul>
-
-        <div className='history-card-section'>
-          <span>Comprehension</span>
-        </div>
-        <ul className='leaders'>
-          <li>
-            <span>Quizzes</span>
-            <span>{quizzes}</span>
-          </li>
-          <li>
-            <span>Quizzes correct responses</span>
-            <span>{correctResponses}</span>
-          </li>
-          <li className='bottom-padding'>
-            <span >Quizzes incorrect responses</span>
-            <span>{incorrectResponses}</span>
-          </li>
-        </ul>
-
-        {/* saved for later */}
-        {/* <div className='history-card-section'>
+				{/* saved for later */}
+				{/* <div className='history-card-section'>
           <span>Sentiment</span>
         </div>
         <ul className='leaders'>
@@ -139,16 +105,17 @@ export default function History(props) {
             <span>{polls}</span>
           </li>
         </ul> */}
+			</div>
+			<div className="history-open-in-sheets">
+				<div>Open in Google Sheets</div>
+				<div>coming soon</div>
+			</div>
 
-      </div>
-      <div className='history-open-in-sheets'>
-        <div>Open in Google Sheets</div>
-        <div>coming soon</div>
-      </div>
-      
-      <div className='history-key-art'>
-        <HistoryKeyArt />
-      </div>
-    </section>
-  );
+			<div className="history-key-art">
+				<HistoryKeyArt />
+			</div>
+		</section>
+	);
 }
+
+export default History;
