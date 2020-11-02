@@ -87,8 +87,8 @@ export default function Lectures() {
 						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
 						// To simulate student experience uncomment session and change user to any number greater than 1
-						// session={"4a115ab1-c845-412a-b868-531cf505bf45"}
-						user={1}
+						session={"4a115ab1-c845-412a-b868-531cf505bf45"}
+						user={2}
 					/>
 				)}
 			</div>
