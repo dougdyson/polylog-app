@@ -1,6 +1,7 @@
 .confused-emoji {
   width: 16px;
   opacity: 25%;
+  padding: 0 0 0 10px;
 }
 
 .confused-emoji:hover  {

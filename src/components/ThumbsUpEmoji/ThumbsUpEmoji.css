@@ -1,7 +1,7 @@
 .thumbs-up-emoji {
   width: 18px;
   opacity: 75%;
-  padding:0 0 0 10px;
+  padding:0 5px 0 0;
 }
 
 .thumbs-up-emoji:hover {
