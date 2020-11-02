@@ -23,6 +23,7 @@ export default function Answer(props) {
       { (isLecturer) && (
       <div className='quiz-answer-settings-row'>
         <div className='quiz-answer-correct-checkbox'>
+          {/* onclick below just for ref */}
           <input type="checkbox" onclick="setState()"></input>set correct answer
         </div>
           <div className='answer-save-delete'>

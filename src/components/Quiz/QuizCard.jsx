@@ -7,6 +7,7 @@ import Message from './Message';
 import Button from '../Button/Button';
 import CorrectAnswerCount from './CorrectAnswerCount';
 import IncorrectAnswerCount from './IncorrectAnswerCount';
+import NewIcon from '../NewIcon/NewIcon'
 
 import './quiz.css';
 import '../Button/Button.css'
@@ -29,6 +30,7 @@ export default function Card(props) {
         )}
       </div>
       <QuizTitle />
+      {isLecturer && <NewIcon />} 
       <Question />
       <div>
         <Answer />
@@ -42,11 +44,6 @@ export default function Card(props) {
             : ''
         }
 
-        <div className='quiz-button'>
-          { 
-            isLecturer && <Button variant='submit'>SAVE</Button>
-          }
-        </div>
 
       </div>
     </section>
