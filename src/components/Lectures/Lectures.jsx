@@ -38,13 +38,14 @@ export default function Lectures() {
 		return (
 			<LectureCard
 				key={lecture.id}
+				id={lecture.id}
 				title={lecture.title}
 				// onEdit doesn't transition to another activity feed if it is already open
 				onEdit={() => lectureClickTransition(lecture, ACTIVITY_FEED)}
 				onDelete={deleteLecture}
 				// History feed only updates properly when you close the feed first
 				onHistory={() => lectureClickTransition(lecture, HISTORY)}
-				newSession={newSession}
+				onPlay={newSession}
 			/>
 		);
 	});

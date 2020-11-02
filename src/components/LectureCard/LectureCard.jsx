@@ -7,6 +7,9 @@ import { Redirect } from "react-router-dom";
 function LectureCard(props) {
 	const SHOW = "SHOW";
 	const PLAY = "PLAY";
+	const REDIRECT = "REDIRECT";
+
+	const [uuid, setUuid] = React.useState(null);
 	const { mode, transition } = useVisualMode(SHOW);
 
 	return (
@@ -19,17 +22,18 @@ function LectureCard(props) {
 					onEdit={props.onEdit}
 				/>
 			)}
-			{/* Still need NewSession component */}
-			{/* props.newSession should be used for the play card */}
 			{mode === PLAY && (
 				<Play
-					// Make POST request to db and get new session id from db
-					// redirect to session page
-					// <Redirect to={this.state.redirect} />
-					onConfirm={() => console.log("Start")}
+					onConfirm={() => {
+						props.onPlay(props.id).then(res => {
+							setUuid(res.data.id);
+							transition(REDIRECT);
+						});
+					}}
 					onCancel={() => transition(SHOW)}
 				/>
 			)}
+			{mode === REDIRECT && <Redirect to={`/session/${uuid}`} />}
 		</React.Fragment>
 	);
 }
