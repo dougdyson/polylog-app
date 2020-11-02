@@ -1,4 +1,5 @@
 import React from 'react';
+import { LectureInfoConfirmationCard } from './LectureInfoConfirmationCard';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import Button from '../Button/Button'
@@ -26,26 +27,25 @@ export default function lecture (props) {
   
   // page layout
   return (
-    <section className='lecture-container'>
-        {/* <div className='lectu' ><Button variant='close'>X</Button></div> */}
-        <div className='lecture-info'>
-            <TextareaAutosize 
-              className='lecture-info-title'
-              placeholder="Lecture Title"
-              // value={title}
-            /> 
+    <div className='lecture-container'>
+      <div className='lecture-info'>
           <TextareaAutosize 
-            className='lecture-info-description'
-            placeholder="Lecture Description"
-            // value={description}
-          />
-          <div className={variant}> 
-            <NewIcon new_class='icon icon-normal'/>
-            <Button variant='card-mover'>next</Button>
-            <Button variant='card-mover'>previous</Button>
-            <div className='lecture-goto-top'>top</div>
-          </div>
+            className='lecture-info-title'
+            placeholder="Lecture Title"
+            // value={title}
+          /> 
+        <TextareaAutosize 
+          className='lecture-info-description'
+          placeholder="Lecture Description"
+          // value={description}
+        />
+        <div className={variant}> 
+          <NewIcon new_class='icon icon-normal'/>
+          <Button variant='card-mover'>next</Button>
+          <Button variant='card-mover'>previous</Button>
+          <div className='lecture-goto-top'>top</div>
         </div>
-    </section>
+      </div>
+    </div>
   )
 }
