@@ -15,9 +15,14 @@ const useSessionHistory = (lecture_id = null) => {
 		return axios.post(`/session`, { lecture_id });
 	};
 
+	const getLectureBySession = session_id => {
+		return axios.get(`/session/${session_id}/lecture`);
+	};
+
 	return {
 		history,
-		newSession
+		newSession,
+		getLectureBySession
 	};
 };
 
