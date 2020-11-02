@@ -72,9 +72,7 @@ export default function Answer(props) {
 						></input>
 						set correct answer
 					</div>
-					<div className="answer-save-delete">
-						<a href="#">save/delete</a>
-					</div>
+					<Button className="quiz-delete">delete</Button>
 				</div>
 			)}
 

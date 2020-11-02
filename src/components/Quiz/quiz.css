@@ -41,6 +41,14 @@
   font-size: 10px;
   align-items: center;
   display: flex;
+  background-color: white;
+  border: none;
+  height: auto;
+}
+.quiz-delete:hover {
+  color: black;
+  border: none;
+  cursor: pointer;
 }
 
 .quiz-question-row {

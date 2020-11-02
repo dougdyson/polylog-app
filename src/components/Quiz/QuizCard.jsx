@@ -51,9 +51,9 @@ export default function Card(props) {
 				</div>
 
 				{props.lecturer === props.user && (
-					<a className="quiz-delete" href="">
+					<Button className="quiz-delete">
 						delete
-					</a>
+					</Button>
 				)}
 			</div>
 			{quizQuestionsList}
