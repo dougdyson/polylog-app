@@ -10,9 +10,6 @@ export default function Answer(props) {
 		"quiz-answer-button"
 	);
 
-	// POST to /quiz/response doesn't keep track of quiz_question_id
-	// I would need the db to return the quiz_question_id after insert
-	// And I would need to websocket to insert it into state
 	const addResponse = () => {
 		const findResponse = props.activity.find(response => {
 			return (
@@ -21,10 +18,13 @@ export default function Answer(props) {
 			);
 		});
 
-		findResponse === undefined && answer.correct
-			? setButtonVariant("quiz-answer-correct")
-			: setButtonVariant("quiz-answer-incorrect");
-		props.onResponse(props.quiz_card_id, props.id, props.session, props.user);
+		console.log(!findResponse);
+		if (!findResponse) {
+			answer.correct
+				? setButtonVariant("quiz-answer-correct")
+				: setButtonVariant("quiz-answer-incorrect");
+			props.onResponse(props.quiz_card_id, props.id, props.session, props.user);
+		}
 	};
 
 	return (
