@@ -27,7 +27,7 @@ export default function Lecture(props) {
 					placeholder="Lecture Title"
 					value={title}
 					onChange={event => {
-						setTitle(props.lecture.title);
+						setTitle(event.target.value);
 						props.onEdit(props.lecture.id, event.target.value, description);
 					}}
 					readOnly={props.lecturer !== props.user}

@@ -19,7 +19,7 @@ const useLectureData = lecturer_id => {
 			.post(`/lecture`, { lecturer_id, title, description })
 			.then(res => {
 				const id = res.data.id;
-				dispatch({ type: NEW, data: { id, title, description } });
+				dispatch({ type: NEW, data: { id, lecturer_id, title, description } });
 				return res.data;
 			});
 	};
