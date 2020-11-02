@@ -13,6 +13,7 @@ const Session = () => {
 	const { getLectureBySession } = useSessionHistory();
 	const [lecture, setLecture] = React.useState(null);
 
+	// This lecture stuff can probably be replaced with React useContext
 	React.useEffect(() => {
 		getLectureBySession(uuid).then(res => setLecture(res.data));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
