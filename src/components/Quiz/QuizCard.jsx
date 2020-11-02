@@ -1,5 +1,6 @@
 import React from 'react';
 import { ReactComponent as QuizIcon} from './done_all-24px.svg'
+import QuizTitle from './QuestionTitle';
 import Question from './Question';
 import Answer from './Answer';
 import Message from './Message';
@@ -12,7 +13,7 @@ import '../Button/Button.css'
 
 export default function Card(props) {
 
-  const isLecturer =  props.lecturer || false;
+  const isLecturer =  props.lecturer || true;
 
   return (
     <section className='quiz-container'>
@@ -24,10 +25,10 @@ export default function Card(props) {
         </div>
         
         { isLecturer && (
-          <a className='quiz-delete' href='#'>delete</a>
+          <Button variant='delete'>delete</Button>
         )}
-
       </div>
+      <QuizTitle />
       <Question />
       <div>
         <Answer />

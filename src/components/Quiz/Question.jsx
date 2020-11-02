@@ -10,7 +10,7 @@ export default function Question(props) {
 
   const question = props.question || 'Enter quiz question';
 
-  const isLecturer = props.lecturer || false;
+  const isLecturer = props.lecturer || true;
 
   return (
       <div>
