@@ -12,10 +12,7 @@ import '../Button/Button.css'
 
 export default function Card(props) {
 
-  // initialize; replace with state
-  const size = Object.keys(props).length;
-
-  const isLecturer = (size) ? props.lecturer : true;
+  const isLecturer =  props.lecturer || false;
 
   return (
     <section className='quiz-container'>
@@ -45,10 +42,8 @@ export default function Card(props) {
         }
 
         <div className='quiz-button'>
-          { (isLecturer)
-              ? <Button variant='submit'>SAVE</Button>
-              // save could make quiz visible too
-              : <Button variant='save-quiz'>SUBMIT</Button> 
+          { 
+            isLecturer && <Button variant='submit'>SAVE</Button>
           }
         </div>
 

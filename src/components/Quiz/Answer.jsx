@@ -14,9 +14,8 @@ export default function Answer(props) {
   // initialize; replace with state
   const size = Object.keys(props).length;
 
-  const answer = (size) ? props.answer : 'Select quiz answer';
-  const isLecturer = (size) ? props.lecturer : true;
-
+  const answer = props.answer || 'Select quiz answer';
+  const isLecturer = props.lecturer || false;
 
   return (
     <div>
@@ -27,7 +26,7 @@ export default function Answer(props) {
           <input type="checkbox" onclick="setState()"></input>set correct answer
         </div>
           <div className='answer-save-delete'>
-            <a href='#'>save/delete</a>
+            <a href='#'>delete</a>
           </div>
       </div>
         )}

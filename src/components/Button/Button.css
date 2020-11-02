@@ -158,16 +158,15 @@
 .quiz-answer-button {
   font-size: 14px;
   font-family: 'roboto';
-  color: #7E7E7E;
+  color: black;
+  background-color: #FFFFEF;
+  border: 1px solid #747474;
   width: 80%;
-  height: 8vh;
+  height: 6vh;
   display: flex;
-  border-radius: 10px;
-  border: 1px solid #7E7E7E;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  padding: 20px;
+  margin: 20px;
 }
 
 .quiz-answer-button:hover {
@@ -183,7 +182,7 @@
   border: 1px solid yellow;
   outline: thick solid yellow;
   width: 80%;
-  height: 8vh;
+  height: 6vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -200,7 +199,7 @@
   font-family: 'roboto';
   color: white;
   width: 80%;
-  height: 8vh;
+  height: 6vh;
   display: flex;
   border-radius: 10px;
   border: 1px solid #7E7E7E;
@@ -219,7 +218,7 @@
   font-family: 'roboto';
   color: white;
   width: 80%;
-  height: 8vh;
+  height: 6vh;
   display: flex;
   border-radius: 10px;
   border: 1px solid #7E7E7E;

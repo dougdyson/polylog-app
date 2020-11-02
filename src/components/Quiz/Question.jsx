@@ -1,6 +1,6 @@
 import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
-import NewAnswerIcon from '../NewIcon/NewIcon'
+import NewIcon from '../NewIcon/NewIcon'
 
 
 import './quiz.css';
@@ -8,12 +8,9 @@ import "fontsource-roboto";
 
 export default function Question(props) {
 
-  // initialize; replace with state
-  const size = Object.keys(props).length;
+  const question = props.question || 'Enter quiz question';
 
-  const question = (size) ? props.question : 'Enter quiz question';
-
-  const isLecturer = (size) ? props.lecturer : false;
+  const isLecturer = props.lecturer || false;
 
   return (
       <div>
@@ -24,10 +21,7 @@ export default function Question(props) {
           // value={question}
         />
         
-        {(isLecturer)
-          ? <NewAnswerIcon />
-          : ''
-        }
+        {isLecturer && <NewIcon />}
         
       </div>
   );
