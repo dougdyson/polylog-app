@@ -43,7 +43,7 @@ export default function Lecture(props) {
 					readOnly={props.lecturer !== props.user}
 				/>
 
-				{props.lecturer === props.user && (
+				{/* {props.lecturer === props.user && (
 					<div className={"lecture-controls-visible"}>
 						<NewIcon
 							new_class="icon icon-normal"
@@ -51,11 +51,10 @@ export default function Lecture(props) {
 								props.onNew(props.lecture.id, null, null, nextPosition)
 							}
 						/>
-						<Button variant="card-mover">∨</Button>
-						<Button variant="card-mover">∧</Button>
-						<div className="lecture-goto-top">top</div>
+						<Button variant="new-topic">New Topic</Button>
+						<Button variant="new-quiz">New Quiz</Button>
 					</div>
-				)}
+				)} */}
 			</div>
 		</section>
 	);

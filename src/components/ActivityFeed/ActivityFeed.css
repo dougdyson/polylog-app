@@ -22,11 +22,7 @@
 
 .activity-feed-card-title {
   display: flex;
-  font-size: 18px;
   padding-left: 10px;
   color: #c4c4c4;
-}
-
-.card-feed-container {
-  overflow-y: scroll;
+  font-size: 18px;
 }
