@@ -87,6 +87,8 @@ export default function ActivityFeed(props) {
 				<div className="activity-feed-card-header">
 					<ActivityFeedIcon className="activity-feed-icon" />
 					<h2 className="activity-feed-card-title">Lecture Feed</h2>
+          <Button variant="new-topic">New Topic</Button>
+						<Button variant="new-quiz">New Quiz</Button>
 				</div>
 				<Button variant="close" onClick={props.onClose}>
 					x

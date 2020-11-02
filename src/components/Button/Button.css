@@ -101,7 +101,9 @@
 	color: #9e9e9e;
 	border-width: 1px;
 	border-radius: 10px;
-	width: 200px;
+  width: 80px;
+  height: auto;
+  margin-left: 20px;
 }
 
 .new-topic:hover {
@@ -117,7 +119,9 @@
 	color: #c4afaf;
 	border-width: 1px;
 	border-radius: 10px;
-	width: 100px;
+  width: 80px;
+  height: auto;
+  margin-left: 10px;
 }
 
 .new-quiz:hover {

@@ -50,7 +50,10 @@ export default function Card(props) {
 				</div>
 
 				{props.lecturer === props.user && (
-					<Button variant="delete" onClick={() => props.onDelete(props.id)}>
+					<Button
+						className="quiz-delete"
+						onClick={() => props.onDelete(props.id)}
+					>
 						delete
 					</Button>
 				)}

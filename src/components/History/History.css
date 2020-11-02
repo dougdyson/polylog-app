@@ -2,7 +2,7 @@
   width: 40%;
   padding: 0 0 20px 20px;
   font-family: 'Roboto';
-  overflow:auto;
+  /* overflow:auto; */
   height: 80vh;
 }
 

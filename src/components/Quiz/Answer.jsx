@@ -73,7 +73,7 @@ export default function Answer(props) {
 					</div>
 					<div className="answer-save-delete">
 						<Button
-							variant="delete"
+							className="quiz-delete"
 							onClick={() => props.onAnswer.deleteQuizAnswer(props.id)}
 						>
 							delete
