@@ -12,12 +12,10 @@ import "./Lectures.css";
 import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
-// Keeps track of which lecture was clicked
-let currentLecture = null;
 export default function Lectures() {
 	// The number being passed here should be from a cookie
 	const user = 1;
-
+	const [lecture, setLecture] = React.useState(null);
 	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData(
 		user
 	);
@@ -30,7 +28,7 @@ export default function Lectures() {
 	const { mode, transition } = useVisualMode(KEY_ART);
 
 	const lectureClickTransition = (lecture, mode) => {
-		currentLecture = lecture;
+		setLecture(lecture);
 		transition(mode);
 	};
 
@@ -41,10 +39,16 @@ export default function Lectures() {
 				id={lecture.id}
 				title={lecture.title}
 				// onEdit doesn't transition to another activity feed if it is already open
-				onEdit={() => lectureClickTransition(lecture, ACTIVITY_FEED)}
+				onEdit={() => {
+					setLecture(lecture);
+					transition(ACTIVITY_FEED);
+				}}
 				onDelete={deleteLecture}
 				// History feed only updates properly when you close the feed first
-				onHistory={() => lectureClickTransition(lecture, HISTORY)}
+				onHistory={() => {
+					setLecture(lecture);
+					transition(HISTORY);
+				}}
 				onPlay={newSession}
 			/>
 		);
@@ -76,14 +80,11 @@ export default function Lectures() {
 					</div>
 				)}
 				{mode === HISTORY && (
-					<History
-						lecture={currentLecture}
-						onClose={() => transition(KEY_ART)}
-					/>
+					<History lecture={lecture} onClose={() => transition(KEY_ART)} />
 				)}
 				{mode === ACTIVITY_FEED && (
 					<ActivityFeed
-						lecture={currentLecture}
+						lecture={lecture}
 						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
 						// To simulate student experience uncomment session and change user to any number greater than 1
