@@ -21,7 +21,7 @@
   display: flex;
   font-family: 'roboto';
   color: #c4c4c4;
-  font-size: 16px;
+  font-size: 1px;
   align-items: center;
   padding-left: 10px;
 }
@@ -105,9 +105,8 @@
   display: flex;
 }
 
-.quiz-answers-column {
-  display: flex;
-  justify-content: cent
+.quiz-answer-column {
+  align-items: center;
 }
 
 .quiz-answer-message {
