@@ -50,10 +50,12 @@ export default function Card(props) {
 				</div>
 
 				{props.lecturer === props.user && (
+					// onClick props.onQuestion.deleteQuizQuestion
 					<Button variant="delete">delete</Button>
 				)}
 			</div>
-			<QuizTitle />
+			<QuizTitle title={props.title} />
+			{/* onClick props.onQuestion.newQuizQuestion */}
 			{props.lecturer === props.user && <NewIcon />}
 			{quizQuestionsList}
 			<div>
