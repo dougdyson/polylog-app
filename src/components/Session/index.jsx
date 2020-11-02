@@ -21,7 +21,9 @@ const Session = () => {
 
 	return (
 		<React.Fragment>
+			{/* <div className="site-padding"> */}
 			<Nav />
+			{/* </div> */}
 			<JitsiMeet />
 			{lecture && (
 				<ActivityFeed
