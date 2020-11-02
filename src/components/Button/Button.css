@@ -163,7 +163,7 @@
   font-size: 14px;
   font-family: 'roboto';
   color: black;
-  background-color: #FFFFEF;
+  background-color: #f4f4f4;
   border: 1px solid #747474;
   width: 80%;
   height: 6vh;
@@ -203,7 +203,7 @@
 	font-family: "roboto";
 	color: white;
 	width: 80%;
-	height: 8vh;
+	height: 6vh;
 	display: flex;
 	border-radius: 10px;
 	border: 1px solid #7e7e7e;
@@ -222,7 +222,7 @@
 	font-family: "roboto";
 	color: white;
 	width: 80%;
-	height: 8vh;
+	height: 6vh;
 	display: flex;
 	border-radius: 10px;
 	border: 1px solid #7e7e7e;

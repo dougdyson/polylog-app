@@ -8,6 +8,7 @@ import ActivityFeed from "../ActivityFeed/ActivityFeed";
 import useLectureData from "../../hooks/useLectureData";
 import useSessionHistory from "../../hooks/useSessionHistory";
 import useVisualMode from "../../hooks/useVisualMode";
+import '../../screens/screens.css';
 import "./Lectures.css";
 import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
@@ -54,7 +55,7 @@ export default function Lectures() {
 	});
 
 	return (
-		<div>
+		<div className='site-padding'>
 			<Nav />
 			<div className="lectures-page-header">
 				<NewIcon
@@ -65,7 +66,7 @@ export default function Lectures() {
 						);
 					}}
 				/>
-				<h2 className="lectures-page-title">Lectures</h2>
+				<h2 className="lectures-page-title">New Lecture</h2>
 			</div>
 			<div className="lectures-container">
 				<div className="lectures-list">{lecturesList}</div>

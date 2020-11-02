@@ -70,7 +70,6 @@ export default function Topic(props) {
 		<div className="topic-card-container">
 			<main className="topic-info">
 				<div className="topic-info-header">
-					<VisibleIcon className="topic-info-visbility" />
 					<TextareaAutosize
 						className="topic-info-title"
 						placeholder="Topic Title"

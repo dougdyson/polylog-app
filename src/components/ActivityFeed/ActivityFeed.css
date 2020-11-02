@@ -1,8 +1,9 @@
 .activity-feed-container {
-  max-width: 300px;
-  padding: 0 20px 20px 20px;
+  width: 40%;
+  padding: 0 0 20px 20px;
   font-family: 'Roboto';
-  outline: thin solid #e4e4e4;
+  overflow:auto;
+  height: 80vh;
 }
 
 .activity-feed-card-header-row {
