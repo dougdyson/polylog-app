@@ -4,11 +4,14 @@
   font-family: 'Roboto';
   overflow-y: scroll;
   height: 80vh;
+  /* position: absolute; */
 }
 
 .activity-feed-card-header-row {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  
 }
 
 .activity-feed-card-header {

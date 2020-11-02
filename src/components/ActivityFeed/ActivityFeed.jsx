@@ -87,8 +87,6 @@ export default function ActivityFeed(props) {
 				<div className="activity-feed-card-header">
 					<ActivityFeedIcon className="activity-feed-icon" />
 					<h2 className="activity-feed-card-title">Lecture Feed</h2>
-          <Button variant="new-topic">New Topic</Button>
-					<Button variant="new-quiz">New Quiz</Button>
 				</div>
 				<Button variant="close" onClick={props.onClose}>
 					x
@@ -98,7 +96,6 @@ export default function ActivityFeed(props) {
 				lecture={props.lecture}
 				onEdit={props.onEdit}
 				// onNew should bring up a list and that list to choose card type
-				onNew={newTopicCard}
 				newTopic={newTopicCard}
 				newQuiz={newQuizCard}
 				cardsList={cardsList}

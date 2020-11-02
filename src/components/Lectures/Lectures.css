@@ -18,6 +18,7 @@
 .lectures-container{
   display: flex;
   overflow-y: scroll;
+  z-index: -1;
 }
 
 .lecturer-key-art {
