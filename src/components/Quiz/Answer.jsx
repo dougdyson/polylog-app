@@ -27,28 +27,6 @@ export default function Answer(props) {
 		props.onResponse(props.quiz_card_id, props.id, props.session, props.user);
 	};
 
-<<<<<<< HEAD
-  const answer = props.answer || 'Select quiz answer';
-  const isLecturer = props.lecturer || false;
-
-  return (
-    <div>
-      {(isLecturer) && <TextareaAutosize className='quiz-answer-textarea' placeholder='Enter answer' /> }
-      { (isLecturer) && (
-      <div className='quiz-answer-settings-row'>
-        <div className='quiz-answer-correct-checkbox'>
-          <input type="checkbox" onclick="setState()"></input>set correct answer
-        </div>
-          <div className='answer-save-delete'>
-            <a href='#'>delete</a>
-          </div>
-      </div>
-        )}
-      {(!isLecturer) && <Button variant='quiz-answer-button'>{answer}</Button>}
-    </div>
-  );
-}
-=======
 	return (
 		<div>
 			{props.lecturer === props.user && (
@@ -108,4 +86,3 @@ export default function Answer(props) {
 		</div>
 	);
 }
->>>>>>> add-lectures-data

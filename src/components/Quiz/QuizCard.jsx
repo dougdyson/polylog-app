@@ -30,9 +30,6 @@ export default function Card(props) {
 		);
 	});
 
-<<<<<<< HEAD
-  const isLecturer =  props.lecturer || false;
-=======
 	quizQuestionsList.sort((a, b) => {
 		return a.key > b.key ? 1 : -1;
 	});
@@ -44,7 +41,6 @@ export default function Card(props) {
 			answer.correct ? (correctAnswerCount += 1) : (incorrectAnswerCount += 1);
 		});
 	}
->>>>>>> add-lectures-data
 
 	return (
 		<section className="quiz-container">
@@ -54,42 +50,6 @@ export default function Card(props) {
 					<h2 className="quiz-header-title">Quiz</h2>
 				</div>
 
-<<<<<<< HEAD
-      <div className='quiz-header-row'>
-        <div className='quiz-card-header'>
-          <QuizIcon className='quiz-header-icon' />
-          <h2 className='quiz-header-title'>Quiz</h2>
-        </div>
-        
-        { isLecturer && (
-          <a className='quiz-delete' href='#'>delete</a>
-        )}
-
-      </div>
-      <Question />
-      <div>
-        <Answer />
-        <Message />
-       
-        { (isLecturer)
-            ? <div>
-                <CorrectAnswerCount />
-                <IncorrectAnswerCount />
-              </div>
-            : ''
-        }
-
-        <div className='quiz-button'>
-          { 
-            isLecturer && <Button variant='submit'>SAVE</Button>
-          }
-        </div>
-
-      </div>
-    </section>
-  );
-}
-=======
 				{props.lecturer === props.user && (
 					<a className="quiz-delete" href="">
 						delete
@@ -108,4 +68,3 @@ export default function Card(props) {
 		</section>
 	);
 }
->>>>>>> add-lectures-data

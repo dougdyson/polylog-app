@@ -160,7 +160,6 @@
 }
 
 .quiz-answer-button {
-<<<<<<< HEAD
   font-size: 14px;
   font-family: 'roboto';
   color: black;
@@ -172,20 +171,6 @@
   justify-content: center;
   align-items: center;
   margin: 20px;
-=======
-	font-size: 14px;
-	font-family: "roboto";
-	color: #7e7e7e;
-	width: 80%;
-	height: 8vh;
-	display: flex;
-	border-radius: 10px;
-	border: 1px solid #7e7e7e;
-	justify-content: center;
-	align-items: center;
-	background-color: white;
-	padding: 20px;
->>>>>>> add-lectures-data
 }
 
 .quiz-answer-button:hover {
@@ -194,7 +179,6 @@
 }
 
 .quiz-answer-selected {
-<<<<<<< HEAD
   font-size: 14px;
   font-family: 'roboto';
   color: black;
@@ -207,20 +191,6 @@
   justify-content: center;
   align-items: center;
   margin: 20px;
-=======
-	font-size: 14px;
-	font-family: "roboto";
-	color: black;
-	background-color: #ffffef;
-	border: 1px solid yellow;
-	outline: thick solid yellow;
-	width: 80%;
-	height: 8vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 20px;
->>>>>>> add-lectures-data
 }
 
 .quiz-answer-selected:hover {
@@ -229,20 +199,6 @@
 }
 
 .quiz-answer-correct {
-<<<<<<< HEAD
-  font-size: 14px;
-  font-family: 'roboto';
-  color: white;
-  width: 80%;
-  height: 6vh;
-  display: flex;
-  border-radius: 10px;
-  border: 1px solid #7E7E7E;
-  justify-content: center;
-  align-items: center;
-  background-color: #2B9461;
-  margin: 20px;
-=======
 	font-size: 14px;
 	font-family: "roboto";
 	color: white;
@@ -255,7 +211,6 @@
 	align-items: center;
 	background-color: #2b9461;
 	margin: 20px;
->>>>>>> add-lectures-data
 }
 
 .quiz-answer-correct:hover {
@@ -263,20 +218,6 @@
 }
 
 .quiz-answer-incorrect {
-<<<<<<< HEAD
-  font-size: 14px;
-  font-family: 'roboto';
-  color: white;
-  width: 80%;
-  height: 6vh;
-  display: flex;
-  border-radius: 10px;
-  border: 1px solid #7E7E7E;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  margin: 20px;
-=======
 	font-size: 14px;
 	font-family: "roboto";
 	color: white;
@@ -289,7 +230,6 @@
 	align-items: center;
 	background-color: red;
 	margin: 20px;
->>>>>>> add-lectures-data
 }
 
 .quiz-answer-incorrect:hover {
