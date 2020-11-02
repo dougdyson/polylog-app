@@ -43,18 +43,18 @@ export default function Lecture(props) {
 					readOnly={props.lecturer !== props.user}
 				/>
 
-				{/* {props.lecturer === props.user && (
+				{props.lecturer === props.user && (
 					<div className={"lecture-controls-visible"}>
-						<NewIcon
+						{/* <NewIcon
 							new_class="icon icon-normal"
 							onNew={() =>
 								props.onNew(props.lecture.id, null, null, nextPosition)
 							}
-						/>
+						/> */}
 						<Button variant="new-topic">New Topic</Button>
-						<Button variant="new-quiz">New Quiz</Button>
+						<Button variant="card-mover">New Quiz</Button>
 					</div>
-				)} */}
+				)}
 			</div>
 		</section>
 	);
