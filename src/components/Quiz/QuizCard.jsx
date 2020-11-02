@@ -1,9 +1,6 @@
 import React from "react";
 import { ReactComponent as QuizIcon } from "./done_all-24px.svg";
 import Question from "./Question";
-import Answer from "./Answer";
-import Message from "./Message";
-import Button from "../Button/Button";
 import CorrectAnswerCount from "./CorrectAnswerCount";
 import IncorrectAnswerCount from "./IncorrectAnswerCount";
 

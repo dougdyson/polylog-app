@@ -2,7 +2,6 @@ import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import NewAnswerIcon from "../NewIcon/NewIcon";
 import Answer from "./Answer";
-import Message from "./Message";
 import "./quiz.css";
 import "fontsource-roboto";
 
