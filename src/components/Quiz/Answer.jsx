@@ -72,7 +72,7 @@ export default function Answer(props) {
 						set correct answer
 					</div>
 					<div className="answer-save-delete">
-						<a href="#">save/delete</a>
+						<Button variant="delete">delete</Button>
 					</div>
 				</div>
 			)}

@@ -18,3 +18,4 @@ export const Answer = () => <Button variant='quiz-answer-button'>Quiz answer cho
 export const Selected = () => <Button variant='quiz-answer-selected'>Selected quiz answer choice</Button>
 export const Correct = () => <Button variant='quiz-answer-correct'>Correct Quiz Answer</Button>
 export const Incorrect = () => <Button variant='quiz-answer-incorrect'>Incorrect Quiz Answer</Button>
+export const Delete = () => <Button variant='delete'>delete</Button>

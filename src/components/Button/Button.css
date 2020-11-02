@@ -1,11 +1,12 @@
 .button {
 	border: none;
-	color: white;
+	color: #747474;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
 	border-radius: 4px;
+	border: thin solid #747474;
 	width: 94px;
 	height: 31px;
 	font-family: "Roboto", sans-serif;
@@ -14,11 +15,12 @@
 .button:hover {
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
-	color: lightyellow;
+	color: black;
 }
 
 .nav-bar {
 	background: #56524b;
+	color: white;
 }
 
 .nav-bar:hover {
@@ -142,6 +144,7 @@
 	height: 20px;
 	background-color: white;
 	margin: 10px 0 0 0;
+	border: none;
 }
 
 .close:hover {
@@ -149,6 +152,23 @@
 	box-shadow: none;
 	border: 0;
 	outline: thin solid #e4e4e4;
+}
+
+.delete {
+	color: lightgray;
+	width: auto;
+	/* height: 20px; */
+	font-size: 10px;
+	background-color: white;
+	margin: 0px 0 0 0;
+	border: none;
+}
+
+.delete:hover {
+	color: black;
+	box-shadow: none;
+	border: 0;
+	/* outline: thin solid #e4e4e4; */
 }
 
 .close-activity-feed {
@@ -162,16 +182,15 @@
 .quiz-answer-button {
 	font-size: 14px;
 	font-family: "roboto";
-	color: #7e7e7e;
+	color: black;
+	background-color: #ffffef;
+	border: 1px solid #747474;
 	width: 80%;
-	height: 8vh;
+	height: 6vh;
 	display: flex;
-	border-radius: 10px;
-	border: 1px solid #7e7e7e;
 	justify-content: center;
 	align-items: center;
-	background-color: white;
-	padding: 20px;
+	margin: 20px;
 }
 
 .quiz-answer-button:hover {
@@ -187,7 +206,7 @@
 	border: 1px solid yellow;
 	outline: thick solid yellow;
 	width: 80%;
-	height: 8vh;
+	height: 6vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -204,7 +223,7 @@
 	font-family: "roboto";
 	color: white;
 	width: 80%;
-	height: 8vh;
+	height: 6vh;
 	display: flex;
 	border-radius: 10px;
 	border: 1px solid #7e7e7e;
@@ -223,7 +242,7 @@
 	font-family: "roboto";
 	color: white;
 	width: 80%;
-	height: 8vh;
+	height: 6vh;
 	display: flex;
 	border-radius: 10px;
 	border: 1px solid #7e7e7e;
