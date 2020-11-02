@@ -28,11 +28,6 @@ export default function Lectures() {
 	const ACTIVITY_FEED = "ACTIVITY_FEED";
 	const { mode, transition } = useVisualMode(KEY_ART);
 
-	const lectureClickTransition = (lecture, mode) => {
-		setLecture(lecture);
-		transition(mode);
-	};
-
 	const lecturesList = lectures.map(lecture => {
 		return (
 			<LectureCard
@@ -66,9 +61,10 @@ export default function Lectures() {
 				<NewIcon
 					new_class="icon icon-large"
 					onNew={() => {
-						newLecture(user).then(lecture =>
-							lectureClickTransition(lecture, ACTIVITY_FEED)
-						);
+						newLecture(user).then(lecture => {
+							setLecture(lecture);
+							transition(ACTIVITY_FEED);
+						});
 					}}
 				/>
 				<h2 className="lectures-page-title">New Lecture</h2>
