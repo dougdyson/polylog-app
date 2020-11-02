@@ -72,8 +72,12 @@ export default function Answer(props) {
 						set correct answer
 					</div>
 					<div className="answer-save-delete">
-						{/* onClick props.onAnswer.deleteQuizAnswer */}
-						<Button variant="delete">delete</Button>
+						<Button
+							variant="delete"
+							onClick={() => props.onAnswer.deleteQuizAnswer(props.id)}
+						>
+							delete
+						</Button>
 					</div>
 				</div>
 			)}
