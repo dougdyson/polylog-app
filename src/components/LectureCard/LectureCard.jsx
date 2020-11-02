@@ -9,7 +9,7 @@ function LectureCard(props) {
 	const PLAY = "PLAY";
 	const REDIRECT = "REDIRECT";
 
-	const [uuid, setUuid] = React.useState(null);
+	const [uuid, setUuid] = React.useState("");
 	const { mode, transition } = useVisualMode(SHOW);
 
 	return (

@@ -50,13 +50,15 @@ export default function Card(props) {
 				</div>
 
 				{props.lecturer === props.user && (
-					// onClick props.onQuestion.deleteQuizQuestion
-					<Button variant="delete">delete</Button>
+					<Button variant="delete" onClick={() => props.onDelete(props.id)}>
+						delete
+					</Button>
 				)}
 			</div>
 			<QuizTitle title={props.title} />
-			{/* onClick props.onQuestion.newQuizQuestion */}
-			{props.lecturer === props.user && <NewIcon />}
+			{props.lecturer === props.user && (
+				<NewIcon onNew={() => props.onQuestion.newQuizQuestion(props.id, "")} />
+			)}
 			{quizQuestionsList}
 			<div>
 				{props.lecturer === props.user && props.session && (
