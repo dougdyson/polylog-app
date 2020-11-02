@@ -1,5 +1,6 @@
 import React from 'react';
 import './quiz.css'
+import TextareaAutosize from 'react-textarea-autosize';
 
 export default function QuestionTitle(props) {
 
@@ -7,7 +8,7 @@ export default function QuestionTitle(props) {
 
   return (
     <div className='quiz-title'>
-      {title}
+      <TextareaAutosize className='quiz-answer-textarea'>{title}</TextareaAutosize>
     </div>
   );
 }
