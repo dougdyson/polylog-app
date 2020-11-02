@@ -207,8 +207,6 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 				// lost of work do if you have extra time
 				// if session_id === data.session_id
 
-				console.log(data);
-
 				const quiz_card_id = data.quiz_card_id;
 				const lecture_id = data.lecture_id;
 				const title = data.title;

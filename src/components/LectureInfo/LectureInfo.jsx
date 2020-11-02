@@ -13,7 +13,6 @@ export default function Lecture(props) {
 	);
 
 	// Check if there is an element before accessing .props
-	// Check to see if value is null?
 	const nextPosition = props.cardsList.length
 		? props.cardsList[props.cardsList.length - 1].props.position + 1
 		: 1;
@@ -57,7 +56,7 @@ export default function Lecture(props) {
 						<Button
 							variant="card-mover"
 							onClick={() =>
-								props.newQuiz(props.lecture.id, null, null, nextPosition)
+								props.newQuiz(props.lecture.id, null, nextPosition)
 							}
 						>
 							New Quiz

@@ -95,7 +95,6 @@ export default function ActivityFeed(props) {
 			<LectureInfo
 				lecture={props.lecture}
 				onEdit={props.onEdit}
-				// onNew should bring up a list and that list to choose card type
 				newTopic={newTopicCard}
 				newQuiz={newQuizCard}
 				cardsList={cardsList}
