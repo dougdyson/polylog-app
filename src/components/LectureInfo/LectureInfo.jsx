@@ -45,15 +45,14 @@ export default function Lecture(props) {
 
 				{props.lecturer === props.user && (
 					<div className={"lecture-controls-visible"}>
-						<NewIcon
+						{/* <NewIcon
 							new_class="icon icon-normal"
 							onNew={() =>
 								props.onNew(props.lecture.id, null, null, nextPosition)
 							}
-						/>
-						<Button variant="card-mover">∨</Button>
-						<Button variant="card-mover">∧</Button>
-						<div className="lecture-goto-top">top</div>
+						/> */}
+						<Button variant="new-topic">New Topic</Button>
+						<Button variant="new-quiz">New Quiz</Button>
 					</div>
 				)}
 			</div>

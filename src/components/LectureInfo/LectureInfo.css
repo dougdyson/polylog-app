@@ -71,7 +71,7 @@
 
 .lecture-controls-visible {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 10px;
   /* border-bottom: #7E7E7E; */
 }
