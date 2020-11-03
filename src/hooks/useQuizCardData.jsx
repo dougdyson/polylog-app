@@ -15,13 +15,12 @@ import {
 	DELETE_QUIZ_ANSWER
 } from "../reducers/reducer";
 
-const useQuizCardData = (lecture_id, session_id = null, transition) => {
+const useQuizCardData = (lecture_id, session_id = null) => {
 	const [quizCards, dispatch] = React.useReducer(reducer, []);
 
 	React.useEffect(() => {
 		axios.get(`/quiz/card/${lecture_id}`).then(res => {
 			dispatch({ type: SET, data: res.data });
-			transition("ACTIVITY_FEED");
 
 			if (session_id) {
 				res.data.forEach(quizCard => {
