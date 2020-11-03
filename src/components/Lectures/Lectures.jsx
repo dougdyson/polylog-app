@@ -4,6 +4,7 @@ import LectureCard from "../LectureCard/LectureCard";
 import NewIcon from "../NewIcon/NewIcon";
 import { ReactComponent as LecturerKeyArt } from "./lecturer-key-art.svg";
 import History from "../History/History";
+import Button from '../Button/Button';
 import ActivityFeed from "../ActivityFeed/ActivityFeed";
 import useLectureData from "../../hooks/useLectureData";
 import useSessionHistory from "../../hooks/useSessionHistory";

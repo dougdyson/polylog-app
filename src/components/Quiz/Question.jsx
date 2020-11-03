@@ -46,11 +46,14 @@ export default function Question(props) {
 			/>
 
 			{quizAnswersList}
+      <div className='display-flex'>
 			{props.lecturer === props.user && (
 				<NewAnswerIcon
-					onNew={() => props.onAnswer.newQuizAnswer(props.id, "", false)}
-				/>
-			)}
+          onNew={() => props.onAnswer.newQuizAnswer(props.id, "", false)}
+				/> 
+        )}
+        <span className='quiz-new-prompt'>new answer</span>
+        </div>
 		</div>
 	);
 }

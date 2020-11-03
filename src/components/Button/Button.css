@@ -206,6 +206,24 @@
 	/* outline: thin solid #e4e4e4; */
 }
 
+.delete-lecture {
+	color: lightgray;
+	width: auto;
+	/* height: 20px; */
+	font-size: 14px;
+	margin: 0px 0 0 0;
+  border: none;
+  /* background-color: #FFFFEF; */
+}
+
+.delete-lecture:hover {
+	color: black;
+	box-shadow: none;
+  border: 0;
+  cursor: pointer;
+	outline: thin solid #e4e4e4;
+}
+
 .close-activity-feed {
 	color: lightgray;
 	width: auto;

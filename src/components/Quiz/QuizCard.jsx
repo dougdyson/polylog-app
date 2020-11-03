@@ -67,9 +67,11 @@ export default function Card(props) {
 				user={props.user}
 				lecturer={props.lecturer}
 			/>
+      <div className='display-flex'>
 			{props.lecturer === props.user && (
 				<NewIcon onNew={() => props.onQuestion.newQuizQuestion(props.id, "")} />
-			)}
+			)}<span className='quiz-new-prompt'>new question</span>
+      </div>
 			{quizQuestionsList}
 			<div>
 				{props.lecturer === props.user && props.session && (
