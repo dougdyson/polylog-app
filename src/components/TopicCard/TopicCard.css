@@ -23,8 +23,6 @@
 
 .topic-info-title {
 	width: 88%;
-	display: flex;
-	align-items: center;
 	opacity: 0.8;
 	font-size: 18px;
 	border: none;

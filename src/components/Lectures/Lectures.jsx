@@ -83,7 +83,6 @@ export default function Lectures() {
 						lecture={lecture}
 						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
-						// session={"4a115ab1-c845-412a-b868-531cf505bf45"}
 						user={user}
 					/>
 				)}
