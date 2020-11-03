@@ -1,6 +1,7 @@
 import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import NewAnswerIcon from "../NewIcon/NewIcon";
+import Button from "../Button/Button";
 import Answer from "./Answer";
 import "./quiz.css";
 import "fontsource-roboto";
@@ -32,17 +33,27 @@ export default function Question(props) {
 
 	return (
 		<div>
-			<TextareaAutosize
-				className="quiz-question"
-				placeholder="Enter quiz question"
-				test_id="quiz-question"
-				value={question}
-				onChange={event => {
-					setQuestion(event.target.value);
-					props.onQuestion.editQuizQuestion(props.id, event.target.value);
-				}}
-				readOnly={props.lecturer !== props.user}
-			/>
+			<div className={"quiz-question"}>
+				{props.lecturer === props.user && (
+					<Button
+						className="quiz-delete"
+						onClick={() => props.onQuestion.deleteQuizQuestion(props.id)}
+					>
+						delete
+					</Button>
+				)}
+				<TextareaAutosize
+					className="quiz-question"
+					placeholder="Enter quiz question"
+					test_id="quiz-question"
+					value={question}
+					onChange={event => {
+						setQuestion(event.target.value);
+						props.onQuestion.editQuizQuestion(props.id, event.target.value);
+					}}
+					readOnly={props.lecturer !== props.user}
+				/>
+			</div>
 
 			{quizAnswersList}
 			{props.lecturer === props.user && (

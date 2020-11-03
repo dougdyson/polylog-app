@@ -59,6 +59,16 @@
 	cursor: pointer;
 }
 
+.quiz-question {
+	display: flex;
+	align-content: flex-start;
+	flex-direction: row-reverse;
+}
+
+.quiz-question > button {
+	padding: 0 5px 20px 0;
+}
+
 .quiz-question-row {
 	display: flex;
 	flex-direction: row;
