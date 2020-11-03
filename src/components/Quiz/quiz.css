@@ -86,10 +86,16 @@
 }
 
 .quiz-answer-textarea {
-	padding: 20px;
-	height: 16px !important;
-	margin: 0 5%;
-	width: 74%;
+	color: #7e7e7e;
+	font-size: 14px;
+	opacity: 0.8;
+	padding: 10px 10px 10px 10px;
+	width: 90%;
+	word-wrap: break-word;
+	align-items: center;
+	border: none;
+	border-bottom: 0.5px solid #7e7e7e;
+	outline: none;
 	font-family: "roboto";
 }
 
