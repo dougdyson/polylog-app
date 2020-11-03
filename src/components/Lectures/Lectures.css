@@ -1,31 +1,31 @@
-.lectures-page-header{
-  display: flex;
-  align-items: center;
+.lectures-page-header {
+	display: flex;
+	align-items: center;
 }
 
-.lectures-page-title{
-  font-family: 'roboto';
-  padding-left: 10px;
-  color: darkgray;
-  font-size: 12px;
+.lectures-page-title {
+	font-family: "roboto";
+	padding-left: 10px;
+	color: darkgray;
+	font-size: 12px;
 }
 
-.lectures-list{
-  /* display: flex; */
-  width: 100%;
+.lectures-list {
+	/* display: flex; */
+	width: 100%;
 }
 
-.lectures-container{
-  display: flex;
-  /* overflow-y: scroll;
+.lectures-container {
+	display: flex;
+	/* overflow-y: scroll;
   z-index: -1; */
 }
 
 .lecturer-key-art {
-  width: 40%;
-  padding: 0 0 20px 20px;
-  font-family: 'Roboto';
-  overflow:auto;
-  height: 80vh;
-  padding-left: 20px;
+	width: 40%;
+	padding: 0 0 20px 20px;
+	font-family: "Roboto";
+	overflow: auto;
+	height: 80vh;
+	padding-left: 20px;
 }

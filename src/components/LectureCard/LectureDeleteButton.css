@@ -1,9 +1,9 @@
 .delete-lecture {
-  opacity: .25;
-  width: 30px;
+	opacity: 0.4;
+	width: 30px;
 }
 
 .delete-lecture:hover {
-  opacity: 1;
-  cursor: pointer;
+	opacity: 1;
+	cursor: pointer;
 }
