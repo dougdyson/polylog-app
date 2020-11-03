@@ -10,7 +10,8 @@
 
 .activity-feed-card-header-row {
 	display: flex;
-	justify-content: space-between;
+  justify-content: space-between;
+  width: 94%;
 }
 
 .activity-feed-card-header {
