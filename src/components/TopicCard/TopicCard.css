@@ -1,8 +1,9 @@
 .topic-card-container {
 	padding: 10px;
-	border: 1px solid #DDD300;
+	border: 1px solid #ddd300;
 	border-radius: 10px;
 	margin-bottom: 20px;
+	width: 80%;
 }
 
 .topic-info {

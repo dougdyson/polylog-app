@@ -113,9 +113,11 @@ export default function ActivityFeed(props) {
 						</React.Fragment>
 					)}
 				</div>
-				<Button variant="close" onClick={props.onClose}>
-					x
-				</Button>
+				{props.lecture.lecturer_id === props.user && (
+					<Button variant="close" onClick={props.onClose}>
+						x
+					</Button>
+				)}
 			</div>
 			<LectureInfo
 				lecture={props.lecture}

@@ -1,6 +1,7 @@
 .lecture-container {
 	font-family: "Roboto";
-	top: 100px;
+	padding-top: 20px;
+	width: 80%;
 }
 
 .lecture-header-row {

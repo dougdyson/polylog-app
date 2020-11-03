@@ -1,3 +1,7 @@
 .site-padding {
-  padding: 20px;
+	padding: 5px 10px 0px 10px;
+}
+
+textarea {
+	resize: none;
 }

@@ -19,7 +19,7 @@ function JitsiMeet(props) {
 			const domain = "meet.jit.si";
 			const options = {
 				roomName: "roomName",
-				height: 679,
+				height: 714,
 				parentNode: document.getElementById("jitsi-container"),
 				interfaceConfigOverwrite: {
 					filmStripOnly: false,
