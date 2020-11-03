@@ -18,7 +18,7 @@ function JitsiMeet(props) {
 		try {
 			const domain = "meet.jit.si";
 			const options = {
-				roomName: "roomName",
+				roomName: props.session,
 				height: 714,
 				parentNode: document.getElementById("jitsi-container"),
 				interfaceConfigOverwrite: {

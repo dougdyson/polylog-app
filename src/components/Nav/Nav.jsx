@@ -1,6 +1,5 @@
 import "./Nav.css";
 import { ReactComponent as Logo } from "./polylog-logo.svg";
-import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import "fontsource-roboto";
 
