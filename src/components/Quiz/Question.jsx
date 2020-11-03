@@ -1,6 +1,5 @@
 import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import Button from "../Button/Button";
 import NewAnswerIcon from "../NewIcon/NewIcon";
 import Answer from "./Answer";
 import "./quiz.css";

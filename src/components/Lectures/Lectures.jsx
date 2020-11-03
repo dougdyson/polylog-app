@@ -11,7 +11,6 @@ import useVisualMode from "../../hooks/useVisualMode";
 import "../../screens/screens.css";
 import "./Lectures.css";
 import "fontsource-roboto";
-// import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
 export default function Lectures() {
 	// The number being passed here should be from a cookie

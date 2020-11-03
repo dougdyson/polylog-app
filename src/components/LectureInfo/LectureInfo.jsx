@@ -1,7 +1,5 @@
 import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import Button from "../Button/Button";
-import NewIcon from "../NewIcon/NewIcon";
 import "./LectureInfo.css";
 import "../../App.css";
 import "fontsource-roboto";
@@ -15,7 +13,6 @@ export default function Lecture(props) {
 	// Websockets doesn't update the value of title or description outside of state so the changes aren't reflected here
 	return (
 		<section className="lecture-container">
-			{/* <div className='lectu' ><Button variant='close'>X</Button></div> */}
 			<div className="lecture-info">
 				<TextareaAutosize
 					className="lecture-info-title"
