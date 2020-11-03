@@ -83,6 +83,7 @@ export default function Lectures() {
 						lecture={lecture}
 						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
+						transition={transition}
 						user={user}
 					/>
 				)}

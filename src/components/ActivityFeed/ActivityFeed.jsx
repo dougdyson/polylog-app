@@ -31,7 +31,7 @@ export default function ActivityFeed(props) {
 		deleteQuizCard,
 		deleteQuizQuestion,
 		deleteQuizAnswer
-	} = useQuizCardData(props.lecture.id, props.session);
+	} = useQuizCardData(props.lecture.id, props.session, props.transition);
 
 	// I'm using position as a key since the ids aren't unique when combining both cards list
 	const topicCardsList = topicCards.map(topicCard => {
