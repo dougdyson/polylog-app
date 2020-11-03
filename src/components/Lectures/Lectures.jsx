@@ -33,16 +33,16 @@ export default function Lectures() {
 				key={lecture.id}
 				id={lecture.id}
 				title={lecture.title}
-				// onEdit doesn't transition to another activity feed if it is already open
 				onEdit={() => {
 					setLecture(lecture);
-					transition(ACTIVITY_FEED);
+					mode === ACTIVITY_FEED
+						? transition(KEY_ART)
+						: transition(ACTIVITY_FEED);
 				}}
 				onDelete={deleteLecture}
-				// History feed only updates properly when you close the feed first
 				onHistory={() => {
 					setLecture(lecture);
-					transition(HISTORY);
+					mode === HISTORY ? transition(KEY_ART) : transition(HISTORY);
 				}}
 				onPlay={newSession}
 			/>
