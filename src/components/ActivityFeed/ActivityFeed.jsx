@@ -81,7 +81,7 @@ export default function ActivityFeed(props) {
 		return a.key > b.key ? 1 : -1;
 	});
 
-	// Check if there is an element before accessing .props
+	// Check if there is an element before accessing cardsList
 	const nextPosition = cardsList.length
 		? cardsList[cardsList.length - 1].props.position + 1
 		: 1;
