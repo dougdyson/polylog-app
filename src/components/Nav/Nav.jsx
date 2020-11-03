@@ -14,9 +14,9 @@ export default function Nav () {
       </div>
 
       <div className='nav-top-right'>
-        <div className='nav-top-menu-item-right'><a href='#'>login</a></div>
+        <div className='nav-top-menu-item-right'><a href='#'>account</a></div>
         <div className='nav-top-menu-item-right'>
-          <Button variant='nav-bar'>SIGN UP</Button>
+          <Button variant='nav-logged-in'>logout</Button>
         </div>
       </div>
     </section>
