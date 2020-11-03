@@ -17,7 +17,6 @@
 
 .lectures-container{
   display: flex;
-  width: 94%,
   /* overflow-y: scroll;
   z-index: -1; */
 }
