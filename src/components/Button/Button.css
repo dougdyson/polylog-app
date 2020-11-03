@@ -95,15 +95,15 @@
 
 .new-topic {
 	background-color: white;
-	border-color: #DDD300;
+	border-color: #ddd300;
 	border-style: solid;
 	font-size: 12px;
 	color: #9e9e9e;
 	border-width: 1px;
 	border-radius: 10px;
-  width: 80px;
-  height: auto;
-  margin-left: 20px;
+	width: 80px;
+	height: auto;
+	margin-left: 20px;
 }
 
 .new-topic:hover {
@@ -113,15 +113,15 @@
 
 .new-quiz {
 	background-color: white;
-	border-color: #98C29A;
+	border-color: #98c29a;
 	border-style: solid;
 	font-size: 12px;
 	color: #c4afaf;
 	border-width: 1px;
 	border-radius: 10px;
-  width: 80px;
-  height: auto;
-  margin-left: 10px;
+	width: 80px;
+	height: auto;
+	margin-left: 10px;
 }
 
 .new-quiz:hover {
@@ -289,4 +289,8 @@
 
 .quiz-answer-incorrect:hover {
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+button:focus {
+	outline: none;
 }
