@@ -17,7 +17,6 @@ export default function Answer(props) {
 				response.student_id === props.user
 		);
 
-		console.log(!findResponse);
 		if (!findResponse) {
 			answer.correct
 				? setButtonVariant("quiz-answer-correct")
