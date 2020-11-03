@@ -12,7 +12,7 @@ export default function Lecture(props) {
 
 	// Websockets doesn't update the value of title or description outside of state so the changes aren't reflected here
 	return (
-		<section className="lecture-container">
+		<section className="lectures-container">
 			<div className="lecture-info">
 				<TextareaAutosize
 					className="lecture-info-title"
