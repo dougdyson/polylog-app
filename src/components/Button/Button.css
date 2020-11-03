@@ -179,14 +179,12 @@
 	height: 20px;
 	background-color: white;
 	margin: 10px 0 0 0;
-	border: none;
 }
 
 .close:hover {
 	color: black;
 	box-shadow: none;
-	border: 0;
-	outline: thin solid #e4e4e4;
+	/* border: thin solid #e4e4e4; */
 }
 
 .delete {
