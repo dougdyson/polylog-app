@@ -110,9 +110,10 @@ function History(props) {
 				<div>coming soon</div>
 			</div>
 
-			<div className="history-key-art">
+			{/* Remove for now makes the page scroll for no reason */}
+			{/* <div className="history-key-art">
 				<HistoryKeyArt />
-			</div>
+			</div> */}
 		</section>
 	);
 }
