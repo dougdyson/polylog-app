@@ -5,6 +5,7 @@ import JitsiMeet from "../JitsiMeet/JitsiMeet";
 import ActivityFeed from "../ActivityFeed/ActivityFeed";
 import useSessionHistory from "../../hooks/useSessionHistory";
 import useLectureData from "../../hooks/useLectureData";
+import "./session.css";
 
 const Session = () => {
 	const user = 2;

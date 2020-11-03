@@ -4,7 +4,7 @@ import ProgressComponent from "@material-ui/core/CircularProgress";
 function JitsiMeet() {
 	const [loading, setLoading] = useState(false);
 	const containerStyle = {
-		width: "80%",
+		width: "74%",
 		height: "100%"
 	};
 
@@ -19,7 +19,7 @@ function JitsiMeet() {
 			const domain = "meet.jit.si";
 			const options = {
 				roomName: "roomName",
-				height: 723,
+				height: 683,
 				parentNode: document.getElementById("jitsi-container"),
 				interfaceConfigOverwrite: {
 					filmStripOnly: false,

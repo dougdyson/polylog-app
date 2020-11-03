@@ -1,111 +1,116 @@
 .quiz-container {
-  padding: 0 10px;
-  font-family: 'Roboto';
-  border: 1px solid #98C29A;  
-  /* padding: 10px; */
-  border-radius: 10px;
-  margin-bottom: 20px;
+	padding: 0 10px;
+	font-family: "Roboto";
+	border: 1px solid #98c29a;
+	/* padding: 10px; */
+	border-radius: 10px;
+	margin-bottom: 20px;
 }
 
 .quiz-header-row {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .quiz-card-header {
-  display: flex;
-  align-items: center;
-  
+	display: flex;
+	align-items: center;
 }
 
 .quiz-header-title {
-  display: flex;
-  font-family: 'roboto';
-  color: #c4c4c4;
-  font-size: 18px;
-  align-items: center;
-  padding-left: 10px;
+	display: flex;
+	font-family: "roboto";
+	color: #c4c4c4;
+	font-size: 18px;
+	align-items: center;
+	padding-left: 10px;
 }
 
 .quiz-header-icon {
-  opacity: .15;
+	opacity: 0.15;
 }
 
 .quiz-title {
-  font-size: 18px;
-  color: black;
-  padding-bottom: 10px;
+	width: 96%;
+	display: flex;
+	align-items: center;
+	opacity: 0.8;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-family: "roboto";
 }
 
 .quiz-delete {
-  font-family: 'roboto';
-  color: #c4c4c4;
-  font-size: 10px;
-  align-items: center;
-  display: flex;
-  background-color: white;
-  border: none;
-  height: auto;
+	font-family: "roboto";
+	color: #c4c4c4;
+	font-size: 10px;
+	align-items: center;
+	display: flex;
+	background-color: white;
+	border: none;
+	height: auto;
 }
 .quiz-delete:hover {
-  color: black;
-  border: none;
-  cursor: pointer;
+	color: black;
+	border: none;
+	cursor: pointer;
 }
 
 .quiz-question-row {
-  display: flex;
-  flex-direction: row;
-  font-size: 18px;
-  font-family: 'roboto';
-  width: 100%
+	display: flex;
+	flex-direction: row;
+	font-size: 18px;
+	font-family: "roboto";
+	width: 100%;
 }
 
 .quiz-icon {
-  padding: 0 10px 0 0;
+	padding: 0 10px 0 0;
 }
 
 .quiz-question {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  opacity: 0.8;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  font-weight: bold;
-  font-family: 'roboto';
-  padding-bottom: 20px;
-  color: black;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	opacity: 0.8;
+	font-size: 16px;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-family: "roboto";
+	padding-bottom: 20px;
+	color: black;
 }
 
 .quiz-answer-textarea {
-  padding: 20px;
-  height: 16px !important;
-  margin: 0 5%;
-  width: 74%;
-  font-family: 'roboto';
+	padding: 20px;
+	height: 16px !important;
+	margin: 0 5%;
+	width: 74%;
+	font-family: "roboto";
 }
 
 .quiz-answer-settings-row {
-  display: flex;
-  padding: 0 10px;
+	display: flex;
+	padding: 0 10px;
 }
 
 .quiz-answer-correct-checkbox {
-  display: inline-flex;
-  width: 20px;
-  height: 20px;
-  /* margin-left: 14px; */
+	display: inline-flex;
+	width: 20px;
+	height: 20px;
+	/* margin-left: 14px; */
 }
 
 .quiz-answer-correct-checkbox {
-  font-family: 'roboto';
-  color: #c4c4c4;
-  font-size: 10px;
-  align-items: center;
-  display: inline-flex;
-  width: 100%;
+	font-family: "roboto";
+	color: #c4c4c4;
+	font-size: 10px;
+	align-items: center;
+	display: inline-flex;
+	width: 100%;
 }
 
 /* .answer-save-delete a {
@@ -117,48 +122,48 @@
 } */
 
 .quiz-answer-column {
-  align-items: center;
+	align-items: center;
 }
 
 .quiz-answer-message {
-  font-size: 18px;
-  color: #7e7e7e;
-  font-family: 'roboto';
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+	font-size: 18px;
+	color: #7e7e7e;
+	font-family: "roboto";
+	display: flex;
+	justify-content: center;
+	padding: 20px;
 }
 
 .quiz-answers-totals {
-  font-family: 'roboto';
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  font-style: italic;
-  color: #c4c4c4;
-  padding: 5px;
+	font-family: "roboto";
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	font-style: italic;
+	color: #c4c4c4;
+	padding: 5px;
 }
 
 .quiz-answers-correct-count {
-  color: #006400;
-  font-family: 'roboto';
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  padding: 5px;
+	color: #006400;
+	font-family: "roboto";
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	padding: 5px;
 }
 
 .quiz-answers-incorrect-count {
-  color: #8B0000;
-  font-family: 'roboto';
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  padding: 5px 0 20px 0;
+	color: #8b0000;
+	font-family: "roboto";
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	padding: 5px 0 20px 0;
 }
 
 .quiz-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

@@ -1,0 +1,7 @@
+.activity-feed-container {
+	position: fixed;
+	right: 22px;
+	top: 112px;
+	height: 100vh;
+	width: 23vw;
+}
