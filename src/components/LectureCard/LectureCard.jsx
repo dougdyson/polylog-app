@@ -1,12 +1,14 @@
 import React from "react";
 import Show from "./Show";
 import Play from "./Play";
+import Delete from "./Delete";
 import useVisualMode from "../../hooks/useVisualMode";
 import { Redirect } from "react-router-dom";
 
 function LectureCard(props) {
 	const SHOW = "SHOW";
 	const PLAY = "PLAY";
+	const DELETE = "DELETE";
 	const REDIRECT = "REDIRECT";
 
 	const [uuid, setUuid] = React.useState("");
@@ -20,6 +22,7 @@ function LectureCard(props) {
 					onPlay={() => transition(PLAY)}
 					onHistory={props.onHistory}
 					onEdit={props.onEdit}
+					onDelete={() => transition(DELETE)}
 				/>
 			)}
 			{mode === PLAY && (
@@ -30,6 +33,12 @@ function LectureCard(props) {
 							transition(REDIRECT);
 						});
 					}}
+					onCancel={() => transition(SHOW)}
+				/>
+			)}
+			{mode === DELETE && (
+				<Delete
+					onConfirm={() => props.onDelete(props.id)}
 					onCancel={() => transition(SHOW)}
 				/>
 			)}
