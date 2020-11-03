@@ -5,7 +5,8 @@
 	height: 100vh;
 	display: flex;
 	flex-flow: column nowrap;
-	align-items: center;
+  align-items: center;
+  padding-left: 20px;
 }
 
 .activity-feed-card-header-row {

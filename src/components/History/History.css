@@ -12,7 +12,8 @@
 
 .history-card-header {
 	display: flex;
-	align-items: center;
+  align-items: center;
+  padding-left: 12px;
 }
 
 .history-icon {
