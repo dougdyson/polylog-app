@@ -2,7 +2,7 @@
 	width: 40%;
 	font-family: "Roboto";
 	overflow-y: scroll;
-	height: 85vh;
+	height: 100vh;
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
