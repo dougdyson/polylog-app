@@ -1,81 +1,82 @@
 .lecture-container {
-  font-family: 'Roboto';
+	font-family: "Roboto";
+	top: 100px;
 }
 
 .lecture-header-row {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .lecture-confirmation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: 'roboto';
-  height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-family: "roboto";
+	height: 300px;
 }
 
 .lecture-info {
-  height: 100%;
-  background-color: white;
-  width: 100%;
-  padding-bottom: 20px;
-  margin-left: 10px;
+	height: 100%;
+	background-color: white;
+	width: 100%;
+	padding-bottom: 20px;
+	margin-left: 10px;
 }
 
 .lecture-info-title {
-  opacity: 0.8;
-  font-size: 20px;
-  justify-content: flex-start;
-  width: auto;
-  word-wrap: break-word;
-  display: flex;
-  align-items: center;
-  opacity: 0.8;
-  /* padding: 10px; */
-  border: none;
-  display: flex;
-  outline: none;
-  font-weight: bold;
-  width: 90%;
-  font-family: 'roboto';
+	opacity: 0.8;
+	font-size: 20px;
+	justify-content: flex-start;
+	width: auto;
+	word-wrap: break-word;
+	display: flex;
+	align-items: center;
+	opacity: 0.8;
+	/* padding: 10px; */
+	border: none;
+	display: flex;
+	outline: none;
+	font-weight: bold;
+	width: 90%;
+	font-family: "roboto";
 }
 
-.lecture-info-description{
-  color: #7E7E7E;
-  font-size: 14px;
-  opacity: 0.8;
-  margin-block-end: 1em;
-  padding:10px;
-  width: 90%;
-  word-wrap: break-word;
-  align-items: center;
-  opacity: 0.8;
-  border: none;
-  outline: none;
-  font-family: 'roboto';
+.lecture-info-description {
+	color: #7e7e7e;
+	font-size: 14px;
+	opacity: 0.8;
+	margin-block-end: 1em;
+	padding: 10px;
+	width: 90%;
+	word-wrap: break-word;
+	align-items: center;
+	opacity: 0.8;
+	border: none;
+	outline: none;
+	font-family: "roboto";
 }
 
 .lecture-goto-top {
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  color: #c4c4c4;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	color: #c4c4c4;
 }
 
 .lecture-goto-top:hover {
-  text-decoration: underline;
-  color: blue;
-  cursor: pointer;
+	text-decoration: underline;
+	color: blue;
+	cursor: pointer;
 }
 
 .lecture-controls-visible {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 10px;
-  /* border-bottom: #7E7E7E; */
+	display: flex;
+	justify-content: space-around;
+	padding: 0 10px;
+	/* border-bottom: #7E7E7E; */
 }
 
 .lecture-controls-hidden {
-  display: none;
+	display: none;
 }
