@@ -1,8 +1,7 @@
 import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import NewIcon from "../NewIcon/NewIcon";
-import VisibleIcon from "../VisibleIcon/VisibleIcon";
-import VisibleOffIcon from "../VisibleOffIcon/VisibleOffIcon";
+import Button from "../Button/Button";
 import ThumbsUpEmoji from "../ThumbsUpEmoji/ThumbsUpEmoji";
 import ConfusedEmoji from "../ConfusedEmoji/ConfusedEmoji";
 import TopicResponse from "../TopicReponse/TopicResponse";
@@ -70,6 +69,14 @@ export default function Topic(props) {
 		<div className="topic-card-container">
 			<main className="topic-info">
 				<div className="topic-info-header">
+					{props.lecturer === props.user && (
+						<Button
+							className="quiz-delete"
+							onClick={() => props.onDelete(props.id)}
+						>
+							delete
+						</Button>
+					)}
 					<TextareaAutosize
 						className="topic-info-title"
 						placeholder="Topic Title"
@@ -103,11 +110,11 @@ export default function Topic(props) {
 				<div className={`emoji`}>
 					{props.session && (
 						<React.Fragment>
-              <ThumbsUpEmoji
-                className="icon emoji-spacing"
-                onClick={() => addReaction(true)}
-              />
-                <span className="reaction-counter">({reactions_positive})</span>
+							<ThumbsUpEmoji
+								className="icon emoji-spacing"
+								onClick={() => addReaction(true)}
+							/>
+							<span className="reaction-counter">({reactions_positive})</span>
 							<ConfusedEmoji
 								className="icon emoji-spacing"
 								onClick={() => addReaction(false)}
