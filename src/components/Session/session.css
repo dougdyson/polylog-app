@@ -1,7 +1,4 @@
-.activity-feed-container {
-	position: fixed;
-	right: 21px;
-	top: 112px;
-	height: 100vh;
-	width: 23vw;
+.session {
+	display: flex;
+	align-items: flex-end;
 }

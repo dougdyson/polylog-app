@@ -25,17 +25,19 @@ const Session = () => {
 			<div className="site-padding">
 				<Nav />
 			</div>
-			<JitsiMeet />
-			{lecture && (
-				<ActivityFeed
-					lecture={lecture}
-					// Confirm end meeting
-					onClose={() => console.log("close")}
-					onEdit={editLecture}
-					session={uuid}
-					user={user}
-				/>
-			)}
+			<div className="session">
+				<JitsiMeet />
+				{lecture && (
+					<ActivityFeed
+						lecture={lecture}
+						// Confirm end meeting
+						onClose={() => console.log("close")}
+						onEdit={editLecture}
+						session={uuid}
+						user={user}
+					/>
+				)}
+			</div>
 		</React.Fragment>
 	);
 };
