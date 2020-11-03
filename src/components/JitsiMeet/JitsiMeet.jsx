@@ -11,7 +11,8 @@ function JitsiMeet(props) {
 	const jitsiContainerStyle = {
 		display: loading ? "none" : "block",
 		width: "100%",
-		height: "100%"
+    height: "100%",
+    padding: "20px"
 	};
 
 	function startConference() {
