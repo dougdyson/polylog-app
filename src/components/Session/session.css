@@ -1,6 +1,6 @@
 .session {
 	display: flex;
-	align-items: flex-end;
+	align-items: top;
 }
 
 .session-feed {
