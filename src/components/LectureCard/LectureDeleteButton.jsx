@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as DeleteButton } from "./delete.svg";
+import { ReactComponent as DeleteButton } from "./delete_forever-24px.svg";
 import "./LectureDeleteButton.css";
 
 export default function LectureDeleteButton(props) {
