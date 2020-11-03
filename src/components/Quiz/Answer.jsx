@@ -5,7 +5,7 @@ import "./quiz.css";
 import "fontsource-roboto";
 
 export default function Answer(props) {
-	const [answer, setAnswer] = React.useState(props.answer);
+	const [answer, setAnswer] = React.useState(props.answer || "");
 	const [buttonVariant, setButtonVariant] = React.useState(
 		"quiz-answer-button"
 	);

@@ -47,7 +47,7 @@ export default function Question(props) {
 			{quizAnswersList}
 			{props.lecturer === props.user && (
 				<NewAnswerIcon
-					onNew={() => props.onAnswer.newQuizAnswer(props.id, "", false)}
+					onNew={() => props.onAnswer.newQuizAnswer(props.id, null, false)}
 				/>
 			)}
 		</div>
