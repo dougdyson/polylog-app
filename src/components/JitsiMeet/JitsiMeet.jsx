@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProgressComponent from "@material-ui/core/CircularProgress";
 
-function JitsiMeet() {
+function JitsiMeet(props) {
 	const [loading, setLoading] = useState(false);
 	const containerStyle = {
 		width: "100%",
@@ -34,7 +34,7 @@ function JitsiMeet() {
 			api.addEventListener("videoConferenceJoined", () => {
 				console.log("Local User Joined");
 				setLoading(false);
-				api.executeCommand("displayName", "MyName");
+				api.executeCommand("displayName", props.name);
 			});
 		} catch (error) {
 			console.error("Failed to load Jitsi API", error);

@@ -8,7 +8,7 @@ import useLectureData from "../../hooks/useLectureData";
 import "./session.css";
 
 const Session = () => {
-	const user = 2;
+	const user = { id: 2, firstName: "Carl" };
 	const { uuid } = useParams();
 	const { editLecture } = useLectureData();
 	const { getLectureBySession } = useSessionHistory();
@@ -26,7 +26,7 @@ const Session = () => {
 				<Nav />
 			</div>
 			<div className="session">
-				<JitsiMeet />
+				<JitsiMeet name={user.firstName} />
 				{lecture && (
 					<ActivityFeed
 						lecture={lecture}
@@ -34,7 +34,7 @@ const Session = () => {
 						onClose={() => console.log("close")}
 						onEdit={editLecture}
 						session={uuid}
-						user={user}
+						user={user.id}
 					/>
 				)}
 			</div>
