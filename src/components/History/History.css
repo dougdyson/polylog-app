@@ -17,12 +17,13 @@
 
 .history-icon {
 	opacity: 0.15;
+	padding-left: 30px;
 }
 
 .history-card-title {
 	display: flex;
 	font-size: 18px;
-	padding-left: 10px;
+	padding-left: 8px;
 	color: #c4c4c4;
 }
 
@@ -30,19 +31,19 @@
 	display: flex;
 	font-size: 18px;
 	columns: black;
-	padding: 10px 0 10px 10px;
+	padding: 10px 0 10px 30px;
 }
 
 .history-dates {
 	font-size: 12px;
 	color: #c4c4c4;
-	padding: 10px 0 10px 10px;
+	padding: 10px 0 10px 30px;
 }
 
 .history-lecture-totals {
 	font-size: px;
 	color: #7e7e7e;
-	margin-left: 10px;
+	padding: 10px 30px 0px 30px;
 }
 
 .history-card-section {
