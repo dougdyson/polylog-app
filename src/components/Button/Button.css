@@ -220,7 +220,7 @@
 	color: black;
 	background-color: #f4f4f4;
 	border: 1px solid #747474;
-	width: 80%;
+	width: 88%;
 	height: 6vh;
 	display: flex;
 	justify-content: center;
@@ -240,7 +240,7 @@
 	background-color: #ffffef;
 	border: 1px solid yellow;
 	outline: thick solid yellow;
-	width: 80%;
+	width: 88%;
 	height: 6vh;
 	display: flex;
 	justify-content: center;
@@ -257,7 +257,7 @@
 	font-size: 14px;
 	font-family: "roboto";
 	color: white;
-	width: 80%;
+	width: 88%;
 	height: 6vh;
 	display: flex;
 	border-radius: 10px;
@@ -276,7 +276,7 @@
 	font-size: 14px;
 	font-family: "roboto";
 	color: white;
-	width: 80%;
+	width: 88%;
 	height: 6vh;
 	display: flex;
 	border-radius: 10px;
