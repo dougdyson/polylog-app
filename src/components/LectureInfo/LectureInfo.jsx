@@ -12,11 +12,6 @@ export default function Lecture(props) {
 		props.lecture.description || ""
 	);
 
-	// Check if there is an element before accessing .props
-	const nextPosition = props.cardsList.length
-		? props.cardsList[props.cardsList.length - 1].props.position + 1
-		: 1;
-
 	// Websockets doesn't update the value of title or description outside of state so the changes aren't reflected here
 	return (
 		<section className="lecture-container">
@@ -42,27 +37,6 @@ export default function Lecture(props) {
 					}}
 					readOnly={props.lecturer !== props.user}
 				/>
-
-				{props.lecturer === props.user && (
-					<div className={"lecture-controls-visible"}>
-						<Button
-							variant="new-topic"
-							onClick={() =>
-								props.newTopic(props.lecture.id, null, null, nextPosition)
-							}
-						>
-							New Topic
-						</Button>
-						<Button
-							variant="card-mover"
-							onClick={() =>
-								props.newQuiz(props.lecture.id, null, nextPosition)
-							}
-						>
-							New Quiz
-						</Button>
-					</div>
-				)}
 			</div>
 		</section>
 	);

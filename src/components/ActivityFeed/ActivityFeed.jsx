@@ -81,14 +81,31 @@ export default function ActivityFeed(props) {
 		return a.key > b.key ? 1 : -1;
 	});
 
+	// Check if there is an element before accessing .props
+	const nextPosition = cardsList.length
+		? cardsList[cardsList.length - 1].props.position + 1
+		: 1;
+
 	return (
 		<div className="activity-feed-container">
 			<div className="activity-feed-card-header-row">
 				<div className="activity-feed-card-header">
 					<ActivityFeedIcon className="activity-feed-icon" />
 					<h2 className="activity-feed-card-title">Lecture Feed</h2>
-          <Button variant="new-topic">New Topic</Button>
-						<Button variant="new-quiz">New Quiz</Button>
+					<Button
+						variant="new-topic"
+						onClick={() =>
+							newTopicCard(props.lecture.id, null, null, nextPosition)
+						}
+					>
+						New Topic
+					</Button>
+					<Button
+						variant="new-quiz"
+						onClick={() => newQuizCard(props.lecture.id, null, nextPosition)}
+					>
+						New Quiz
+					</Button>
 				</div>
 				<Button variant="close" onClick={props.onClose}>
 					x
@@ -97,9 +114,6 @@ export default function ActivityFeed(props) {
 			<LectureInfo
 				lecture={props.lecture}
 				onEdit={props.onEdit}
-				newTopic={newTopicCard}
-				newQuiz={newQuizCard}
-				cardsList={cardsList}
 				user={props.user}
 				lecturer={props.lecture.lecturer_id}
 			/>
