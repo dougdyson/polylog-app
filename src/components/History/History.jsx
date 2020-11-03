@@ -3,10 +3,8 @@ import { ReactComponent as SessionHistoryIcon } from "./bar_chart-24px.svg";
 import { ReactComponent as HistoryKeyArt } from "./history-key-art.svg";
 import Button from "../Button/Button";
 import useSessionHistory from "../../hooks/useSessionHistory";
-import lectureContext from "../../contexts/LectureContext";
 import "./History.css";
 
-// Add some conditionals || if there's no data ie start date and quiz responses
 function History(props) {
 	const { history } = useSessionHistory(props.lecture.id);
 
@@ -24,8 +22,9 @@ function History(props) {
 
 			<div className="history-lecture-title">{props.lecture.title}</div>
 			<div className="history-dates">
-				{history.created_at &&
-					String(new Date(history.created_at)).substring(0, 15)}{" "}
+				{(history.created_at &&
+					String(new Date(history.created_at)).substring(0, 15)) ||
+					String(new Date()).substring(0, 15)}{" "}
 				- {String(new Date()).substring(0, 15)}
 			</div>
 
@@ -87,11 +86,11 @@ function History(props) {
 					</li>
 					<li>
 						<span>Quizzes correct responses</span>
-						<span>{history.quiz_correct_count}</span>
+						<span>{history.quiz_correct_count || 0}</span>
 					</li>
 					<li className="bottom-padding">
 						<span>Quizzes incorrect responses</span>
-						<span>{history.quiz_incorrect_count}</span>
+						<span>{history.quiz_incorrect_count || 0}</span>
 					</li>
 				</ul>
 

@@ -27,7 +27,7 @@ export default function Lecture(props) {
 					placeholder="Lecture Title"
 					value={title}
 					onChange={event => {
-						setTitle(props.lecture.title);
+						setTitle(event.target.value);
 						props.onEdit(props.lecture.id, event.target.value, description);
 					}}
 					readOnly={props.lecturer !== props.user}
@@ -45,12 +45,22 @@ export default function Lecture(props) {
 
 				{props.lecturer === props.user && (
 					<div className={"lecture-controls-visible"}>
-						{/* <NewIcon
-							new_class="icon icon-normal"
-							onNew={() =>
-								props.onNew(props.lecture.id, null, null, nextPosition)
+						<Button
+							variant="new-topic"
+							onClick={() =>
+								props.newTopic(props.lecture.id, null, null, nextPosition)
 							}
-						/> */}
+						>
+							New Topic
+						</Button>
+						<Button
+							variant="card-mover"
+							onClick={() =>
+								props.newQuiz(props.lecture.id, null, nextPosition)
+							}
+						>
+							New Quiz
+						</Button>
 					</div>
 				)}
 			</div>

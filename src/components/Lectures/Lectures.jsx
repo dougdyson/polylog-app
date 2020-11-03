@@ -8,17 +8,15 @@ import ActivityFeed from "../ActivityFeed/ActivityFeed";
 import useLectureData from "../../hooks/useLectureData";
 import useSessionHistory from "../../hooks/useSessionHistory";
 import useVisualMode from "../../hooks/useVisualMode";
-import '../../screens/screens.css';
+import "../../screens/screens.css";
 import "./Lectures.css";
 import "fontsource-roboto";
 // import bg_yellow_bottom from "./bg-yellow-bottom.svg";
 
-// Keeps track of which lecture was clicked
-let currentLecture = null;
 export default function Lectures() {
 	// The number being passed here should be from a cookie
 	const user = 1;
-
+	const [lecture, setLecture] = React.useState(null);
 	const { lectures, newLecture, editLecture, deleteLecture } = useLectureData(
 		user
 	);
@@ -30,22 +28,24 @@ export default function Lectures() {
 	const ACTIVITY_FEED = "ACTIVITY_FEED";
 	const { mode, transition } = useVisualMode(KEY_ART);
 
-	const lectureClickTransition = (lecture, mode) => {
-		currentLecture = lecture;
-		transition(mode);
-	};
-
 	const lecturesList = lectures.map(lecture => {
 		return (
 			<LectureCard
 				key={lecture.id}
+				id={lecture.id}
 				title={lecture.title}
 				// onEdit doesn't transition to another activity feed if it is already open
-				onEdit={() => lectureClickTransition(lecture, ACTIVITY_FEED)}
+				onEdit={() => {
+					setLecture(lecture);
+					transition(ACTIVITY_FEED);
+				}}
 				onDelete={deleteLecture}
 				// History feed only updates properly when you close the feed first
-				onHistory={() => lectureClickTransition(lecture, HISTORY)}
-				newSession={newSession}
+				onHistory={() => {
+					setLecture(lecture);
+					transition(HISTORY);
+				}}
+				onPlay={newSession}
 			/>
 		);
 	});
@@ -55,15 +55,16 @@ export default function Lectures() {
 	});
 
 	return (
-		<div className='site-padding'>
+		<div className="site-padding">
 			<Nav />
 			<div className="lectures-page-header">
 				<NewIcon
 					new_class="icon icon-large"
 					onNew={() => {
-						newLecture(user).then(lecture =>
-							lectureClickTransition(lecture, ACTIVITY_FEED)
-						);
+						newLecture(user).then(lecture => {
+							setLecture(lecture);
+							transition(ACTIVITY_FEED);
+						});
 					}}
 				/>
 				<h2 className="lectures-page-title">New Lecture</h2>
@@ -76,19 +77,15 @@ export default function Lectures() {
 					</div>
 				)}
 				{mode === HISTORY && (
-					<History
-						lecture={currentLecture}
-						onClose={() => transition(KEY_ART)}
-					/>
+					<History lecture={lecture} onClose={() => transition(KEY_ART)} />
 				)}
 				{mode === ACTIVITY_FEED && (
 					<ActivityFeed
-						lecture={currentLecture}
+						lecture={lecture}
 						onClose={() => transition(KEY_ART)}
 						onEdit={editLecture}
-						// To simulate student experience uncomment session and change user to any number greater than 1
-						// session={"4a115ab1-c845-412a-b868-531cf505bf45"}
-						user={1}
+						session={"4a115ab1-c845-412a-b868-531cf505bf45"}
+						user={user}
 					/>
 				)}
 			</div>

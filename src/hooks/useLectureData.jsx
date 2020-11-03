@@ -7,9 +7,10 @@ const useLectureData = lecturer_id => {
 	const [lectures, dispatch] = React.useReducer(reducer, []);
 
 	React.useEffect(() => {
-		axios.get(`/lecture/${lecturer_id}`).then(res => {
-			dispatch({ type: SET, data: res.data });
-		});
+		lecturer_id &&
+			axios.get(`/lecture/${lecturer_id}`).then(res => {
+				dispatch({ type: SET, data: res.data });
+			});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -18,7 +19,7 @@ const useLectureData = lecturer_id => {
 			.post(`/lecture`, { lecturer_id, title, description })
 			.then(res => {
 				const id = res.data.id;
-				dispatch({ type: NEW, data: { id, title, description } });
+				dispatch({ type: NEW, data: { id, lecturer_id, title, description } });
 				return res.data;
 			});
 	};

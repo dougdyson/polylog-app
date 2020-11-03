@@ -1,10 +1,15 @@
 import React from "react";
 import Show from "./Show";
+import Play from "./Play";
 import useVisualMode from "../../hooks/useVisualMode";
+import { Redirect } from "react-router-dom";
 
 function LectureCard(props) {
 	const SHOW = "SHOW";
 	const PLAY = "PLAY";
+	const REDIRECT = "REDIRECT";
+
+	const [uuid, setUuid] = React.useState("");
 	const { mode, transition } = useVisualMode(SHOW);
 
 	return (
@@ -17,9 +22,18 @@ function LectureCard(props) {
 					onEdit={props.onEdit}
 				/>
 			)}
-			{/* Still need NewSession component */}
-			{/* props.newSession should be used for the play card */}
-			{mode === PLAY}
+			{mode === PLAY && (
+				<Play
+					onConfirm={() => {
+						props.onPlay(props.id).then(res => {
+							setUuid(res.data.id);
+							transition(REDIRECT);
+						});
+					}}
+					onCancel={() => transition(SHOW)}
+				/>
+			)}
+			{mode === REDIRECT && <Redirect to={`/session/${uuid}`} />}
 		</React.Fragment>
 	);
 }

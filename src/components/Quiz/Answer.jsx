@@ -10,21 +10,20 @@ export default function Answer(props) {
 		"quiz-answer-button"
 	);
 
-	// POST to /quiz/response doesn't keep track of quiz_question_id
-	// I would need the db to return the quiz_question_id after insert
-	// And I would need to websocket to insert it into state
 	const addResponse = () => {
-		const findResponse = props.activity.find(response => {
-			return (
+		const findResponse = props.activity.find(
+			response =>
 				response.quiz_question_id === props.quiz_question_id &&
 				response.student_id === props.user
-			);
-		});
+		);
 
-		findResponse === undefined && answer.correct
-			? setButtonVariant("quiz-answer-correct")
-			: setButtonVariant("quiz-answer-incorrect");
-		props.onResponse(props.quiz_card_id, props.id, props.session, props.user);
+		console.log(!findResponse);
+		if (!findResponse) {
+			answer.correct
+				? setButtonVariant("quiz-answer-correct")
+				: setButtonVariant("quiz-answer-incorrect");
+			props.onResponse(props.quiz_card_id, props.id, props.session, props.user);
+		}
 	};
 
 	return (
@@ -55,6 +54,7 @@ export default function Answer(props) {
 					<div className="quiz-answer-correct-checkbox">
 						<input
 							type="checkbox"
+							defaultChecked={answer.correct}
 							onClick={() => {
 								setAnswer({
 									id: answer.id,
@@ -68,11 +68,17 @@ export default function Answer(props) {
 									!answer.correct
 								);
 							}}
-							checked={answer.correct}
 						></input>
 						set correct answer
 					</div>
-					<Button className="quiz-delete">delete</Button>
+					<div className="answer-save-delete">
+						<Button
+							className="quiz-delete"
+							onClick={() => props.onAnswer.deleteQuizAnswer(props.id)}
+						>
+							delete
+						</Button>
+					</div>
 				</div>
 			)}
 

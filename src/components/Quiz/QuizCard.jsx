@@ -1,12 +1,11 @@
 import React from "react";
 import { ReactComponent as QuizIcon } from "./help_outline-24px.svg";
 import Question from "./Question";
-import Answer from "./Answer";
-import Message from "./Message";
+import QuizTitle from "./QuestionTitle";
+import NewIcon from "../NewIcon/NewIcon";
 import Button from "../Button/Button";
 import CorrectAnswerCount from "./CorrectAnswerCount";
 import IncorrectAnswerCount from "./IncorrectAnswerCount";
-
 import "./quiz.css";
 import "../Button/Button.css";
 
@@ -51,12 +50,26 @@ export default function Card(props) {
 				</div>
 
 				{props.lecturer === props.user && (
-					<Button className="quiz-delete">
+					<Button
+						className="quiz-delete"
+						onClick={() => props.onDelete(props.id)}
+					>
 						delete
 					</Button>
 				)}
         
 			</div>
+			<QuizTitle
+				id={props.id}
+				title={props.title}
+				onEdit={props.onEdit}
+				position={props.position}
+				user={props.user}
+				lecturer={props.lecturer}
+			/>
+			{props.lecturer === props.user && (
+				<NewIcon onNew={() => props.onQuestion.newQuizQuestion(props.id, "")} />
+			)}
 			{quizQuestionsList}
 			<div>
 				{props.lecturer === props.user && props.session && (

@@ -257,7 +257,8 @@ const useQuizCardData = (lecture_id, session_id = null) => {
 								id: quiz_response_id,
 								quiz_question_id,
 								quiz_answer_id,
-								student_id
+								student_id,
+								correct
 							}
 						});
 					case "EDIT_QUIZ_CARD":
