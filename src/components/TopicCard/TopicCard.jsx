@@ -32,6 +32,7 @@ export default function Topic(props) {
 						response={response.response}
 						onResponse={props.onResponse}
 						onResponseLocal={props.onResponseLocal}
+						session={props.session}
 						user={props.user}
 						student={response.student_id}
 					/>
@@ -45,6 +46,7 @@ export default function Topic(props) {
 							topicCard={props.id}
 							response={response.response}
 							onResponse={props.onResponse}
+							session={props.session}
 							user={props.user}
 							student={response.student_id}
 						/>
