@@ -66,14 +66,14 @@ function History(props) {
 						<span>Questions</span>
 						<span>{history.questions_count}</span>
 					</li>
-					<li>
+					<li className="bottom-padding">
 						<span>Answers</span>
 						<span>{history.answers_count}</span>
 					</li>
-					<li className="bottom-padding">
+					{/* <li className="bottom-padding">
 						<span>Comments</span>
 						<span>{history.comments_count}</span>
-					</li>
+					</li> */}
 				</ul>
 
 				<div className="history-card-section">
