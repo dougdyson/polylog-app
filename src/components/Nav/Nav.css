@@ -1,36 +1,36 @@
 .nav-top {
-  display: flex;
-  justify-content: space-between ;
-  font-family: 'roboto';
+	display: flex;
+	justify-content: space-between;
+	font-family: "roboto";
 }
 
 a {
-  font-size: 16px;
-  color: #7e7e7e;
-  text-decoration: none;
+	font-size: 16px;
+	color: #7e7e7e;
+	text-decoration: none;
 }
 
 a:hover {
-  color: black;
-  text-decoration: underline;
+	color: black;
+	text-decoration: underline;
 }
 
 .nav-top-left {
-  display: flex;
-  align-items: center;
-  justify-items: flex-start;
+	display: flex;
+	align-items: center;
+	justify-items: flex-start;
 }
 
 .nav-top-menu-item-left {
-  padding-left: 40px;
+	padding-left: 40px;
 }
 
 .nav-top-right {
-  display: flex;
-  align-items: center;
-  justify-items: flex-end;
+	display: flex;
+	align-items: center;
+	justify-items: flex-end;
 }
 
 .nav-top-menu-item-right {
-  padding-left: 40px;
+	padding-left: 40px;
 }
