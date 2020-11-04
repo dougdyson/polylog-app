@@ -15,15 +15,9 @@ const Session = () => {
 	const { getLectureBySession } = useSessionHistory();
 	const [lecture, setLecture] = React.useState(null);
 
-	// Add session attendees
-	// POST route to /attendee
-	// Need lecture_id and session_id
-	// I need to know if the user is already in the db
-
-	// Send the user id, lecture id, session id
-	// Make a query for all the attendees of that session
-	// If the user is not returned from the db
-	// Add it in
+	React.useEffect(() => {
+		axios.post("/session/attendee", { student_id: user.id, session_id: uuid });
+	}, []);
 
 	// This lecture stuff can probably be replaced with React useContext
 	React.useEffect(() => {
