@@ -8,9 +8,9 @@ const useLectureData = lecturer_id => {
 
 	React.useEffect(() => {
 		lecturer_id &&
-			axios.get(`/lecture/${lecturer_id}`).then(res => {
-				dispatch({ type: SET, data: res.data });
-			});
+			axios
+				.get(`/lecture/${lecturer_id}`)
+				.then(res => dispatch({ type: SET, data: res.data }));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -27,19 +27,19 @@ const useLectureData = lecturer_id => {
 	const editLecture = (lecture_id, title, description) => {
 		return axios
 			.put(`/lecture/${lecture_id}`, { title, description })
-			.then(() => {
+			.then(() =>
 				dispatch({
 					type: EDIT,
 					card_id: lecture_id,
 					data: { title, description }
-				});
-			});
+				})
+			);
 	};
 
 	const deleteLecture = lecture_id => {
-		axios.delete(`/lecture/${lecture_id}`).then(() => {
-			dispatch({ type: DELETE, card_id: lecture_id });
-		});
+		axios
+			.delete(`/lecture/${lecture_id}`)
+			.then(() => dispatch({ type: DELETE, card_id: lecture_id }));
 	};
 
 	return {
