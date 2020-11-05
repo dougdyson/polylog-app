@@ -50,8 +50,10 @@ export default function Lectures() {
 	});
 
 	lecturesList.sort((a, b) => {
-		return a.key > b.key ? 1 : -1;
+		return Number(a.key) > Number(b.key) ? 1 : -1;
 	});
+
+	console.log(lecturesList);
 
 	return (
 		<div className="site-padding">

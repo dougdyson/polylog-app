@@ -30,7 +30,7 @@ export default function Card(props) {
 	});
 
 	quizQuestionsList.sort((a, b) => {
-		return a.key > b.key ? 1 : -1;
+		return Number(a.key) > Number(b.key) ? 1 : -1;
 	});
 
 	let correctAnswerCount = 0;

@@ -78,7 +78,7 @@ export default function ActivityFeed(props) {
 
 	const cardsList = [...topicCardsList, ...quizCardsList];
 	cardsList.sort((a, b) => {
-		return a.key > b.key ? 1 : -1;
+		return Number(a.key) > Number(b.key) ? 1 : -1;
 	});
 
 	// Check if there is an element before accessing cardsList
