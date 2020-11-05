@@ -53,8 +53,6 @@ export default function Lectures() {
 		return Number(a.key) > Number(b.key) ? 1 : -1;
 	});
 
-	console.log(lecturesList);
-
 	return (
 		<div className="site-padding">
 			<Nav />

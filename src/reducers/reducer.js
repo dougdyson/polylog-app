@@ -140,7 +140,6 @@ export const reducer = (state, action) => {
 			cardIndex = findIndex(state, action.quiz_card_id);
 			questions = state[cardIndex].questions;
 			questionIndex = findIndex(questions, action.quiz_question_id);
-			console.log(questions);
 			answers = questions[questionIndex].answers;
 			answerIndex = findIndex(answers, action.quiz_answer_id);
 			return [
