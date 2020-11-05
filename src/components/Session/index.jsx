@@ -17,6 +17,7 @@ const Session = () => {
 
 	React.useEffect(() => {
 		axios.post("/session/attendee", { student_id: user.id, session_id: uuid });
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// This lecture stuff can probably be replaced with React useContext
